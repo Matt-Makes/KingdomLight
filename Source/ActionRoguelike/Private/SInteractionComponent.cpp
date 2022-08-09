@@ -45,6 +45,7 @@ void USInteractionComponent::PrimaryInteract()
 
 	FVector EyeLocation;
 	FRotator EyeRotation;
+	// 多用于检测武器 和 NPC
 	MyOwner->GetActorEyesViewPoint(EyeLocation, EyeRotation);
 	
 	FVector End = EyeLocation + (EyeRotation.Vector() * 1000);
@@ -73,6 +74,10 @@ void USInteractionComponent::PrimaryInteract()
 				APawn* MyPawn = Cast<APawn>(MyOwner);
 
 				ISGameplayInterface::Execute_Interact(HitActor, MyPawn);
+
+				UE_LOG(LogTemp, Error, TEXT("Hit.ImpactPoint000000000  :   %s"), *Hit.ImpactPoint.ToString());
+				UE_LOG(LogTemp, Error, TEXT("Hit.ImpactPoint0000001111  :   %s"), *Hit.ImpactPoint.ToString());
+				UE_LOG(LogTemp, Error, TEXT("Hit.ImpactPoint0000022222  :   %s"), *Hit.ImpactPoint.ToString());
 				break;
 			}
 		}
@@ -82,5 +87,10 @@ void USInteractionComponent::PrimaryInteract()
 
 	DrawDebugLine(GetWorld(), EyeLocation, End, LineColor, false, 2.0f, 0, 2.0f);
 
+
+	// DrawDebugSphere(GetWorld(), aa, 1200.f, 12, FColor::Red);
+	// // 只有击中的Actor 才会绘制线条
+	// DrawDebugSphere(GetWorld(), aa, 30000000000000000000000000.f, 32, LineColor, false, 200.0f);
+	UE_LOG(LogTemp, Error, TEXT("%d"), Hits.Num());
 }
 

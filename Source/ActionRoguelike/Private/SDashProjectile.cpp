@@ -50,6 +50,7 @@ void ASDashProjectile::Explode_Implementation()
 
 void ASDashProjectile::TeleportInstigator()
 {
+	// 存储 施加伤害者
 	AActor* ActorToTeleport = GetInstigator();
 	if (ensure(ActorToTeleport))
 	{

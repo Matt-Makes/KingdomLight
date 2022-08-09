@@ -19,6 +19,7 @@ public:
 	UPROPERTY(EditAnywhere)
 	float TargetPitch;
 
+	// 重写父类蓝图原生事件
 	void Interact_Implementation(APawn* InstigatorPawn);
 
 protected:

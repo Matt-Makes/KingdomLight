@@ -22,8 +22,8 @@ ASCharacter::ASCharacter()
 	CameraComp = CreateDefaultSubobject<UCameraComponent>("CameraComp");
 	CameraComp->SetupAttachment(SpringArmComp);
 
+	// 两自定义组件
 	InteractionComp = CreateDefaultSubobject<USInteractionComponent>("InteractionComp");
-
 	AttributeComp = CreateDefaultSubobject<USAttributeComponent>("AttributeComp");
 
 	GetCharacterMovement()->bOrientRotationToMovement = true;
