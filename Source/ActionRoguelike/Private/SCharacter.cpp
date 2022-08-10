@@ -56,27 +56,31 @@ void ASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 
 void ASCharacter::MoveForward(float Value)
 {
-	FRotator ControlRot = GetControlRotation();
-	ControlRot.Pitch = 0.0f;
-	ControlRot.Roll = 0.0f;
-
-	AddMovementInput(ControlRot.Vector(), Value);
+	if(Controller != nullptr)
+	{
+		const float ForwardValue = Value; // 增强输入，唯一特别的地方
+		const FRotator MovementRotation(0.f, Controller->GetControlRotation().Yaw, 0.f);
+		if(ForwardValue != 0.0f)
+		{
+			const FVector MovementDirection = MovementRotation.RotateVector(FVector::ForwardVector);
+			AddMovementInput(MovementDirection, ForwardValue);
+		}
+	}
 }
 
 
 void ASCharacter::MoveRight(float Value)
 {
-	FRotator ControlRot = GetControlRotation();
-	ControlRot.Pitch = 0.0f;
-	ControlRot.Roll = 0.0f;
-
-	// X = Forward (Red)
-	// Y = Right (Green)
-	// Z = Up (Blue)
-
-	FVector RightVector = FRotationMatrix(ControlRot).GetScaledAxis(EAxis::Y);
-
-	AddMovementInput(RightVector, Value);
+	if(Controller != nullptr)
+	{
+		const float RightValue = Value; // 增强输入，唯一特别的地方
+		const FRotator MovementRotation(0.f, Controller->GetControlRotation().Yaw, 0.f);
+		if(RightValue != 0.0f)
+		{
+			const FVector MovementDirection = MovementRotation.RotateVector(FVector::RightVector);
+			AddMovementInput(MovementDirection, RightValue);
+		}
+	}
 }
 
 

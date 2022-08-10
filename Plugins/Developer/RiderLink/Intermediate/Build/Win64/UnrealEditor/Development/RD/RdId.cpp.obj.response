@@ -1,21 +1,21 @@
-E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Source\RD\src\rd_framework_cpp\src\main\protocol\RdId.cpp
+E:\Github\KingdomLight\Plugins\Developer\RiderLink\Source\RD\src\rd_framework_cpp\src\main\protocol\RdId.cpp
 /I .
-/I E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Source
-/I E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Source\RD\src
-/I E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Source\RD\src\rd_core_cpp
-/I E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Source\RD\src\rd_core_cpp\src\main
-/I E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Source\RD\src\rd_framework_cpp
-/I E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Source\RD\src\rd_framework_cpp\src\main
-/I E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Source\RD\src\rd_framework_cpp\src\main\util
-/I E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Source\RD\src\rd_gen_cpp\src
-/I E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Source\RD\thirdparty
-/I E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Source\RD\thirdparty\ordered-map\include
-/I E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Source\RD\thirdparty\optional\tl
-/I E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Source\RD\thirdparty\variant\include
-/I E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Source\RD\thirdparty\string-view-lite\include
-/I E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Source\RD\thirdparty\spdlog\include
-/I E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Source\RD\thirdparty\clsocket\src
-/I E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Source\RD\thirdparty\CTPL\include
+/I E:\Github\KingdomLight\Plugins\Developer\RiderLink\Source
+/I E:\Github\KingdomLight\Plugins\Developer\RiderLink\Source\RD\src
+/I E:\Github\KingdomLight\Plugins\Developer\RiderLink\Source\RD\src\rd_core_cpp
+/I E:\Github\KingdomLight\Plugins\Developer\RiderLink\Source\RD\src\rd_core_cpp\src\main
+/I E:\Github\KingdomLight\Plugins\Developer\RiderLink\Source\RD\src\rd_framework_cpp
+/I E:\Github\KingdomLight\Plugins\Developer\RiderLink\Source\RD\src\rd_framework_cpp\src\main
+/I E:\Github\KingdomLight\Plugins\Developer\RiderLink\Source\RD\src\rd_framework_cpp\src\main\util
+/I E:\Github\KingdomLight\Plugins\Developer\RiderLink\Source\RD\src\rd_gen_cpp\src
+/I E:\Github\KingdomLight\Plugins\Developer\RiderLink\Source\RD\thirdparty
+/I E:\Github\KingdomLight\Plugins\Developer\RiderLink\Source\RD\thirdparty\ordered-map\include
+/I E:\Github\KingdomLight\Plugins\Developer\RiderLink\Source\RD\thirdparty\optional\tl
+/I E:\Github\KingdomLight\Plugins\Developer\RiderLink\Source\RD\thirdparty\variant\include
+/I E:\Github\KingdomLight\Plugins\Developer\RiderLink\Source\RD\thirdparty\string-view-lite\include
+/I E:\Github\KingdomLight\Plugins\Developer\RiderLink\Source\RD\thirdparty\spdlog\include
+/I E:\Github\KingdomLight\Plugins\Developer\RiderLink\Source\RD\thirdparty\clsocket\src
+/I E:\Github\KingdomLight\Plugins\Developer\RiderLink\Source\RD\thirdparty\CTPL\include
 /I Runtime
 /I Runtime\TraceLog\Public
 /I Runtime\Core\Public
@@ -26,9 +26,9 @@ E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Source\RD
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt"
-/FI"E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\Definitions.h"
-/Fo"E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\RdId.cpp.obj"
-/sourceDependencies E:\Github\TrueEndLecture8\ActionRoguelike8\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\RdId.cpp.json
+/FI"E:\Github\KingdomLight\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\Definitions.h"
+/Fo"E:\Github\KingdomLight\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\RdId.cpp.obj"
+/sourceDependencies E:\Github\KingdomLight\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\RdId.cpp.json
 /Zc:inline
 /nologo
 /Oi
