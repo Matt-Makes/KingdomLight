@@ -19,8 +19,14 @@ public:
 	UPROPERTY(EditAnywhere)
 	float TargetPitch;
 
-	// 重写父类蓝图原生事件
+	/*
+	 *  非虚函数重写，就先不写 override
+	 */
+	// 重写继承的接口 蓝图原生事件
 	void Interact_Implementation(APawn* InstigatorPawn);
+
+	// 重写继承的接口 蓝图原生事件
+	void OnActorLoaded_Implementation();
 
 protected:
 

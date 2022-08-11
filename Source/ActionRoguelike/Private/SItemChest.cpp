@@ -24,6 +24,13 @@ ASItemChest::ASItemChest()
 void ASItemChest::Interact_Implementation(APawn* InstigatorPawn)
 {
 	LidMesh->SetRelativeRotation(FRotator(TargetPitch, 0, 0));
+
+	// 客户端靠RepNotify， 服务端要自己再执行一次
+}
+
+void ASItemChest::OnActorLoaded_Implementation()
+{
+	
 }
 
 
