@@ -10,6 +10,9 @@ public class ActionRoguelike : ModuleRules
 	
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
 
+		
+		PublicDependencyModuleNames.AddRange(new string[] { "GameplayTags", /*"DataTable"*/"DeveloperSettings" });
+
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
 		// Uncomment if you are using Slate UI
