@@ -11,7 +11,9 @@ public class ActionRoguelike : ModuleRules
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
 
 		
-		PublicDependencyModuleNames.AddRange(new string[] { "GameplayTags", /*"DataTable"*/"DeveloperSettings" });
+		PublicDependencyModuleNames.AddRange(new string[] { "AIModule", "GameplayTasks", "UMG" ,"GameplayTags"});
+		
+		PublicDependencyModuleNames.AddRange(new string[] { /*"DataTable"*/"DeveloperSettings" });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
