@@ -3,6 +3,8 @@
 
 #include "SActionComponents.h"
 
+#include "ActionRoguelike/ActionRoguelike.h"
+
 
 // Sets default values for this component's properties
 USActionComponents::USActionComponents()
@@ -26,11 +28,14 @@ void USActionComponents::BeginPlay()
 
 
 // Called every frame
-void USActionComponents::TickComponent(float DeltaTime, ELevelTick TickType,
-                                       FActorComponentTickFunction* ThisTickFunction)
+void USActionComponents::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
+	LogOnScreen(this, FString::Printf(TEXT("Started: %s"), *CustomActiveTags.ToString()), FColor::Green);
+
+	// USActionComponent* Comp = GetOwningComponent();	
+	// Comp->ActiveGameplayTags.AppendTags(GrantsTags);
+	
 }
 
