@@ -1,9 +1,51 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 
-#include "Modules/ModuleManager.h"
+#include "GASSampleModule.h"
 
-IMPLEMENT_MODULE(FDefaultModuleImpl, GASSample);
+
+#define LOCTEXT_NAMESPACE "FGASSampleModule"
+
+void FGASSampleModule::StartupModule()
+{
+}
+
+void FGASSampleModule::ShutdownModule()
+{
+    
+}
+
+#undef LOCTEXT_NAMESPACE
+    
+IMPLEMENT_MODULE(FGASSampleModule, GASSample)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /********************************************************************************

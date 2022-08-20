@@ -8,7 +8,7 @@
 // 修改：添加引用
 #include "AbilitySystemInterface.h"
 #include "AbilitySystemComponent.h"
-#include "SampleAttributeSet.h"
+#include "GASSample/AttributeSet/SampleAttributeSet.h"
 
 #include "GASSampleCharacter.generated.h"
 

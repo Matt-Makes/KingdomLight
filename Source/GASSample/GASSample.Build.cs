@@ -10,6 +10,13 @@ public class GASSample : ModuleRules
 		
 		//PrivateIncludePaths.Add("XEnergyCollect/Private");
 		
+		PublicIncludePaths.AddRange(
+			new string[] {
+				"ActionRoguelike"
+			}
+		);
+		
+		
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 		PublicDependencyModuleNames.AddRange(
 			new string[] {

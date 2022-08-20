@@ -2,7 +2,7 @@
 
 
 #include "SampleAttributeSet.h"
-#include "GASSampleCharacter.h"
+#include "GASSample/Character/GASSampleCharacter.h"
 
 USampleAttributeSet::USampleAttributeSet():
 	Health(100.0f),
