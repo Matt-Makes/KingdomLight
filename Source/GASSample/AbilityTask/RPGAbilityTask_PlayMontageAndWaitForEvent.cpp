@@ -126,6 +126,7 @@ void URPGAbilityTask_PlayMontageAndWaitForEvent::Activate()
 			// Bind to event callback
 			EventHandle = RPGAbilitySystemComponent->AddGameplayEventTagContainerDelegate(EventTags, FGameplayEventTagMulticastDelegate::FDelegate::CreateUObject(this, &URPGAbilityTask_PlayMontageAndWaitForEvent::OnGameplayEvent));
 
+			/// 能力组件自带了很多功能，很多写法不一样了
 			if (RPGAbilitySystemComponent->PlayMontage(Ability, Ability->GetCurrentActivationInfo(), MontageToPlay, Rate, StartSection) > 0.f)
 			{
 				// Playing a montage could potentially fire off a callback into game code which could kill this ability! Early out if we are  pending kill.
@@ -171,6 +172,7 @@ void URPGAbilityTask_PlayMontageAndWaitForEvent::Activate()
 		}
 	}
 
+	/// GAS源码函数
 	SetWaitingOnAvatar();
 }
 
