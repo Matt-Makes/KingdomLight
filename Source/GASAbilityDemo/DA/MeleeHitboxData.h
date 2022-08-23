@@ -23,8 +23,10 @@ struct FMeleeHitSphereDefinition
 	float Radius;
 };
 
+
 /**
- * 
+ * 一个最简单的GAS 近战打击，使用了DA
+ * 和 Lyra的近战对比
  */
 UCLASS(BlueprintType)
 class GASABILITYDEMO_API UMeleeHitboxData : public UDataAsset
