@@ -101,6 +101,7 @@ public:
 public:
 	virtual void OnHealthChanged();
 
+	// K2 代表暴露给蓝图使用，Kismet2.0 是蓝图的前生
 	UFUNCTION(BlueprintImplementableEvent)
 	void K2_OnHealthChanged();
 
