@@ -8,6 +8,9 @@ public class GASAbilityDemo : ModuleRules
 
         PublicIncludePaths.AddRange(
             new string[] {
+                "GASAbilityDemo",
+                
+                
                 "ActionRoguelike"
             }
         );

@@ -17,5 +17,6 @@ public class ActionRoguelikeTarget : TargetRules
 	private void RegisterModulesCreatedByRider()
 	{
 		ExtraModuleNames.AddRange(new string[] {"GASAbilityDemo"});
+		ExtraModuleNames.AddRange(new string[] {"GASSample"});
 	}
 }

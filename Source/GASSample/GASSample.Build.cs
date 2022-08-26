@@ -12,6 +12,8 @@ public class GASSample : ModuleRules
 		
 		PublicIncludePaths.AddRange(
 			new string[] {
+				"GASSample",
+				
 				"ActionRoguelike"
 			}
 		);
