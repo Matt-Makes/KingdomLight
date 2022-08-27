@@ -135,10 +135,12 @@ void AGASAbilityDemoCharacter::GrantAbility(TSubclassOf<UGameplayAbility> Abilit
 {
 	if (GetLocalRole() == ROLE_Authority && IsValid(AbilitySystemComponent) && IsValid(AbilityClass))
 	{
+		// 获取CDO的方式
 		UGameplayAbility* Ability = AbilityClass->GetDefaultObject<UGameplayAbility>();
 
 		if (IsValid(Ability))
 		{
+			// 含 元数据 的结构体，包含了引用计数
 			// create the new ability spec struct. Ability specs contain metadata about the ability, like what level they're set to, as well as a reference to the ability.
 			FGameplayAbilitySpec AbilitySpec(
 				Ability,
@@ -149,6 +151,35 @@ void AGASAbilityDemoCharacter::GrantAbility(TSubclassOf<UGameplayAbility> Abilit
 			AbilitySystemComponent->GiveAbility(AbilitySpec);
 		}
 	}
+
+
+	// ------------------ 更直观，不方便控制GA的初始等级 -------------------- //
+
+	// 将在游戏启动时被赋予角色的Abilities数组
+	// UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Abilities")
+	// TArray<TSubclassOf<class UGameplayAbility>> PreloadedAbilities;
+	
+	// Super::BeginPlay();
+	// if (AbilitySystemComponent != nullptr)
+	// {
+	// 	//初始化技能
+	// 	if (PreloadedAbilities.Num() > 0)
+	// 	{
+	// 		for (auto i = 0; i < PreloadedAbilities.Num(); i++)
+	// 		{
+	// 			if (PreloadedAbilities[i] != nullptr)
+	// 			{
+	// 				// FGameplayAbilitySpec是GA的实例，其构造函数的第二个参数代表GA的等级，这里暂令其全部为1
+	// 				AbilitySystemComponent->GiveAbility(
+	// 				   FGameplayAbilitySpec(PreloadedAbilities[i].GetDefaultObject(), 1));
+	// 			}
+	// 		}
+	// 	}
+	// }
+
+	//初始化ASC
+	//AbilitySystemComponent->InitAbilityActorInfo(this, this);
+	
 }
 
 void AGASAbilityDemoCharacter::ActivateAbility(int32 InputCode)

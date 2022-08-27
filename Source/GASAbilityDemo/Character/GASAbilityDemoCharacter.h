@@ -122,6 +122,7 @@ public:
 		return AbilitySystemComponent;
 	}
 
+	// 在ASC蓝图子类中实现最好，将ASC中未暴露给蓝图的函数进行封装的例子
 	/** Grants an ability at the given level, with an input code used to pick and choose which ability should be triggered. */
 	UFUNCTION(BlueprintCallable, Category = "Abilities")
 	void GrantAbility(TSubclassOf<UGameplayAbility> AbilityClass, int32 Level, int32 InputCode);
