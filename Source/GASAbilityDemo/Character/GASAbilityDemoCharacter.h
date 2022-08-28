@@ -115,8 +115,8 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Abilities|Attributes")
 	float GetBaseDamage() const;
 
-
-	/** Ability System Interface getter. */
+	// 不需要 知道Owner Actor类 到底是谁，直接让接口抓取；接口的函数名是一样的，但是做的事情可以不一样
+	/** Overwrite !!!   IAbility System Interface getter. */
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override
 	{
 		return AbilitySystemComponent;

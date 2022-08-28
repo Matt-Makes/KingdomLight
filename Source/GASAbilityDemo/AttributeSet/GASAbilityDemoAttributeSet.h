@@ -57,4 +57,4 @@ public:
 	GAMEPLAYATTRIBUTE_VALUE_GETTER(WeaponDamage);
 	
 
-};
+}; 
