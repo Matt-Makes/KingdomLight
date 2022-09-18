@@ -36,6 +36,7 @@ public:
 	GAMEPLAYATTRIBUTE_VALUE_INITTER(MaxHealth);
 	GAMEPLAYATTRIBUTE_PROPERTY_GETTER(UGASAbilityDemoAttributeSet, MaxHealth);
 
+	// 击退效果，可能接管移动组件
 	/** Knockback Force. Added as part of the demonstration during the stream. Not implemented, but here for reference. */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Character")
 	FGameplayAttributeData KnockbackForceTaken;
