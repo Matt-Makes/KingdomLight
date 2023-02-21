@@ -4,10 +4,13 @@
 #include "LyraGameplayTags.h"
 #include "Net/UnrealNetwork.h"
 #include "AbilitySystem/LyraAbilitySystemComponent.h"
+#include "Engine/World.h"
 #include "GameplayEffectExtension.h"
 #include "GameplayEffectTypes.h"
 #include "Messages/LyraVerbMessage.h"
 #include "GameFramework/GameplayMessageSubsystem.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(LyraHealthSet)
 
 UE_DEFINE_GAMEPLAY_TAG(TAG_Gameplay_Damage, "Gameplay.Damage");
 UE_DEFINE_GAMEPLAY_TAG(TAG_Gameplay_DamageImmunity, "Gameplay.DamageImmunity");
@@ -47,9 +50,10 @@ bool ULyraHealthSet::PreGameplayEffectExecute(FGameplayEffectModCallbackData &Da
 		return false;
 	}
 
-	if (Data.EvaluatedData.Attribute == GetHealthAttribute())
+	// Handle modifying incoming normal damage
+	if (Data.EvaluatedData.Attribute == GetDamageAttribute())
 	{
-		if (Data.EvaluatedData.Magnitude < 0.0f)
+		if (Data.EvaluatedData.Magnitude > 0.0f)
 		{
 			const bool bIsDamageFromSelfDestruct = Data.EffectSpec.GetDynamicAssetTags().HasTagExact(TAG_Gameplay_DamageSelfDestruct);
 
@@ -61,19 +65,12 @@ bool ULyraHealthSet::PreGameplayEffectExecute(FGameplayEffectModCallbackData &Da
 			}
 
 #if !UE_BUILD_SHIPPING
-			// Check GodMode cheat.
+			// Check GodMode cheat, unlimited health is checked below
 			if (Data.Target.HasMatchingGameplayTag(FLyraGameplayTags::Get().Cheat_GodMode) && !bIsDamageFromSelfDestruct)
 			{
 				// Do not take away any health.
 				Data.EvaluatedData.Magnitude = 0.0f;
 				return false;
-			}
-
-			// Check UnlimitedHealth cheat.
-			if (Data.Target.HasMatchingGameplayTag(FLyraGameplayTags::Get().Cheat_UnlimitedHealth) && !bIsDamageFromSelfDestruct)
-			{
-				// Do not drop below 1 health.
-				Data.EvaluatedData.Magnitude = FMath::Max(Data.EvaluatedData.Magnitude, (-GetHealth() + 1.0f));
 			}
 #endif // #if !UE_BUILD_SHIPPING
 		}
@@ -86,7 +83,19 @@ void ULyraHealthSet::PostGameplayEffectExecute(const FGameplayEffectModCallbackD
 {
 	Super::PostGameplayEffectExecute(Data);
 
-	if (Data.EvaluatedData.Attribute == GetHealthAttribute())
+	const bool bIsDamageFromSelfDestruct = Data.EffectSpec.GetDynamicAssetTags().HasTagExact(TAG_Gameplay_DamageSelfDestruct);
+	float MinimumHealth = 0.0f;
+
+#if !UE_BUILD_SHIPPING
+	// Godmode and unlimited health stop death unless it's a self destruct
+	if (!bIsDamageFromSelfDestruct &&
+		(Data.Target.HasMatchingGameplayTag(FLyraGameplayTags::Get().Cheat_GodMode) || Data.Target.HasMatchingGameplayTag(FLyraGameplayTags::Get().Cheat_UnlimitedHealth) ))
+	{
+		MinimumHealth = 1.0f;
+	}
+#endif // #if !UE_BUILD_SHIPPING
+
+	if (Data.EvaluatedData.Attribute == GetDamageAttribute())
 	{
 		// Send a standardized verb message that other systems can observe
 		if (Data.EvaluatedData.Magnitude < 0.0f)
@@ -105,26 +114,36 @@ void ULyraHealthSet::PostGameplayEffectExecute(const FGameplayEffectModCallbackD
 			MessageSystem.BroadcastMessage(Message.Verb, Message);
 		}
 
-		if ((GetHealth() <= 0.0f) && !bOutOfHealth)
-		{
-			if (OnOutOfHealth.IsBound())
-			{
-				const FGameplayEffectContextHandle& EffectContext = Data.EffectSpec.GetEffectContext();
-				AActor* Instigator = EffectContext.GetOriginalInstigator();
-				AActor* Causer = EffectContext.GetEffectCauser();
-
-				OnOutOfHealth.Broadcast(Instigator, Causer, Data.EffectSpec, Data.EvaluatedData.Magnitude);
-			}
-		}
-
-		// Check health again in case an event above changed it.
-		bOutOfHealth = (GetHealth() <= 0.0f);
+		// Convert into -Health and then clamp
+		SetHealth(FMath::Clamp(GetHealth() - GetDamage(), MinimumHealth, GetMaxHealth()));
+		SetDamage(0.0f);
 	}
 	else if (Data.EvaluatedData.Attribute == GetHealingAttribute())
 	{
-		SetHealth(GetHealth() + GetHealing());
+		// Convert into +Health and then clamo
+		SetHealth(FMath::Clamp(GetHealth() + GetHealing(), MinimumHealth, GetMaxHealth()));
 		SetHealing(0.0f);
 	}
+	else if (Data.EvaluatedData.Attribute == GetHealthAttribute())
+	{
+		// Clamp and fall into out of health handling below
+		SetHealth(FMath::Clamp(GetHealth(), MinimumHealth, GetMaxHealth()));
+	}
+
+	if ((GetHealth() <= 0.0f) && !bOutOfHealth)
+	{
+		if (OnOutOfHealth.IsBound())
+		{
+			const FGameplayEffectContextHandle& EffectContext = Data.EffectSpec.GetEffectContext();
+			AActor* Instigator = EffectContext.GetOriginalInstigator();
+			AActor* Causer = EffectContext.GetEffectCauser();
+
+			OnOutOfHealth.Broadcast(Instigator, Causer, Data.EffectSpec, Data.EvaluatedData.Magnitude);
+		}
+	}
+
+	// Check health again in case an event above changed it.
+	bOutOfHealth = (GetHealth() <= 0.0f);
 }
 
 void ULyraHealthSet::PreAttributeBaseChange(const FGameplayAttribute& Attribute, float& NewValue) const
@@ -176,3 +195,4 @@ void ULyraHealthSet::ClampAttribute(const FGameplayAttribute& Attribute, float& 
 		NewValue = FMath::Max(NewValue, 1.0f);
 	}
 }
+

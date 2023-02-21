@@ -1,7 +1,11 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "Widgets/GameSettingDetailExtension.h"
+
+#include "Delegates/Delegate.h"
 #include "GameSetting.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(GameSettingDetailExtension)
 
 void UGameSettingDetailExtension::SetSetting(UGameSetting* InSetting)
 {

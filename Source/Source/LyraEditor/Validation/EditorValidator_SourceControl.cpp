@@ -1,12 +1,27 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "EditorValidator_SourceControl.h"
-#include "AssetData.h"
-#include "AssetRegistryModule.h"
-#include "SourceControlOperations.h"
-#include "ISourceControlProvider.h"
+
+#include "AssetRegistry/AssetRegistryModule.h"
+#include "AssetRegistry/IAssetRegistry.h"
+#include "Containers/UnrealString.h"
+#include "HAL/Platform.h"
 #include "ISourceControlModule.h"
+#include "ISourceControlProvider.h"
+#include "ISourceControlState.h"
+#include "Internationalization/Text.h"
+#include "Misc/AssertionMacros.h"
+#include "Misc/AssetRegistryInterface.h"
+#include "Misc/PackageName.h"
+#include "Modules/ModuleManager.h"
 #include "SourceControlHelpers.h"
+#include "SourceControlOperations.h"
+#include "Templates/SharedPointer.h"
+#include "UObject/NameTypes.h"
+#include "UObject/Object.h"
+#include "UObject/Package.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(EditorValidator_SourceControl)
 
 #define LOCTEXT_NAMESPACE "EditorValidator"
 

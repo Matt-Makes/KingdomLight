@@ -6,6 +6,8 @@
 #include "Templates/UnrealTemplate.h"
 #include "Engine/LocalPlayer.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(GameSetting)
+
 #define LOCTEXT_NAMESPACE "GameSetting"
 
 #define UE_CAN_SHOW_SETTINGS_DEBUG_INFO (!UE_BUILD_SHIPPING)
@@ -90,6 +92,8 @@ void UGameSetting::Apply()
 	{
 		EditCondition->SettingApplied(LocalPlayer, this);
 	}
+
+	OnSettingAppliedEvent.Broadcast(this);
 }
 
 void UGameSetting::OnInitialized()
@@ -330,3 +334,4 @@ FString UGameSetting::FStringCultureCache::Get() const
 }
 
 #undef LOCTEXT_NAMESPACE
+

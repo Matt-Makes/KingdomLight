@@ -1,15 +1,23 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "LyraEditor.h"
-
-#include "AssetRegistryModule.h"
-
-#include "CollectionManagerTypes.h"
-#include "ICollectionManager.h"
+#include "AssetRegistry/AssetRegistryModule.h"
+#include "AssetRegistry/IAssetRegistry.h"
 #include "CollectionManagerModule.h"
-
+#include "Containers/Array.h"
+#include "Containers/UnrealString.h"
+#include "Delegates/Delegate.h"
 #include "HAL/IConsoleManager.h"
-#include "Algo/Transform.h"
+#include "HAL/Platform.h"
+#include "Misc/OutputDevice.h"
+#include "Misc/PackageName.h"
+#include "UObject/NameTypes.h"
+#include "UObject/Object.h"
+#include "UObject/ObjectRedirector.h"
+#include "UObject/Package.h"
+#include "UObject/UObjectGlobals.h"
+
+class ICollectionManager;
+class UWorld;
 
 //////////////////////////////////////////////////////////////////////////
 

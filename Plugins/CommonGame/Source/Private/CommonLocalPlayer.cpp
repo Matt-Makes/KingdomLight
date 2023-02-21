@@ -1,9 +1,19 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "CommonLocalPlayer.h"
+
+#include "Engine/GameInstance.h"
+#include "GameFramework/PlayerController.h"
 #include "GameUIManagerSubsystem.h"
 #include "GameUIPolicy.h"
-#include "GameFramework/PlayerController.h"
+#include "UObject/ObjectPtr.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(CommonLocalPlayer)
+
+class APawn;
+class APlayerState;
+class FViewport;
+struct FSceneViewProjectionData;
 
 UCommonLocalPlayer::UCommonLocalPlayer()
 	: Super(FObjectInitializer::Get())

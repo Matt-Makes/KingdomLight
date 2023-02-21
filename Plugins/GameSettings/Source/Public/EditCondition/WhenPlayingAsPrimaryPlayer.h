@@ -2,12 +2,10 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "UObject/ObjectMacros.h"
-#include "GameSetting.h"
+#include "GameSettingFilterState.h"
+#include "Templates/SharedPointer.h"
 
 class ULocalPlayer;
-class FGameSettingEditableState;
 
 
 class GAMESETTINGS_API FWhenPlayingAsPrimaryPlayer : public FGameSettingEditCondition

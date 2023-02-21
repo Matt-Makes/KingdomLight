@@ -2,10 +2,21 @@
 
 #pragma once
 
-#include "EditorValidatorBase.h"
+#include "Containers/Array.h"
+#include "Containers/UnrealString.h"
+#include "CoreGlobals.h"
 #include "DataValidationModule.h"
+#include "EditorValidatorBase.h"
+#include "HAL/Platform.h"
+#include "Logging/LogVerbosity.h"
+#include "Misc/OutputDevice.h"
+#include "Misc/OutputDeviceRedirector.h"
+#include "UObject/NameTypes.h"
+#include "UObject/UObjectGlobals.h"
 
 #include "EditorValidator.generated.h"
+
+class UObject;
 
 class FLyraValidationMessageGatherer : public FOutputDevice
 {

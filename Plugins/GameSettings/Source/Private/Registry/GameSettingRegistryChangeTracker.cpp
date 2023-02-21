@@ -1,9 +1,16 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "GameSettingRegistryChangeTracker.h"
+
+#include "Delegates/Delegate.h"
+#include "GameSetting.h"
 #include "GameSettingRegistry.h"
 #include "GameSettingValue.h"
-#include "GameSetting.h"
+#include "Misc/AssertionMacros.h"
+#include "Templates/Casts.h"
+#include "Templates/Tuple.h"
+#include "UObject/ObjectKey.h"
+#include "UObject/WeakObjectPtr.h"
 
 #define LOCTEXT_NAMESPACE "GameSetting"
 

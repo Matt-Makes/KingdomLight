@@ -63,5 +63,5 @@ protected:
 	TArray<FUIExtensionPointHandle> ExtensionPointHandles;
 
 	UPROPERTY(Transient)
-	TMap<FUIExtensionHandle, UUserWidget*> ExtensionMapping;
+	TMap<FUIExtensionHandle, TObjectPtr<UUserWidget>> ExtensionMapping;
 };

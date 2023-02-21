@@ -2,14 +2,14 @@
 
 #pragma once
 
-#include "UObject/SoftObjectPtr.h"
-#include "UObject/StrongObjectPtr.h"
-#include "UObject/WeakInterfacePtr.h"
-#include "UObject/Interface.h"
-#include "GameplayTagContainer.h"
+#include "Containers/UnrealString.h"
 #include "LoadingProcessInterface.h"
+#include "UObject/Object.h"
+#include "UObject/UObjectGlobals.h"
 
 #include "LoadingProcessTask.generated.h"
+
+struct FFrame;
 
 UCLASS(BlueprintType)
 class COMMONLOADINGSCREEN_API ULoadingProcessTask : public UObject, public ILoadingProcessInterface

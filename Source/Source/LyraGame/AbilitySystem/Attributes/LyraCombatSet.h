@@ -2,9 +2,17 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
+#include "AbilitySystemComponent.h"
+#include "AttributeSet.h"
 #include "LyraAttributeSet.h"
+#include "Misc/AssertionMacros.h"
+#include "UObject/Class.h"
+#include "UObject/UObjectGlobals.h"
+
 #include "LyraCombatSet.generated.h"
+
+class UObject;
+struct FFrame;
 
 
 /**

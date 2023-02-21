@@ -2,12 +2,18 @@
 
 #pragma once
 
+#include "Containers/Map.h"
+#include "HAL/Platform.h"
 #include "Messages/GameplayMessageProcessor.h"
-#include "GameplayTagContainer.h"
+#include "UObject/UObjectGlobals.h"
+
 #include "ElimChainProcessor.generated.h"
 
-struct FLyraVerbMessage;
 class APlayerState;
+class UObject;
+struct FGameplayTag;
+struct FLyraVerbMessage;
+template <typename T> struct TObjectPtr;
 
 USTRUCT()
 struct FPlayerElimChainInfo

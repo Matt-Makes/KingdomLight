@@ -1,10 +1,16 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "MessageProcessors/ElimStreakProcessor.h"
+
 #include "GameFramework/GameplayMessageSubsystem.h"
-#include "NativeGameplayTags.h"
-#include "Messages/LyraVerbMessage.h"
 #include "GameFramework/PlayerState.h"
+#include "GameplayTagContainer.h"
+#include "Messages/LyraVerbMessage.h"
+#include "NativeGameplayTags.h"
+#include "Templates/Casts.h"
+#include "UObject/NameTypes.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(ElimStreakProcessor)
 
 namespace ElimStreak
 {
@@ -48,3 +54,4 @@ void UElimStreakProcessor::OnEliminationMessage(FGameplayTag Channel, const FLyr
 		PlayerStreakHistory.Remove(TargetPS);
 	}
 }
+

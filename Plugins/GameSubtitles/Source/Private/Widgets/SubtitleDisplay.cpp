@@ -9,6 +9,8 @@
 #include "SubtitleDisplaySubsystem.h"
 #include "Engine/GameInstance.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(SubtitleDisplay)
+
 #if WITH_EDITOR
 #include "Editor.h"
 #include "Editor/WidgetCompilerLog.h"
@@ -135,3 +137,4 @@ void USubtitleDisplay::ValidateCompiledDefaults(IWidgetCompilerLog& CompileLog) 
 #endif
 
 #undef LOCTEXT_NAMESPACE
+

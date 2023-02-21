@@ -1,23 +1,59 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "LyraEditor.h"
-#include "Modules/ModuleManager.h"
-#include "Modules/ModuleInterface.h"
-#include "GameplayAbilitiesModule.h"
-#include "GameplayAbilitiesEditorModule.h"
+
 #include "AbilitySystemGlobals.h"
+#include "AssetToolsModule.h"
+#include "Containers/Array.h"
+#include "Containers/UnrealString.h"
+#include "DataValidationModule.h"
+#include "Delegates/Delegate.h"
+#include "Development/LyraDeveloperSettings.h"
+#include "Editor.h"
+#include "Editor/EditorEngine.h"
+#include "Editor/UnrealEdEngine.h"
+#include "Engine/Engine.h"
+#include "Engine/GameInstance.h"
+#include "Engine/World.h"
+#include "Framework/Application/SlateApplication.h"
+#include "Framework/Commands/UIAction.h"
+#include "Framework/MultiBox/MultiBoxBuilder.h"
+#include "Framework/SlateDelegates.h"
+#include "GameEditorStyle.h"
+#include "GameFramework/Actor.h"
+#include "GameModes/LyraExperienceManager.h"
+#include "GameplayAbilitiesEditorModule.h"
+#include "GameplayAbilitiesModule.h"
 #include "GameplayCueInterface.h"
 #include "GameplayCueNotify_Burst.h"
 #include "GameplayCueNotify_BurstLatent.h"
 #include "GameplayCueNotify_Looping.h"
-#include "Editor.h"
-#include "UnrealEdGlobals.h"
-#include "ToolMenus.h"
-#include "Editor/UnrealEdEngine.h"
+#include "HAL/Platform.h"
+#include "IAssetTools.h"
+#include "Internationalization/Internationalization.h"
+#include "Internationalization/Text.h"
+#include "Misc/AssertionMacros.h"
+#include "Misc/Attribute.h"
+#include "Misc/CoreMisc.h"
+#include "Modules/ModuleManager.h"
 #include "Private/AssetTypeActions_LyraContextEffectsLibrary.h"
+#include "Subsystems/AssetEditorSubsystem.h"
+#include "Styling/AppStyle.h"
+#include "Templates/SharedPointer.h"
+#include "Textures/SlateIcon.h"
+#include "ToolMenu.h"
+#include "ToolMenuEntry.h"
+#include "ToolMenuMisc.h"
+#include "ToolMenuSection.h"
+#include "ToolMenus.h"
+#include "UObject/Class.h"
+#include "UObject/NameTypes.h"
+#include "UObject/ObjectPtr.h"
+#include "UObject/UObjectIterator.h"
+#include "UnrealEdGlobals.h"
 #include "Validation/EditorValidator.h"
-#include "GameEditorStyle.h"
-#include "GameModes/LyraExperienceManager.h"
+
+class SWidget;
 
 #define LOCTEXT_NAMESPACE "LyraEditor"
 
@@ -94,6 +130,47 @@ static bool HasPlayWorldAndRunning()
 	return HasPlayWorld() && !GUnrealEd->PlayWorld->bDebugPauseExecution;
 }
 
+static void OpenCommonMap_Clicked(const FString MapPath)
+{
+	if (ensure(MapPath.Len()))
+	{
+		GEditor->GetEditorSubsystem<UAssetEditorSubsystem>()->OpenEditorForAsset(MapPath);
+	}
+}
+
+static bool CanShowCommonMaps()
+{
+	return HasNoPlayWorld() && !GetDefault<ULyraDeveloperSettings>()->CommonEditorMaps.IsEmpty();
+}
+
+static TSharedRef<SWidget> GetCommonMapsDropdown()
+{
+	FMenuBuilder MenuBuilder(true, nullptr);
+	
+	for (const FSoftObjectPath& Path : GetDefault<ULyraDeveloperSettings>()->CommonEditorMaps)
+	{
+		if (!Path.IsValid())
+		{
+			continue;
+		}
+		
+		const FText DisplayName = FText::FromString(Path.GetAssetName());
+		MenuBuilder.AddMenuEntry(
+			DisplayName,
+			LOCTEXT("CommonPathDescription", "Opens this map in the editor"),
+			FSlateIcon(),
+			FUIAction(
+				FExecuteAction::CreateStatic(&OpenCommonMap_Clicked, Path.ToString()),
+				FCanExecuteAction::CreateStatic(&HasNoPlayWorld),
+				FIsActionChecked(),
+				FIsActionButtonVisible::CreateStatic(&HasNoPlayWorld)
+			)
+		);
+	}
+
+	return MenuBuilder.MakeWidget();
+}
+
 static void AddPlayer_Clicked()
 {
 	if (ensure(GEditor->PlayWorld))
@@ -151,7 +228,7 @@ static void RegisterGameEditorMenus()
 		FOnGetContent::CreateStatic(&AddLocalPlayer),
 		LOCTEXT("GameOptions_Label", "Game Options"),
 		LOCTEXT("GameOptions_ToolTip", "Game Options"),
-		FSlateIcon(FEditorStyle::GetStyleSetName(), "LevelEditor.OpenLevelBlueprint")
+		FSlateIcon(FAppStyle::GetAppStyleSetName(), "LevelEditor.OpenLevelBlueprint")
 	);
 	BlueprintEntry.StyleNameOverride = "CalloutToolbar";
 	Section.AddEntry(BlueprintEntry);
@@ -169,6 +246,21 @@ static void RegisterGameEditorMenus()
 	);
 	CheckContentEntry.StyleNameOverride = "CalloutToolbar";
 	Section.AddEntry(CheckContentEntry);
+	
+	FToolMenuEntry CommonMapEntry = FToolMenuEntry::InitComboButton(
+		"CommonMapOptions",
+		FUIAction(
+			FExecuteAction(),
+			FCanExecuteAction::CreateStatic(&HasNoPlayWorld),
+			FIsActionChecked(),
+			FIsActionButtonVisible::CreateStatic(&CanShowCommonMaps)),
+		FOnGetContent::CreateStatic(&GetCommonMapsDropdown),
+		LOCTEXT("CommonMaps_Label", "Common Maps"),
+		LOCTEXT("CommonMaps_ToolTip", "Some commonly desired maps while using the editor"),
+		FSlateIcon(FAppStyle::GetAppStyleSetName(), "Icons.Level")
+	);
+	CommonMapEntry.StyleNameOverride = "CalloutToolbar";
+	Section.AddEntry(CommonMapEntry);
 }
 
 /**

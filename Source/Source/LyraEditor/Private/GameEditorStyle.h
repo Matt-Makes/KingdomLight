@@ -2,10 +2,9 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "Styling/SlateStyle.h"
+#include "Templates/SharedPointer.h"
+#include "UObject/NameTypes.h"
 
-class FSlateStyleSet;
 class ISlateStyle;
 
 /** Slate style used by the Game Editor */

@@ -2,6 +2,8 @@
 
 #include "GameSettingValueDiscreteDynamic.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(GameSettingValueDiscreteDynamic)
+
 #define LOCTEXT_NAMESPACE "GameSettingValueDiscreteDynamic"
 
 //////////////////////////////////////////////////////////////////////////

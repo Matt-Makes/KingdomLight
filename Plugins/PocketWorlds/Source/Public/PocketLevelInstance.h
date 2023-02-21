@@ -2,13 +2,21 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
+#include "Delegates/Delegate.h"
+#include "Math/BoxSphereBounds.h"
+#include "Math/MathFwd.h"
+#include "Misc/AssertionMacros.h"
+#include "UObject/Object.h"
+#include "UObject/UObjectGlobals.h"
+
 #include "PocketLevelInstance.generated.h"
 
-class UPocketLevel;
-class ULocalPlayer;
 class ULevelStreamingDynamic;
+class ULocalPlayer;
+class UPocketLevel;
 class UPocketLevelInstance;
+class UWorld;
+struct FFrame;
 
 DECLARE_MULTICAST_DELEGATE_OneParam(FPocketLevelInstanceEvent, UPocketLevelInstance*);
 
@@ -44,16 +52,16 @@ private:
 
 private:
 	UPROPERTY()
-	ULocalPlayer* LocalPlayer;
+	TObjectPtr<ULocalPlayer> LocalPlayer;
 
 	UPROPERTY()
-	UPocketLevel* PocketLevel;
+	TObjectPtr<UPocketLevel> PocketLevel;
 
 	UPROPERTY()
-	UWorld* World;
+	TObjectPtr<UWorld> World;
 
 	UPROPERTY()
-	ULevelStreamingDynamic* StreamingPocketLevel;
+	TObjectPtr<ULevelStreamingDynamic> StreamingPocketLevel;
 
 	FPocketLevelInstanceEvent OnReadyEvent;
 

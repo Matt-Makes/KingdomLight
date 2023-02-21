@@ -13,6 +13,7 @@ public class LyraGameTarget : TargetRules
 	{
 		Type = TargetType.Game;
 		DefaultBuildSettings = BuildSettingsVersion.V2;
+		IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
 
 		ExtraModuleNames.AddRange(new string[] { "LyraGame" });
 
@@ -87,17 +88,23 @@ public class LyraGameTarget : TargetRules
 
 	static public bool ShouldEnableAllGameFeaturePlugins(TargetRules Target)
 	{
-		// Editor builds will build all game feature plugins, but it may or may not load them all.
-		// This is so you can enable plugins in the editor without needing to compile code.
 		if (Target.Type == TargetType.Editor)
 		{
-			return true;
+			// With return true, editor builds will build all game feature plugins, but it may or may not load them all.
+			// This is so you can enable plugins in the editor without needing to compile code.
+			// return true;
 		}
 
-		// We always return true here because the example ConfigureGameFeaturePlugins()
-		// doesn't have any additional logic to pick and choose which plugins to use.
-		// If you add more complicated logic, you will want to return false here instead
-		return true;
+		bool bIsBuildMachine = (Environment.GetEnvironmentVariable("IsBuildMachine") == "1");
+		if (bIsBuildMachine)
+		{
+			// This could be used to enable all plugins for build machines
+			// return true;
+		}
+
+		// By default use the default plugin rules as set by the plugin browser in the editor
+		// This is important because this code may not be run at all for launcher-installed versions of the engine
+		return false;
 	}
 
 	// Configures which game feature plugins we want to have enabled
@@ -129,19 +136,23 @@ public class LyraGameTarget : TargetRules
 				if (PluginFile != null && FileReference.Exists(PluginFile))
 				{
 					bool bEnabled = false;
+					bool bForceDisabled = false;
 					try
 					{
 						JsonObject RawObject = JsonObject.Read(PluginFile);
 						AllPluginRootJsonObjectsByName.Add(PluginFile.GetFileNameWithoutExtension(), RawObject);
 
 						// Validate that all GameFeaturePlugins are disabled by default
+						// If EnabledByDefault is true and a plugin is disabled the name will be embedded in the executable
+						// If this is a problem, enable this warning and change the game feature editor plugin templates to disable EnabledByDefault for new plugins
 						bool bEnabledByDefault = false;
 						if (!RawObject.TryGetBoolField("EnabledByDefault", out bEnabledByDefault) || bEnabledByDefault == true)
 						{
-							Log.TraceWarning("GameFeaturePlugin {0}, does not set EnabledByDefault to false. This is required for built-in GameFeaturePlugins.", PluginFile.GetFileNameWithoutExtension());
+							//Log.TraceWarning("GameFeaturePlugin {0}, does not set EnabledByDefault to false. This is required for built-in GameFeaturePlugins.", PluginFile.GetFileNameWithoutExtension());
 						}
 
 						// Validate that all GameFeaturePlugins are set to explicitly loaded
+						// This is important because game feature plugins expect to be loaded after project startup
 						bool bExplicitlyLoaded = false;
 						if (!RawObject.TryGetBoolField("ExplicitlyLoaded", out bExplicitlyLoaded) || bExplicitlyLoaded == false)
 						{
@@ -168,7 +179,7 @@ public class LyraGameTarget : TargetRules
 							if (bEditorOnly && (Target.Type != TargetType.Editor) && !bBuildAllGameFeaturePlugins)
 							{
 								// The plugin is editor only and we are building a non-editor target, so it is disabled
-								bEnabled = false;
+								bForceDisabled = true;
 							}
 						}
 						else
@@ -178,12 +189,12 @@ public class LyraGameTarget : TargetRules
 
 						// some plugins should only be available in certain branches
 						string RestrictToBranch;
-						if (bEnabled && RawObject.TryGetStringField("RestrictToBranch", out RestrictToBranch))
+						if (RawObject.TryGetStringField("RestrictToBranch", out RestrictToBranch))
 						{
 							if (!Target.Version.BranchName.Equals(RestrictToBranch, StringComparison.OrdinalIgnoreCase))
 							{
 								// The plugin is for a specific branch, and this isn't it
-								bEnabled = false;
+								bForceDisabled = true;
 								Log.TraceVerbose("GameFeaturePlugin {0} was marked as restricted to other branches. Disabling.", PluginFile.GetFileNameWithoutExtension());
 							}
 							else
@@ -194,10 +205,10 @@ public class LyraGameTarget : TargetRules
 
 						// Plugins can be marked as NeverBuild which overrides the above
 						bool bNeverBuild = false;
-						if (bEnabled && RawObject.TryGetBoolField("NeverBuild", out bNeverBuild) && bNeverBuild)
+						if (RawObject.TryGetBoolField("NeverBuild", out bNeverBuild) && bNeverBuild)
 						{
 							// This plugin was marked to never compile, so don't
-							bEnabled = false;
+							bForceDisabled = true;
 							Log.TraceVerbose("GameFeaturePlugin {0} was marked as NeverBuild, disabling.", PluginFile.GetFileNameWithoutExtension());
 						}
 
@@ -227,18 +238,24 @@ public class LyraGameTarget : TargetRules
 					catch (JsonParseException ParseException)
 					{
 						Log.TraceWarning("Failed to parse GameFeaturePlugin file {0}, disabling. Exception: {1}", PluginFile.GetFileNameWithoutExtension(), ParseException.Message);
+						bForceDisabled = true;
+					}
+
+					// Disabled has priority over enabled
+					if (bForceDisabled)
+					{
 						bEnabled = false;
 					}
 
 					// Print out the final decision for this plugin
-					Log.TraceVerbose("ConfigureGameFeaturePlugins() has decided to {0} feature {1}", bEnabled ? "enable" : "disable", PluginFile.GetFileNameWithoutExtension());
+					Log.TraceVerbose("ConfigureGameFeaturePlugins() has decided to {0} feature {1}", bEnabled ? "enable" : (bForceDisabled ? "disable" : "ignore"), PluginFile.GetFileNameWithoutExtension());
 
 					// Enable or disable it
 					if (bEnabled)
 					{
 						Target.EnablePlugins.Add(PluginFile.GetFileNameWithoutExtension());
 					}
-					else
+					else if (bForceDisabled)
 					{
 						Target.DisablePlugins.Add(PluginFile.GetFileNameWithoutExtension());
 					}

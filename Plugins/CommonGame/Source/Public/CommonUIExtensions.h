@@ -2,12 +2,24 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
+#include "CommonInputBaseTypes.h"
 #include "GameplayTagContainer.h"
+#include "HAL/Platform.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "CommonActivatableWidget.h"
+#include "Templates/SubclassOf.h"
+#include "UObject/NameTypes.h"
+#include "UObject/SoftObjectPtr.h"
+#include "UObject/UObjectGlobals.h"
 
 #include "CommonUIExtensions.generated.h"
+
+class APlayerController;
+class UCommonActivatableWidget;
+class ULocalPlayer;
+class UObject;
+class UUserWidget;
+struct FFrame;
+struct FGameplayTag;
 
 UCLASS()
 class COMMONGAME_API UCommonUIExtensions : public UBlueprintFunctionLibrary

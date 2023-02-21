@@ -17,6 +17,7 @@
 #include "LoadingProcessInterface.h"
 
 #include "Framework/Application/IInputProcessor.h"
+#include "Framework/Application/SlateApplication.h"
 
 #include "PreLoadScreenManager.h"
 
@@ -26,6 +27,8 @@
 //@TODO: Used as the placeholder widget in error cases, should probably create a wrapper that at least centers it/etc...
 #include "Widgets/Images/SThrobber.h"
 #include "Blueprint/UserWidget.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(LoadingScreenManager)
 
 DECLARE_LOG_CATEGORY_EXTERN(LogLoadingScreen, Log, All);
 DEFINE_LOG_CATEGORY(LogLoadingScreen);
@@ -626,3 +629,4 @@ void ULoadingScreenManager::ChangePerformanceSettings(bool bEnabingLoadingScreen
 		FGameThreadHitchHeartBeat::Get().ResumeHeartBeat();
 	}
 }
+

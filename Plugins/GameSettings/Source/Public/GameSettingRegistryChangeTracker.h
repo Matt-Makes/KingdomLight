@@ -2,13 +2,15 @@
 
 #pragma once
 
-#include "Templates/UnrealTemplate.h"
-#include "UObject/WeakObjectPtrTemplates.h"
-#include "UObject/ObjectKey.h"
+#include "Containers/Map.h"
 #include "GameSettingFilterState.h"
+#include "Templates/UnrealTemplate.h"
+#include "UObject/ObjectKey.h"
+#include "UObject/WeakObjectPtrTemplates.h"
 
-class UGameSettingRegistry;
 class UGameSetting;
+class UGameSettingRegistry;
+struct FObjectKey;
 
 /**
  * 

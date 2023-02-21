@@ -1,7 +1,17 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "Actions/AsyncAction_ShowConfirmation.h"
+
+#include "Blueprint/UserWidget.h"
+#include "Engine/GameInstance.h"
+#include "Engine/LocalPlayer.h"
+#include "Engine/World.h"
+#include "GameFramework/PlayerController.h"
+#include "Internationalization/Text.h"
 #include "Messaging/CommonGameDialog.h"
+#include "Templates/Casts.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(AsyncAction_ShowConfirmation)
 
 UAsyncAction_ShowConfirmation::UAsyncAction_ShowConfirmation(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -79,4 +89,5 @@ void UAsyncAction_ShowConfirmation::HandleConfirmationResult(ECommonMessagingRes
 
 	SetReadyToDestroy();
 }
+
 

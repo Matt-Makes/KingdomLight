@@ -1,7 +1,15 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "LyraContextEffectsLibraryFactory.h"
+
 #include "Feedback/ContextEffects/LyraContextEffectsLibrary.h"
+#include "Templates/SubclassOf.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(LyraContextEffectsLibraryFactory)
+
+class FFeedbackContext;
+class UClass;
+class UObject;
 
 ULyraContextEffectsLibraryFactory::ULyraContextEffectsLibraryFactory(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)

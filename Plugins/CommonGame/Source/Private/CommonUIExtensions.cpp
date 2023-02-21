@@ -1,15 +1,25 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "CommonUIExtensions.h"
+
+#include "Blueprint/UserWidget.h"
+#include "CommonActivatableWidget.h"
 #include "CommonInputBaseTypes.h"
 #include "CommonInputSubsystem.h"
-#include "Blueprint/UserWidget.h"
+#include "CommonLocalPlayer.h"
+#include "Delegates/Delegate.h"
+#include "Engine/GameInstance.h"
+#include "Engine/LocalPlayer.h"
+#include "GameFramework/PlayerController.h"
 #include "GameUIManagerSubsystem.h"
 #include "GameUIPolicy.h"
+#include "GameplayTagContainer.h"
 #include "PrimaryGameLayout.h"
-#include "CommonActivatableWidget.h"
-#include "CommonLocalPlayer.h"
-#include "Engine/AssetManager.h"
+#include "Templates/Casts.h"
+#include "UObject/UnrealNames.h"
+#include "Widgets/CommonActivatableWidgetContainer.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(CommonUIExtensions)
 
 int32 UCommonUIExtensions::InputSuspensions = 0;
 
@@ -156,3 +166,4 @@ void UCommonUIExtensions::ResumeInputForPlayer(ULocalPlayer* LocalPlayer, FName 
 		CommonInputSubsystem->SetInputTypeFilter(ECommonInputType::Touch, SuspendToken, false);
 	}
 }
+

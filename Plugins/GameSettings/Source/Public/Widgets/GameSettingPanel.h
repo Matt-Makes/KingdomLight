@@ -2,20 +2,25 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "UObject/ObjectMacros.h"
-#include "Blueprint/UserWidget.h"
 #include "CommonUserWidget.h"
-#include "GameSetting.h"
-#include "GameplayTagContainer.h"
+#include "Containers/Array.h"
 #include "Containers/Ticker.h"
+#include "Delegates/Delegate.h"
+#include "GameSettingFilterState.h"
+#include "GameplayTagContainer.h"
+#include "Input/Reply.h"
+#include "UObject/NameTypes.h"
+#include "UObject/UObjectGlobals.h"
 
 #include "GameSettingPanel.generated.h"
 
-class UGameSettingListView;
-class UGameSettingDetailView;
 class UGameSetting;
+class UGameSettingDetailView;
+class UGameSettingListView;
 class UGameSettingRegistry;
+class UObject;
+struct FFocusEvent;
+struct FGeometry;
 
 DECLARE_MULTICAST_DELEGATE_OneParam(FOnFocusedSettingChanged, UGameSetting*)
 
@@ -77,13 +82,13 @@ protected:
 private:
 
 	UPROPERTY(Transient)
-	UGameSettingRegistry* Registry;
+	TObjectPtr<UGameSettingRegistry> Registry;
 
 	UPROPERTY(Transient)
-	TArray<UGameSetting*> VisibleSettings;
+	TArray<TObjectPtr<UGameSetting>> VisibleSettings;
 
 	UPROPERTY(Transient)
-	UGameSetting* LastHoveredOrSelectedSetting;
+	TObjectPtr<UGameSetting> LastHoveredOrSelectedSetting;
 
 	UPROPERTY(Transient)
 	FGameSettingFilterState FilterState;
@@ -97,10 +102,10 @@ private:
 
 private:	// Bound Widgets
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget, BlueprintProtected = true, AllowPrivateAccess = true))
-	UGameSettingListView* ListView_Settings;
+	TObjectPtr<UGameSettingListView> ListView_Settings;
 
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidgetOptional, BlueprintProtected = true, AllowPrivateAccess = true))
-	UGameSettingDetailView* Details_Settings;
+	TObjectPtr<UGameSettingDetailView> Details_Settings;
 
 private:
 	DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnExecuteNamedActionBP, UGameSetting*, Setting, FGameplayTag, Action);

@@ -1,23 +1,42 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "CommonPlayerInputKey.h"
-#include "Components/Image.h"
-#include "Components/WidgetSwitcher.h"
-#include "Components/SizeBox.h"
-#include "Components/Border.h"
+
 #include "CommonInputSubsystem.h"
-#include "CommonTextBlock.h"
-#include "CommonUISettings.h"
-#include "CommonUITypes.h"
-#include "Styling/SlateBrush.h"
-#include "Materials/MaterialInstanceDynamic.h"
-#include "TimerManager.h"
-#include "Rendering/DrawElements.h"
-#include "Framework/Application/SlateApplication.h"
-#include "Rendering/SlateRenderer.h"
-#include "Fonts/FontMeasure.h"
-#include "CommonPlayerController.h"
 #include "CommonLocalPlayer.h"
+#include "CommonPlayerController.h"
+#include "Components/SlateWrapperTypes.h"
+#include "Containers/UnrealString.h"
+#include "Delegates/Delegate.h"
+#include "Engine/World.h"
+#include "Fonts/FontMeasure.h"
+#include "Framework/Application/SlateApplication.h"
+#include "Internationalization/Internationalization.h"
+#include "Layout/Geometry.h"
+#include "Logging/LogCategory.h"
+#include "Logging/LogMacros.h"
+#include "Materials/Material.h"
+#include "Materials/MaterialInstanceDynamic.h"
+#include "Materials/MaterialInterface.h"
+#include "Math/Color.h"
+#include "Math/UnrealMathSSE.h"
+#include "Misc/AssertionMacros.h"
+#include "Rendering/DrawElements.h"
+#include "Rendering/RenderingCommon.h"
+#include "Rendering/SlateRenderer.h"
+#include "Styling/SlateBrush.h"
+#include "Styling/WidgetStyle.h"
+#include "Templates/Casts.h"
+#include "Templates/SharedPointer.h"
+#include "TimerManager.h"
+#include "Trace/Detail/Channel.h"
+#include "UObject/UnrealNames.h"
+#include "Widgets/InvalidateWidgetReason.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(CommonPlayerInputKey)
+
+class FPaintArgs;
+class FSlateRect;
 
 #define LOCTEXT_NAMESPACE "CommonKeybindWidget"
 
@@ -541,3 +560,4 @@ void UCommonPlayerInputKey::RecalculateDesiredSize()
 }
 
 #undef LOCTEXT_NAMESPACE
+

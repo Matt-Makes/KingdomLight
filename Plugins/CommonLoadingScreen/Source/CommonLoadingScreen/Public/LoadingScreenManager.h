@@ -2,15 +2,27 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
+#include "Containers/Array.h"
+#include "Containers/UnrealString.h"
+#include "Delegates/Delegate.h"
+#include "HAL/Platform.h"
+#include "Stats/Stats2.h"
 #include "Subsystems/GameInstanceSubsystem.h"
+#include "Templates/SharedPointer.h"
 #include "Tickable.h"
+#include "UObject/ScriptInterface.h"
+#include "UObject/UObjectGlobals.h"
 #include "UObject/WeakInterfacePtr.h"
+
 #include "LoadingScreenManager.generated.h"
 
-class SWidget;
+class FSubsystemCollectionBase;
 class IInputProcessor;
 class ILoadingProcessInterface;
+class SWidget;
+class UObject;
+class UWorld;
+struct FFrame;
 struct FWorldContext;
 
 /**

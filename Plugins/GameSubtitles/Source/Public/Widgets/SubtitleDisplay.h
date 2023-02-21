@@ -23,7 +23,7 @@ public:
 	FSubtitleFormat Format;
 
 	UPROPERTY(EditAnywhere, Category = "Display Info")
-	USubtitleDisplayOptions* Options;
+	TObjectPtr<USubtitleDisplayOptions> Options;
 
 	// Whether text wraps onto a new line when it's length exceeds this width; if this value is zero or negative, no wrapping occurs.
 	UPROPERTY(EditAnywhere, Category="Display Info")

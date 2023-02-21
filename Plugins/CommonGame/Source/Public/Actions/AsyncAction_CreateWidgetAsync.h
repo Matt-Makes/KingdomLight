@@ -2,18 +2,23 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "UObject/ObjectMacros.h"
-#include "Interfaces/IHttpRequest.h"
-#include "Kismet/BlueprintAsyncActionBase.h"
-#include "Blueprint/UserWidget.h"
-#include "Engine/StreamableManager.h"
-#include "GameFramework/PlayerController.h"
+#include "Delegates/Delegate.h"
 #include "Engine/CancellableAsyncAction.h"
+#include "Templates/SharedPointer.h"
+#include "UObject/NameTypes.h"
+#include "UObject/Object.h"
+#include "UObject/SoftObjectPtr.h"
+#include "UObject/UObjectGlobals.h"
+#include "UObject/WeakObjectPtrTemplates.h"
 
 #include "AsyncAction_CreateWidgetAsync.generated.h"
 
+class APlayerController;
 class UGameInstance;
+class UUserWidget;
+class UWorld;
+struct FFrame;
+struct FStreamableHandle;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCreateWidgetAsyncDelegate, UUserWidget*, UserWidget);
 

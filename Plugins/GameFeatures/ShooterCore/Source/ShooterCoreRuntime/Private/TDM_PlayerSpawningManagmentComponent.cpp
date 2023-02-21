@@ -1,12 +1,21 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "TDM_PlayerSpawningManagmentComponent.h"
-#include "Character/LyraPawn.h"
-#include "Teams/LyraTeamSubsystem.h"
-#include "GameModes/LyraGameState.h"
-#include "GameFramework/PlayerState.h"
-#include "Player/LyraPlayerStart.h"
+
+#include "CoreTypes.h"
 #include "Engine/World.h"
+#include "GameFramework/Controller.h"
+#include "GameFramework/Pawn.h"
+#include "GameFramework/PlayerState.h"
+#include "GameModes/LyraGameState.h"
+#include "Misc/AssertionMacros.h"
+#include "Player/LyraPlayerStart.h"
+#include "Teams/LyraTeamSubsystem.h"
+#include "UObject/ObjectPtr.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(TDM_PlayerSpawningManagmentComponent)
+
+class AActor;
 
 UTDM_PlayerSpawningManagmentComponent::UTDM_PlayerSpawningManagmentComponent(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)

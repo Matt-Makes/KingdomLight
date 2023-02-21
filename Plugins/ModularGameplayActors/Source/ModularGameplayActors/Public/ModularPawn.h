@@ -2,8 +2,13 @@
 
 #pragma once
 
+#include "Engine/EngineTypes.h"
 #include "GameFramework/Pawn.h"
+#include "UObject/UObjectGlobals.h"
+
 #include "ModularPawn.generated.h"
+
+class UObject;
 
 /** Minimal class that supports extension by game feature plugins */
 UCLASS(Blueprintable)

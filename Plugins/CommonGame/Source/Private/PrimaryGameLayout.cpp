@@ -1,13 +1,27 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "PrimaryGameLayout.h"
-#include "Widgets/CommonActivatableWidgetContainer.h"
+
+#include "CommonLocalPlayer.h"
+#include "Delegates/Delegate.h"
+#include "Engine/GameInstance.h"
+#include "Engine/LocalPlayer.h"
+#include "GameFramework/PlayerController.h"
 #include "GameUIManagerSubsystem.h"
 #include "GameUIPolicy.h"
-#include "CommonLocalPlayer.h"
-#include "Engine/LocalPlayer.h"
-#include "LogCommonGame.h"
 #include "Kismet/GameplayStatics.h"
+#include "LogCommonGame.h"
+#include "Logging/LogCategory.h"
+#include "Logging/LogMacros.h"
+#include "Misc/AssertionMacros.h"
+#include "Templates/Casts.h"
+#include "Templates/Tuple.h"
+#include "Trace/Detail/Channel.h"
+#include "Widgets/CommonActivatableWidgetContainer.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(PrimaryGameLayout)
+
+class UObject;
 
 /*static*/ UPrimaryGameLayout* UPrimaryGameLayout::GetPrimaryGameLayoutForPrimaryPlayer(const UObject* WorldContextObject)
 {

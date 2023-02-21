@@ -1,9 +1,12 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "PocketLevelSystem.h"
+
+#include "Math/Vector.h"
 #include "PocketLevel.h"
-#include "Engine/LevelStreamingDynamic.h"
 #include "PocketLevelInstance.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(PocketLevelSystem)
 
 UPocketLevelInstance* UPocketLevelSubsystem::GetOrCreatePocketLevelFor(ULocalPlayer* LocalPlayer, UPocketLevel* PocketLevel, FVector DesiredSpawnPoint)
 {

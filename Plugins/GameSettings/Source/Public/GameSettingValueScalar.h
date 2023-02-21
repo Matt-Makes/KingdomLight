@@ -2,11 +2,19 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "UObject/ObjectMacros.h"
+#include "Containers/UnrealString.h"
+#include "GameSettingFilterState.h"
 #include "GameSettingValue.h"
+#include "Internationalization/Text.h"
+#include "Math/Range.h"
+#include "Math/UnrealMathSSE.h"
+#include "Misc/AssertionMacros.h"
+#include "Misc/Optional.h"
+#include "UObject/UObjectGlobals.h"
 
 #include "GameSettingValueScalar.generated.h"
+
+class UObject;
 
 UCLASS(abstract)
 class GAMESETTINGS_API UGameSettingValueScalar : public UGameSettingValue

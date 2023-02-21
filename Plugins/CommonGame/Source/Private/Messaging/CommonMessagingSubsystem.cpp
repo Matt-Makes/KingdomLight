@@ -1,8 +1,18 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "Messaging/CommonMessagingSubsystem.h"
-#include "Messaging/CommonGameDialog.h"
+
+#include "Containers/Array.h"
+#include "Engine/GameInstance.h"
+#include "Engine/LocalPlayer.h"
+#include "Templates/Casts.h"
+#include "UObject/Object.h"
 #include "UObject/UObjectHash.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(CommonMessagingSubsystem)
+
+class FSubsystemCollectionBase;
+class UClass;
 
 void UCommonMessagingSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 {

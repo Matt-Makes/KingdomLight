@@ -2,11 +2,30 @@
 
 #pragma once
 
+#include "CommonInputBaseTypes.h"
 #include "CommonUserWidget.h"
+#include "Fonts/SlateFontInfo.h"
+#include "HAL/Platform.h"
+#include "InputCoreTypes.h"
+#include "Internationalization/Text.h"
+#include "Layout/Margin.h"
+#include "Math/Vector2D.h"
+#include "Styling/SlateBrush.h"
+#include "UObject/NameTypes.h"
+#include "UObject/UObjectGlobals.h"
+
 #include "CommonPlayerInputKey.generated.h"
 
-class UCommonLocalPlayer;
 class APlayerController;
+class FPaintArgs;
+class FSlateRect;
+class FSlateWindowElementList;
+class FWidgetStyle;
+class UCommonLocalPlayer;
+class UMaterialInstanceDynamic;
+class UObject;
+struct FFrame;
+struct FGeometry;
 
 UENUM(BlueprintType)
 enum class ECommonKeybindForcedHoldStatus : uint8
@@ -179,7 +198,7 @@ protected:
 
 	/** MID for the progress percentage */
 	UPROPERTY(Transient)
-	UMaterialInstanceDynamic* ProgressPercentageMID;
+	TObjectPtr<UMaterialInstanceDynamic> ProgressPercentageMID;
 
 	virtual void NativeOnInitialized() override;
 

@@ -2,14 +2,18 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "UObject/ObjectMacros.h"
+#include "Delegates/Delegate.h"
 #include "Kismet/BlueprintAsyncActionBase.h"
 #include "Messaging/CommonMessagingSubsystem.h"
+#include "UObject/Object.h"
+#include "UObject/UObjectGlobals.h"
+
 #include "AsyncAction_ShowConfirmation.generated.h"
 
-class UUserWidget;
+class FText;
 class UCommonGameDialogDescriptor;
+class ULocalPlayer;
+struct FFrame;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCommonMessagingResultMCDelegate, ECommonMessagingResult, Result);
 
@@ -47,11 +51,11 @@ private:
 	void HandleConfirmationResult(ECommonMessagingResult ConfirmationResult);
 
 	UPROPERTY(Transient)
-	UObject* WorldContextObject;
+	TObjectPtr<UObject> WorldContextObject;
 
 	UPROPERTY(Transient)
-	ULocalPlayer* TargetLocalPlayer;
+	TObjectPtr<ULocalPlayer> TargetLocalPlayer;
 
 	UPROPERTY(Transient)
-	UCommonGameDialogDescriptor* Descriptor;
+	TObjectPtr<UCommonGameDialogDescriptor> Descriptor;
 };

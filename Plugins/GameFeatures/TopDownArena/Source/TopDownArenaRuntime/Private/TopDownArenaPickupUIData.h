@@ -2,14 +2,17 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "UObject/ObjectMacros.h"
 #include "GameplayEffectUIData.h"
+#include "Internationalization/Text.h"
+#include "UObject/ObjectPtr.h"
+#include "UObject/UObjectGlobals.h"
+
 #include "TopDownArenaPickupUIData.generated.h"
 
-class UTexture2D;
 class UNiagaraSystem;
+class UObject;
 class USoundBase;
+class UTexture2D;
 
 // Icon and display name for pickups in the top-down arena game
 UCLASS(BlueprintType)

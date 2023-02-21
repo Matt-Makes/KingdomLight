@@ -2,21 +2,24 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "UObject/ObjectKey.h"
 #include "CommonActivatableWidget.h"
+#include "Containers/Array.h"
+#include "CoreTypes.h"
+#include "GameSettingRegistry.h"
 #include "GameSettingRegistryChangeTracker.h"
+#include "Misc/AssertionMacros.h"
+#include "UObject/NameTypes.h"
+#include "UObject/UObjectGlobals.h"
 
 #include "GameSettingScreen.generated.h"
 
-class UGameSettingListView;
-class UCommonRichTextBlock;
-class UCommonTextBlock;
-class UGameSettingDetailView;
 class UGameSetting;
-class UGameSettingRegistry;
-class UGameSettingPanel;
 class UGameSettingCollection;
+class UGameSettingPanel;
+class UObject;
+class UWidget;
+struct FFrame;
+
 enum class EGameSettingChangeReason : uint8;
 
 /**
@@ -76,8 +79,8 @@ private:
 
 private:	// Bound Widgets
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget, BlueprintProtected = true, AllowPrivateAccess = true))
-	UGameSettingPanel* Settings_Panel;
+	TObjectPtr<UGameSettingPanel> Settings_Panel;
 
 	UPROPERTY(Transient)
-	mutable UGameSettingRegistry* Registry;
+	mutable TObjectPtr<UGameSettingRegistry> Registry;
 };

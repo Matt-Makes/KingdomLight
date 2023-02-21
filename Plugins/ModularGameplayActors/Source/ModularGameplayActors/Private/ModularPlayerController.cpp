@@ -1,8 +1,13 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "ModularPlayerController.h"
-#include "Components/GameFrameworkComponentManager.h"
+
 #include "Components/ControllerComponent.h"
+#include "Components/GameFrameworkComponentManager.h"
+#include "Containers/Array.h"
+#include "Containers/Set.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(ModularPlayerController)
 
 void AModularPlayerController::PreInitializeComponents()
 {

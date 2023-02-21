@@ -2,18 +2,22 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
+#include "Blueprint/UserWidget.h"
 #include "Blueprint/UserWidgetPool.h"
-#include "Engine/StreamableManager.h"
+#include "Templates/SharedPointer.h"
+#include "Templates/SubclassOf.h"
+#include "UObject/UObjectGlobals.h"
+
 #include "GameSettingDetailView.generated.h"
 
-class UGameSettingListView;
 class UCommonRichTextBlock;
 class UCommonTextBlock;
 class UGameSetting;
 class UGameSettingDetailExtension;
-class UVerticalBox;
 class UGameSettingVisualData;
+class UObject;
+class UVerticalBox;
+struct FStreamableHandle;
 
 /**
  * 
@@ -39,32 +43,32 @@ protected:
 
 protected:
 	UPROPERTY(EditAnywhere)
-	UGameSettingVisualData* VisualData;
+	TObjectPtr<UGameSettingVisualData> VisualData;
 
 	UPROPERTY(Transient)
 	FUserWidgetPool ExtensionWidgetPool;
 
 	UPROPERTY(Transient)
-	UGameSetting* CurrentSetting;
+	TObjectPtr<UGameSetting> CurrentSetting;
 
 	TSharedPtr<FStreamableHandle> StreamingHandle;
 
 private:	// Bound Widgets
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidgetOptional, BlueprintProtected = true, AllowPrivateAccess = true))
-	UCommonTextBlock* Text_SettingName;
+	TObjectPtr<UCommonTextBlock> Text_SettingName;
 
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidgetOptional, BlueprintProtected = true, AllowPrivateAccess = true))
-	UCommonRichTextBlock* RichText_Description;
+	TObjectPtr<UCommonRichTextBlock> RichText_Description;
 
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidgetOptional, BlueprintProtected = true, AllowPrivateAccess = true))
-	UCommonRichTextBlock* RichText_DynamicDetails;
+	TObjectPtr<UCommonRichTextBlock> RichText_DynamicDetails;
 
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidgetOptional, BlueprintProtected = true, AllowPrivateAccess = true))
-	UCommonRichTextBlock* RichText_WarningDetails;
+	TObjectPtr<UCommonRichTextBlock> RichText_WarningDetails;
 	
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidgetOptional, BlueprintProtected = true, AllowPrivateAccess = true))
-	UCommonRichTextBlock* RichText_DisabledDetails;
+	TObjectPtr<UCommonRichTextBlock> RichText_DisabledDetails;
 
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidgetOptional, BlueprintProtected = true, AllowPrivateAccess = true))
-	UVerticalBox* Box_DetailsExtension;
+	TObjectPtr<UVerticalBox> Box_DetailsExtension;
 };

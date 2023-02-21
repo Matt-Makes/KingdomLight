@@ -1,13 +1,34 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "Accolades/LyraAccoladeHostWidget.h"
-#include "NativeGameplayTags.h"
+
+#include "Containers/UnrealString.h"
+#include "CoreTypes.h"
+#include "DataRegistryId.h"
+#include "DataRegistrySubsystem.h"
+#include "DataRegistryTypes.h"
+#include "Delegates/Delegate.h"
+#include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/PlayerState.h"
-#include "DataRegistrySubsystem.h"
-#include "TimerManager.h"
-#include "Sound/SoundBase.h"
+#include "Logging/LogCategory.h"
+#include "Logging/LogMacros.h"
 #include "LyraLogChannels.h"
+#include "Messages/LyraNotificationMessage.h"
+#include "Misc/AssertionMacros.h"
+#include "NativeGameplayTags.h"
+#include "Sound/SoundBase.h"
+#include "Templates/UnrealTemplate.h"
+#include "TimerManager.h"
+#include "Trace/Detail/Channel.h"
+#include "UObject/NameTypes.h"
+#include "UObject/ObjectPtr.h"
+#include "UObject/SoftObjectPath.h"
+#include "UObject/SoftObjectPtr.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(LyraAccoladeHostWidget)
+
+class UUserWidget;
 
 UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_Lyra_ShooterGame_Accolade, "Lyra.ShooterGame.Accolade");
 
@@ -160,3 +181,4 @@ void ULyraAccoladeHostWidget::PopDisplayedAccolade()
 
 	DisplayNextAccolade();
 }
+

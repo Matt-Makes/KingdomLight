@@ -1,14 +1,30 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "CommonGameInstance.h"
-#include "GameUIManagerSubsystem.h"
-#include "ICommonUIModule.h"
+
+#include "CommonLocalPlayer.h"
+#include "CommonSessionSubsystem.h"
 #include "CommonUISettings.h"
 #include "CommonUserSubsystem.h"
-#include "CommonSessionSubsystem.h"
-#include "CommonLocalPlayer.h"
-#include "Messaging/CommonGameDialog.h"
+#include "Containers/UnrealString.h"
+#include "Delegates/Delegate.h"
+#include "Engine/LocalPlayer.h"
+#include "GameUIManagerSubsystem.h"
+#include "GameplayTagContainer.h"
+#include "ICommonUIModule.h"
+#include "Internationalization/Text.h"
 #include "LogCommonGame.h"
+#include "Logging/LogCategory.h"
+#include "Logging/LogMacros.h"
+#include "Messaging/CommonGameDialog.h"
+#include "Messaging/CommonMessagingSubsystem.h"
+#include "Misc/AssertionMacros.h"
+#include "NativeGameplayTags.h"
+#include "Templates/Casts.h"
+#include "Trace/Detail/Channel.h"
+#include "UObject/WeakObjectPtr.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(CommonGameInstance)
 
 UCommonGameInstance::UCommonGameInstance(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -40,9 +56,9 @@ void UCommonGameInstance::HandlePrivilegeChanged(const UCommonUserInfo* UserInfo
 	}
 }
 
-int32 UCommonGameInstance::AddLocalPlayer(ULocalPlayer* NewPlayer, int32 ControllerId)
+int32 UCommonGameInstance::AddLocalPlayer(ULocalPlayer* NewPlayer, FPlatformUserId UserId)
 {
-	int32 ReturnVal = Super::AddLocalPlayer(NewPlayer, ControllerId);
+	int32 ReturnVal = Super::AddLocalPlayer(NewPlayer, UserId);
 	if (ReturnVal != INDEX_NONE)
 	{
 		if (!PrimaryPlayer.IsValid())
@@ -84,6 +100,12 @@ void UCommonGameInstance::Init()
 		UserSubsystem->OnHandleSystemMessage.AddDynamic(this, &UCommonGameInstance::HandleSystemMessage);
 		UserSubsystem->OnUserPrivilegeChanged.AddDynamic(this, &UCommonGameInstance::HandlePrivilegeChanged);
 	}
+
+	UCommonSessionSubsystem* SessionSubsystem = GetSubsystem<UCommonSessionSubsystem>();
+	if (ensure(SessionSubsystem))
+	{
+		SessionSubsystem->OnUserRequestedSessionEvent.AddUObject(this, &UCommonGameInstance::OnUserRequestedSession);
+	}
 }
 
 void UCommonGameInstance::ResetUserAndSessionState()
@@ -108,6 +130,65 @@ void UCommonGameInstance::ReturnToMainMenu()
 
 	Super::ReturnToMainMenu();
 }
+
+void UCommonGameInstance::OnUserRequestedSession(const FPlatformUserId& PlatformUserId, UCommonSession_SearchResult* InRequestedSession, const FOnlineResultInformation& RequestedSessionResult)
+{
+	if (InRequestedSession)
+	{
+		SetRequestedSession(InRequestedSession);
+	}
+	else
+	{
+		HandleSystemMessage(FCommonUserTags::SystemMessage_Error, NSLOCTEXT("CommonGame", "Warning_RequestedSessionFailed", "Requested Session Failed"), RequestedSessionResult.ErrorText);
+	}
+}
+
+void UCommonGameInstance::SetRequestedSession(UCommonSession_SearchResult* InRequestedSession)
+{
+	RequestedSession = InRequestedSession;
+	if (RequestedSession)
+	{
+		if (CanJoinRequestedSession())
+		{
+			JoinRequestedSession();
+		}
+		else
+		{
+			ResetGameAndJoinRequestedSession();
+		}
+	}
+}
+
+bool UCommonGameInstance::CanJoinRequestedSession() const
+{
+	// Default behavior is always allow joining the requested session
+	return true;
+}
+
+void UCommonGameInstance::JoinRequestedSession()
+{
+	if (RequestedSession)
+	{
+		if (ULocalPlayer* const FirstPlayer = GetFirstGamePlayer())
+		{
+			UCommonSessionSubsystem* SessionSubsystem = GetSubsystem<UCommonSessionSubsystem>();
+			if (ensure(SessionSubsystem))
+			{
+				// Clear our current requested session since we are now acting on it.
+				UCommonSession_SearchResult* LocalRequestedSession = RequestedSession;
+				RequestedSession = nullptr;
+				SessionSubsystem->JoinSession(FirstPlayer->PlayerController, LocalRequestedSession);
+			}
+		}
+	}
+}
+
+void UCommonGameInstance::ResetGameAndJoinRequestedSession()
+{
+	// Default behavior is to return to the main menu.  The game must call JoinRequestedSession when the game is in a ready state.
+	ReturnToMainMenu();
+}
+
 
 //void UCommonGameInstance::OnPreLoadMap(const FString& MapName)
 //{

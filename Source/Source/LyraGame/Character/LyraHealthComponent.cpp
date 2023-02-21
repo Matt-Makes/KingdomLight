@@ -1,6 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "LyraHealthComponent.h"
+#include "Character/LyraHealthComponent.h"
+
 #include "LyraLogChannels.h"
 #include "System/LyraAssetManager.h"
 #include "System/LyraGameData.h"
@@ -18,6 +19,9 @@
 #include "Components/GameFrameworkComponentManager.h"
 #include "GameFramework/GameplayMessageSubsystem.h"
 #include "GameFramework/PlayerState.h"
+#include "Engine/World.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(LyraHealthComponent)
 
 UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_Lyra_Elimination_Message, "Lyra.Elimination.Message");
 
@@ -322,3 +326,4 @@ void ULyraHealthComponent::DamageSelfDestruct(bool bFellOutOfWorld)
 		AbilitySystemComponent->ApplyGameplayEffectSpecToSelf(*Spec);
 	}
 }
+

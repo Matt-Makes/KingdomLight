@@ -2,14 +2,26 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "UObject/StrongObjectPtr.h"
-#include "Engine/AssetManager.h"
-#include "Async/Future.h"
+#include "Containers/Array.h"
+#include "Containers/Map.h"
 #include "Containers/Ticker.h"
+#include "Delegates/Delegate.h"
+#include "HAL/Platform.h"
+#include "Templates/Function.h"
+#include "Templates/RemoveReference.h"
+#include "Templates/SharedPointer.h"
+#include "Templates/UniquePtr.h"
+#include "Templates/UnrealTemplate.h"
+#include "UObject/Object.h"
+#include "UObject/SoftObjectPath.h"
+#include "UObject/SoftObjectPtr.h"
 
 class FAsyncCondition;
+class FName;
 class UPrimaryDataAsset;
+struct FPrimaryAssetId;
+struct FStreamableHandle;
+template <class TClass> class TSubclassOf;
 
 DECLARE_DELEGATE_OneParam(FStreamableHandleDelegate, TSharedPtr<FStreamableHandle>)
 

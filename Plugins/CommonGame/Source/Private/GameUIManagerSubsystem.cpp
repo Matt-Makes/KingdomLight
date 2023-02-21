@@ -1,8 +1,20 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "GameUIManagerSubsystem.h"
+
+#include "Containers/Array.h"
+#include "Engine/GameInstance.h"
 #include "GameUIPolicy.h"
+#include "Misc/AssertionMacros.h"
+#include "Templates/Casts.h"
+#include "Templates/SubclassOf.h"
+#include "UObject/Object.h"
 #include "UObject/UObjectHash.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(GameUIManagerSubsystem)
+
+class FSubsystemCollectionBase;
+class UClass;
 
 void UGameUIManagerSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 {
@@ -67,3 +79,4 @@ void UGameUIManagerSubsystem::SwitchToPolicy(UGameUIPolicy* InPolicy)
 		CurrentPolicy = InPolicy;
 	}
 }
+

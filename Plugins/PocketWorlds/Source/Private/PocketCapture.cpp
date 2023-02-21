@@ -1,11 +1,26 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "PocketCapture.h"
-#include "Components/SceneCaptureComponent2D.h"
-#include "Engine/TextureRenderTarget2D.h"
-#include "PocketCaptureSubsystem.h"
+
 #include "Camera/CameraComponent.h"
+#include "Camera/CameraTypes.h"
 #include "Components/PrimitiveComponent.h"
+#include "Components/SceneCaptureComponent.h"
+#include "Components/SceneCaptureComponent2D.h"
+#include "Containers/EnumAsByte.h"
+#include "Containers/Set.h"
+#include "Containers/UnrealString.h"
+#include "Engine/Scene.h"
+#include "Engine/TextureRenderTarget2D.h"
+#include "HAL/Platform.h"
+#include "PocketCaptureSubsystem.h"
+#include "ShowFlags.h"
+#include "Templates/Casts.h"
+#include "UObject/ObjectPtr.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(PocketCapture)
+
+class UWorld;
 
 // UPocketCapture
 //---------------------------------------------------------------------------------
@@ -199,7 +214,6 @@ bool UPocketCapture::CaptureScene(UTextureRenderTarget2D* InRenderTarget, const 
 				// We need to make sure the texture streamer takes into account this new location,
 				// this request only lasts for one tick, so we call it every time we need to draw, 
 				// so that they stay resident.
-				//IStreamingManager::Get().AddViewSlaveLocation(CaptureView.Location);
 
 				CaptureComponent->TextureTarget = InRenderTarget;
 				CaptureComponent->PostProcessSettings = Camera->PostProcessSettings;

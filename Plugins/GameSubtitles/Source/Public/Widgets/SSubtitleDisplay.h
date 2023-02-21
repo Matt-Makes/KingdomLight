@@ -2,13 +2,17 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
 #include "Misc/Attribute.h"
-#include "Layout/Margin.h"
+#include "Styling/CoreStyle.h"
+#include "Styling/ISlateStyle.h"
 #include "Styling/SlateTypes.h"
-#include "SlateCore.h"
-
+#include "Styling/SlateWidgetStyleAsset.h"
+#include "Templates/SharedPointer.h"
+#include "Widgets/DeclarativeSyntaxSupport.h"
 #include "Widgets/SCompoundWidget.h"
+
+class FText;
+struct FSlateBrush;
 
 /**
  * A widget that's used for displaying a subtitle somewhere on the viewport

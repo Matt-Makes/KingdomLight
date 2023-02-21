@@ -1,15 +1,26 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "LyraEditor.h"
-
-#include "AssetRegistryModule.h"
-
-#include "CollectionManagerTypes.h"
-#include "ICollectionManager.h"
-#include "CollectionManagerModule.h"
-
-#include "HAL/IConsoleManager.h"
+#include "Algo/Sort.h"
 #include "Algo/Transform.h"
+#include "AssetRegistry/IAssetRegistry.h"
+#include "CollectionManagerModule.h"
+#include "CollectionManagerTypes.h"
+#include "Containers/Array.h"
+#include "Containers/Map.h"
+#include "Containers/Set.h"
+#include "Containers/UnrealString.h"
+#include "Delegates/Delegate.h"
+#include "HAL/IConsoleManager.h"
+#include "HAL/Platform.h"
+#include "ICollectionManager.h"
+#include "Misc/OutputDevice.h"
+#include "Misc/PackageName.h"
+#include "Templates/Function.h"
+#include "Templates/Greater.h"
+#include "Templates/Tuple.h"
+#include "UObject/NameTypes.h"
+
+class UWorld;
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -42,27 +53,25 @@ FAutoConsoleCommandWithWorldArgsAndOutputDevice GDiffCollectionReferenceSupport(
 
 	const bool bExcludeSecondInstanceOfMultiSupported = (Params.Num() >= 3) ? Params[2].ToBool() : true;
 
-	TArray<FName> OldPaths;
+	TArray<FSoftObjectPath> OldPaths;
 	if (!CollectionManager.GetAssetsInCollection(FName(*Params[0]), ECollectionShareType::CST_All, /*out*/ OldPaths))
 	{
 		Ar.Log(FString::Printf(TEXT("Failed to find collection %s"), *Params[0]));
 		return;
 	}
 
-	TArray<FName> NewPaths;
+	TArray<FSoftObjectPath> NewPaths;
 	if (!CollectionManager.GetAssetsInCollection(FName(*Params[1]), ECollectionShareType::CST_All, /*out*/ NewPaths))
 	{
 		Ar.Log(FString::Printf(TEXT("Failed to find collection %s"), *Params[1]));
 		return;
 	}
 
-	auto ToPackageName = [](FName ObjectName) { return FName(*FPackageName::ObjectPathToPackageName(ObjectName.ToString())); };
-
 	TSet<FName> OldPathSet;
-	Algo::Transform(OldPaths, OldPathSet, ToPackageName);
+	Algo::Transform(OldPaths, OldPathSet, &FSoftObjectPath::GetLongPackageFName);
 
 	TSet<FName> NewPathSet;
-	Algo::Transform(NewPaths, NewPathSet, ToPackageName);
+	Algo::Transform(NewPaths, NewPathSet, &FSoftObjectPath::GetLongPackageFName);
 
 	TSet<FName> IntroducedAssetSet = NewPathSet.Difference(OldPathSet);
 

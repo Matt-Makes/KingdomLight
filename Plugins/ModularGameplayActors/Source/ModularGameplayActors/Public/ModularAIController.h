@@ -3,7 +3,12 @@
 #pragma once
 
 #include "AIController.h"
+#include "Engine/EngineTypes.h"
+#include "UObject/UObjectGlobals.h"
+
 #include "ModularAIController.generated.h"
+
+class UObject;
 
 /** Minimal class that supports extension by game feature plugins */
 UCLASS(Blueprintable)

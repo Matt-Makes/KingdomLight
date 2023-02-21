@@ -2,8 +2,15 @@
 
 #pragma once
 
+#include "Containers/Array.h"
+#include "Containers/UnrealString.h"
 #include "EditorValidator.h"
+#include "UObject/UObjectGlobals.h"
+
 #include "EditorValidator_Load.generated.h"
+
+class FText;
+class UObject;
 
 UCLASS()
 class UEditorValidator_Load : public UEditorValidator

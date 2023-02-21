@@ -2,26 +2,27 @@
 
 #pragma once
 
-#include "UObject/SoftObjectPtr.h"
-#include "UObject/StrongObjectPtr.h"
-#include "UObject/WeakInterfacePtr.h"
-#include "UObject/Interface.h"
+#include "Containers/Array.h"
+#include "Containers/Map.h"
+#include "CoreTypes.h"
+#include "Delegates/Delegate.h"
 #include "GameplayTagContainer.h"
-#include "Templates/SubclassOf.h"
-#include "Subsystems/LocalPlayerSubsystem.h"
-#include "Subsystems/WorldSubsystem.h"
-#include "Subsystems/GameInstanceSubsystem.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
+#include "Subsystems/WorldSubsystem.h"
+#include "Templates/SharedPointer.h"
+#include "Templates/SubclassOf.h"
+#include "Templates/TypeHash.h"
+#include "UObject/Class.h"
+#include "UObject/Object.h"
+#include "UObject/UObjectGlobals.h"
+#include "UObject/WeakObjectPtr.h"
+#include "UObject/WeakObjectPtrTemplates.h"
 
 #include "UIExtensionSystem.generated.h"
 
-class ULevel;
-class UWorld;
-class UUIExtension;
-struct FUIExtension;
-struct FUIExtensionHandle;
-struct FUIExtensionRequest;
-class UUIExtensionSubsystem;
+class FSubsystemCollectionBase;
+class UUserWidget;
+struct FFrame;
 
 // Match rule for extension points
 UENUM(BlueprintType)
@@ -45,6 +46,20 @@ enum class EUIExtensionAction : uint8
 };
 
 DECLARE_DELEGATE_TwoParams(FExtendExtensionPointDelegate, EUIExtensionAction Action, const FUIExtensionRequest& Request);
+
+/*
+ *
+ */
+struct FUIExtension : TSharedFromThis<FUIExtension>
+{
+public:
+	/** The extension point this extension is intended for. */
+	FGameplayTag ExtensionPointTag;
+	int32 Priority = INDEX_NONE;
+	TWeakObjectPtr<UObject> ContextObject;
+	//Kept alive by UUIExtensionSubsystem::AddReferencedObjects
+	UObject* Data = nullptr;
+};
 
 /**
  * 
@@ -104,20 +119,6 @@ struct TStructOpsTypeTraits<FUIExtensionPointHandle> : public TStructOpsTypeTrai
 		WithCopy = true,  // This ensures the opaque type is copied correctly in BPs
 		WithIdenticalViaEquality = true,
 	};
-};
-
-/*
- * 
- */
-struct FUIExtension : TSharedFromThis<FUIExtension>
-{
-public:
-	/** The extension point this extension is intended for. */
-	FGameplayTag ExtensionPointTag;
-	int32 Priority = INDEX_NONE;
-	TWeakObjectPtr<UObject> ContextObject;
-	//Kept alive by UUIExtensionSubsystem::AddReferencedObjects
-	UObject* Data = nullptr;
 };
 
 /**
@@ -182,10 +183,10 @@ public:
 	int32 Priority = INDEX_NONE;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	UObject* Data = nullptr;
+	TObjectPtr<UObject> Data = nullptr;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	UObject* ContextObject = nullptr;
+	TObjectPtr<UObject> ContextObject = nullptr;
 };
 
 DECLARE_DYNAMIC_DELEGATE_TwoParams(FExtendExtensionPointDynamicDelegate, EUIExtensionAction, Action, const FUIExtensionRequest&, ExtensionRequest);

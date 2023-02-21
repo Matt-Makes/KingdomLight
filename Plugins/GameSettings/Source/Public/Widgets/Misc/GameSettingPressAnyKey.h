@@ -2,9 +2,16 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
 #include "CommonActivatableWidget.h"
+#include "Delegates/Delegate.h"
+#include "InputCoreTypes.h"
+#include "Templates/Function.h"
+#include "Templates/SharedPointer.h"
+#include "UObject/UObjectGlobals.h"
+
 #include "GameSettingPressAnyKey.generated.h"
+
+class UObject;
 
 /**
  * 

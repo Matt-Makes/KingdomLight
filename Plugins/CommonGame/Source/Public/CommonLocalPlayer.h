@@ -2,12 +2,20 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
+#include "Delegates/Delegate.h"
 #include "Engine/LocalPlayer.h"
+#include "HAL/Platform.h"
+#include "UObject/UObjectGlobals.h"
 
 #include "CommonLocalPlayer.generated.h"
 
+class APawn;
+class APlayerController;
+class APlayerState;
+class FViewport;
+class UObject;
 class UPrimaryGameLayout;
+struct FSceneViewProjectionData;
 
 UCLASS(config=Engine, transient)
 class COMMONGAME_API UCommonLocalPlayer : public ULocalPlayer

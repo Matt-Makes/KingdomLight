@@ -2,14 +2,22 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
+#include "Containers/Array.h"
+#include "Engine/World.h"
+#include "HAL/Platform.h"
+#include "Misc/AssertionMacros.h"
+#include "Templates/Casts.h"
+#include "Templates/SubclassOf.h"
+#include "UObject/Object.h"
+#include "UObject/SoftObjectPtr.h"
+#include "UObject/UObjectGlobals.h"
 
 #include "GameUIPolicy.generated.h"
 
-class ULocalPlayer;
 class UCommonLocalPlayer;
-class UPrimaryGameLayout;
 class UGameUIManagerSubsystem;
+class ULocalPlayer;
+class UPrimaryGameLayout;
 
 /**
  * 
@@ -33,10 +41,10 @@ struct FRootViewportLayoutInfo
 	GENERATED_BODY()
 public:
 	UPROPERTY(Transient)
-	ULocalPlayer* LocalPlayer = nullptr;
+	TObjectPtr<ULocalPlayer> LocalPlayer = nullptr;
 
 	UPROPERTY(Transient)
-	UPrimaryGameLayout* RootLayout = nullptr;
+	TObjectPtr<UPrimaryGameLayout> RootLayout = nullptr;
 
 	UPROPERTY(Transient)
 	bool bAddedToViewport = false;

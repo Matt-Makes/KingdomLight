@@ -2,17 +2,32 @@
 
 #pragma once
 
-#include "CommonUserWidget.h"
-#include "Widgets/CommonActivatableWidgetContainer.h"
-#include "GameplayTagContainer.h"
-#include "Engine/AssetManager.h"
+#include "CommonActivatableWidget.h"
 #include "CommonUIExtensions.h"
+#include "CommonUserWidget.h"
+#include "Containers/Array.h"
+#include "Containers/Map.h"
+#include "Engine/AssetManager.h"
+#include "Engine/StreamableManager.h"
+#include "GameplayTagContainer.h"
+#include "HAL/Platform.h"
+#include "Templates/Function.h"
+#include "Templates/SharedPointer.h"
+#include "Templates/UnrealTypeTraits.h"
+#include "UObject/NameTypes.h"
+#include "UObject/SoftObjectPtr.h"
+#include "UObject/UObjectGlobals.h"
+#include "UObject/UnrealNames.h"
+#include "Widgets/CommonActivatableWidgetContainer.h"
 
 #include "PrimaryGameLayout.generated.h"
 
-class UCommonActivatableWidget;
-class UCommonActivatableWidgetStack;
+class APlayerController;
+class UClass;
 class UCommonActivatableWidgetContainerBase;
+class ULocalPlayer;
+class UObject;
+struct FFrame;
 
 /**
  * The state of an async load operation for the UI.
@@ -129,5 +144,5 @@ private:
 
 	// The registered layers for the primary layout.
 	UPROPERTY(Transient, meta = (Categories = "UI.Layer"))
-	TMap<FGameplayTag, UCommonActivatableWidgetContainerBase*> Layers;
+	TMap<FGameplayTag, TObjectPtr<UCommonActivatableWidgetContainerBase>> Layers;
 };

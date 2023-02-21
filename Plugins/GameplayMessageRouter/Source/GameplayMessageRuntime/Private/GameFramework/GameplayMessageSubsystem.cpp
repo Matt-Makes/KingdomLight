@@ -3,6 +3,8 @@
 #include "GameFramework/GameplayMessageSubsystem.h"
 #include "Engine/Engine.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(GameplayMessageSubsystem)
+
 DEFINE_LOG_CATEGORY(LogGameplayMessageSubsystem);
 
 namespace UE
@@ -182,3 +184,4 @@ void UGameplayMessageSubsystem::UnregisterListenerInternal(FGameplayTag Channel,
 		}
 	}
 }
+

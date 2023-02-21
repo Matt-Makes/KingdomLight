@@ -2,10 +2,18 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
+#include "AbilitySystemComponent.h"
+#include "AttributeSet.h"
 #include "LyraAttributeSet.h"
+#include "Misc/AssertionMacros.h"
 #include "NativeGameplayTags.h"
+#include "UObject/Class.h"
+#include "UObject/UObjectGlobals.h"
+
 #include "LyraHealthSet.generated.h"
+
+class UObject;
+struct FFrame;
 
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Gameplay_Damage);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Gameplay_DamageImmunity);
@@ -34,6 +42,7 @@ public:
 	ATTRIBUTE_ACCESSORS(ULyraHealthSet, Health);
 	ATTRIBUTE_ACCESSORS(ULyraHealthSet, MaxHealth);
 	ATTRIBUTE_ACCESSORS(ULyraHealthSet, Healing);
+	ATTRIBUTE_ACCESSORS(ULyraHealthSet, Damage);
 
 	// Delegate to broadcast when the health attribute reaches zero.
 	mutable FLyraAttributeEvent OnOutOfHealth;

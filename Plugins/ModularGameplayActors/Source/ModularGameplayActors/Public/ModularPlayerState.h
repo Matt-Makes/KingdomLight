@@ -2,8 +2,13 @@
 
 #pragma once
 
+#include "Engine/EngineTypes.h"
 #include "GameFramework/PlayerState.h"
+#include "UObject/UObjectGlobals.h"
+
 #include "ModularPlayerState.generated.h"
+
+class UObject;
 
 /** Minimal class that supports extension by game feature plugins */
 UCLASS(Blueprintable)

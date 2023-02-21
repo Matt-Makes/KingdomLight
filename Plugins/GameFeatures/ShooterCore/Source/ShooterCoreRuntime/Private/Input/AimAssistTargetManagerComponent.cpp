@@ -15,6 +15,8 @@
 #include "ShooterCoreRuntimeSettings.h"
 #include "DrawDebugHelpers.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(AimAssistTargetManagerComponent)
+
 namespace LyraConsoleVariables
 {
 	static bool bDrawDebugViewfinder = false;

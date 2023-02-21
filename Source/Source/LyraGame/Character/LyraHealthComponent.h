@@ -2,14 +2,18 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
 #include "Components/GameFrameworkComponent.h"
-#include "Character/LyraPawnComponent.h"
-#include "LyraHealthComponent.generated.h"
+#include "Delegates/Delegate.h"
+#include "GameFramework/Actor.h"
+#include "HAL/Platform.h"
+#include "UObject/UObjectGlobals.h"
 
+#include "LyraHealthComponent.generated.h"
 
 class ULyraAbilitySystemComponent;
 class ULyraHealthSet;
+class UObject;
+struct FFrame;
 struct FGameplayEffectSpec;
 struct FOnAttributeChangeData;
 
@@ -120,11 +124,11 @@ protected:
 
 	// Ability system used by this component.
 	UPROPERTY()
-	ULyraAbilitySystemComponent* AbilitySystemComponent;
+	TObjectPtr<ULyraAbilitySystemComponent> AbilitySystemComponent;
 
 	// Health set used by this component.
 	UPROPERTY()
-	const ULyraHealthSet* HealthSet;
+	TObjectPtr<const ULyraHealthSet> HealthSet;
 
 	// Replicated state used to handle dying.
 	UPROPERTY(ReplicatedUsing = OnRep_DeathState)

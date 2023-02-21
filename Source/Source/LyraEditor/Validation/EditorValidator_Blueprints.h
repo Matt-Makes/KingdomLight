@@ -2,8 +2,14 @@
 
 #pragma once
 
+#include "Containers/Array.h"
 #include "EditorValidator.h"
+#include "UObject/UObjectGlobals.h"
+
 #include "EditorValidator_Blueprints.generated.h"
+
+class FText;
+class UObject;
 
 UCLASS()
 class UEditorValidator_Blueprints : public UEditorValidator

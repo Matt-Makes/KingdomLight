@@ -9,6 +9,8 @@
 #include "Player/LyraPlayerState.h"
 #include "Settings/LyraSettingsShared.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(AimAssistInputModifier)
+
 #if ENABLE_DRAW_DEBUG
 #include "Engine/Canvas.h"
 #include "Debug/DebugDrawService.h"

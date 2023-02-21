@@ -10,6 +10,8 @@
 #include "GameSettingRegistry.h"
 #include "GameSettingCollection.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(GameSettingListView)
+
 #if WITH_EDITOR
 #include "Editor/WidgetCompilerLog.h"
 #endif

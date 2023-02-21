@@ -1,14 +1,25 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "Actions/AsyncAction_CreateWidgetAsync.h"
-#include "Engine/AssetManager.h"
-#include "Engine/StreamableManager.h"
+
 #include "Blueprint/WidgetBlueprintLibrary.h"
+#include "CommonUIExtensions.h"
+#include "Engine/AssetManager.h"
 #include "Engine/Engine.h"
 #include "Engine/GameInstance.h"
-#include "Engine/LocalPlayer.h"
-#include "CommonInputSubsystem.h"
-#include "CommonUIExtensions.h"
+#include "Engine/StreamableManager.h"
+#include "Engine/World.h"
+#include "GameFramework/PlayerController.h"
+#include "HAL/Platform.h"
+#include "Logging/LogVerbosity.h"
+#include "Templates/SubclassOf.h"
+#include "UObject/Stack.h"
+#include "UObject/UnrealNames.h"
+#include "UObject/WeakObjectPtr.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(AsyncAction_CreateWidgetAsync)
+
+class UUserWidget;
 
 static const FName InputFilterReason_Template = FName(TEXT("CreatingWidgetAsync"));
 
@@ -89,3 +100,4 @@ void UAsyncAction_CreateWidgetAsync::OnWidgetLoaded()
 
 	SetReadyToDestroy();
 }
+

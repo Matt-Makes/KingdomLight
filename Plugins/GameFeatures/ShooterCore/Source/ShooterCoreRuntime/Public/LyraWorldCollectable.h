@@ -2,11 +2,16 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
+#include "Interaction/IInteractableTarget.h"
 #include "Interaction/InteractionOption.h"
-#include "Interaction//IInteractableTarget.h"
 #include "Inventory/IPickupable.h"
+#include "UObject/UObjectGlobals.h"
+
 #include "LyraWorldCollectable.generated.h"
+
+class UObject;
+struct FInteractionQuery;
 
 /**
  * 

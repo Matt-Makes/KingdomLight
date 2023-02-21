@@ -2,11 +2,18 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "UObject/ObjectMacros.h"
+#include "Containers/Array.h"
+#include "Containers/UnrealString.h"
+#include "CoreTypes.h"
 #include "GameSettingValue.h"
+#include "Internationalization/Text.h"
+#include "Misc/AssertionMacros.h"
+#include "UObject/UObjectGlobals.h"
 
 #include "GameSettingValueDiscrete.generated.h"
+
+class UObject;
+struct FFrame;
 
 UCLASS(Abstract)
 class GAMESETTINGS_API UGameSettingValueDiscrete : public UGameSettingValue

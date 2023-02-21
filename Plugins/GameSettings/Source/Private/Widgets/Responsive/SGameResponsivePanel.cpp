@@ -1,11 +1,20 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "SGameResponsivePanel.h"
-#include "Widgets/Layout/SGridPanel.h"
+
+#include "Framework/Application/SlateApplication.h"
 #include "HAL/PlatformApplicationMisc.h"
+#include "Layout/ArrangedChildren.h"
+#include "Layout/Children.h"
+#include "Layout/ChildrenBase.h"
+#include "Layout/Geometry.h"
+#include "Math/IntPoint.h"
+#include "Math/UnrealMathSSE.h"
 #include "Rendering/RenderingCommon.h"
+#include "Widgets/InvalidateWidgetReason.h"
+#include "Widgets/Layout/SGridPanel.h"
 #include "Widgets/SViewport.h"
-#include "Layout/LayoutUtils.h"
+#include "Widgets/SWidget.h"
 
 #define LOCTEXT_NAMESPACE "GameSetting"
 

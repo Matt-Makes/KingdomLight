@@ -1,12 +1,21 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "PocketLevelInstance.h"
-#include "PocketLevel.h"
-#include "Engine/LevelStreamingDynamic.h"
+
+#include "Containers/Array.h"
 #include "Engine/Level.h"
+#include "Engine/LevelStreaming.h"
+#include "Engine/LevelStreamingDynamic.h"
 #include "Engine/LocalPlayer.h"
 #include "GameFramework/Actor.h"
 #include "GameFramework/PlayerController.h"
+#include "Math/Rotator.h"
+#include "Math/Sphere.h"
+#include "Math/Vector.h"
+#include "PocketLevel.h"
+#include "UObject/SoftObjectPtr.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(PocketLevelInstance)
 
 UPocketLevelInstance::UPocketLevelInstance()
 {
@@ -129,3 +138,4 @@ void UPocketLevelInstance::HandlePocketLevelShown()
 {
 	OnReadyEvent.Broadcast(this);
 }
+

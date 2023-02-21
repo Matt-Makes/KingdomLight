@@ -2,12 +2,16 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "UObject/ObjectMacros.h"
 #include "Commandlets/Commandlet.h"
+#include "Containers/Array.h"
+#include "Containers/UnrealString.h"
+#include "HAL/Platform.h"
+#include "UObject/UObjectGlobals.h"
+
 #include "ContentValidationCommandlet.generated.h"
 
 class IAssetRegistry;
+class UObject;
 
 UCLASS()
 class UContentValidationCommandlet : public UCommandlet

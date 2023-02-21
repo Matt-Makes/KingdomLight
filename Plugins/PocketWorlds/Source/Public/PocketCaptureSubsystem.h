@@ -2,14 +2,20 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "Subsystems/GameInstanceSubsystem.h"
+#include "Containers/Array.h"
 #include "Containers/Ticker.h"
 #include "Subsystems/WorldSubsystem.h"
+#include "Templates/SubclassOf.h"
+#include "UObject/UObjectGlobals.h"
+#include "UObject/WeakObjectPtrTemplates.h"
+
 #include "PocketCaptureSubsystem.generated.h"
 
-class ULevel;
-class UWorld;
+class FSubsystemCollectionBase;
+class UObject;
+class UPocketCapture;
+class UPrimitiveComponent;
+struct FFrame;
 
 UCLASS(BlueprintType)
 class POCKETWORLDS_API UPocketCaptureSubsystem : public UWorldSubsystem

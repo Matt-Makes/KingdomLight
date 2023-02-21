@@ -2,12 +2,16 @@
 
 #pragma once
 
-#include "UObject/ObjectMacros.h"
+#include "Delegates/Delegate.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "SubtitleDisplayOptions.h"
+#include "UObject/UObjectGlobals.h"
+
 #include "SubtitleDisplaySubsystem.generated.h"
 
+class FSubsystemCollectionBase;
 class ULocalPlayer;
+class UObject;
 
 USTRUCT(BlueprintType)
 struct GAMESUBTITLES_API FSubtitleFormat

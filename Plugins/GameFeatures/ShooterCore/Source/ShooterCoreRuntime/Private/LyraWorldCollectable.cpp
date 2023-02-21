@@ -1,7 +1,12 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "LyraWorldCollectable.h"
-#include "EngineUtils.h"
+
+#include "Interaction/IInteractableTarget.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(LyraWorldCollectable)
+
+struct FInteractionQuery;
 
 ALyraWorldCollectable::ALyraWorldCollectable()
 {

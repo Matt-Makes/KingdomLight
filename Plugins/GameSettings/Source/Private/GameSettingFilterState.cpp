@@ -5,6 +5,8 @@
 #include "Misc/TextFilterUtils.h"
 #include "GameSetting.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(GameSettingFilterState)
+
 #define LOCTEXT_NAMESPACE "GameSetting"
 
 class FSettingFilterExpressionContext : public ITextFilterExpressionContext
@@ -149,3 +151,4 @@ void FGameSettingEditableState::UnableToReset()
 }
 
 #undef LOCTEXT_NAMESPACE
+

@@ -2,18 +2,35 @@
 
 #include "Widgets/GameSettingListEntry.h"
 
-#include "CommonTextBlock.h"
-#include "CommonButtonBase.h"
-#include "CommonRichTextBlock.h"
-
-#include "GameSettingValueDiscrete.h"
-#include "CommonRotator.h"
-#include "GameSettingValueScalar.h"
 #include "AnalogSlider.h"
+#include "Blueprint/UserWidget.h"
+#include "CommonButtonBase.h"
+#include "CommonInputBaseTypes.h"
+#include "CommonInputSubsystem.h"
+#include "CommonRotator.h"
+#include "CommonTextBlock.h"
+#include "Components/PanelWidget.h"
+#include "Components/Slider.h"
+#include "Components/Widget.h"
+#include "Containers/Array.h"
+#include "Delegates/Delegate.h"
+#include "GameSetting.h"
 #include "GameSettingAction.h"
-#include "Widgets/GameSettingListView.h"
 #include "GameSettingCollection.h"
+#include "GameSettingValueDiscrete.h"
+#include "GameSettingValueScalar.h"
+#include "Input/Events.h"
+#include "Misc/AssertionMacros.h"
+#include "Misc/Optional.h"
+#include "Templates/Casts.h"
+#include "Templates/SharedPointer.h"
+#include "Templates/UnrealTemplate.h"
 #include "Widgets/Misc/GameSettingRotator.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(GameSettingListEntry)
+
+class SWidget;
+struct FGeometry;
 
 #define LOCTEXT_NAMESPACE "GameSetting"
 

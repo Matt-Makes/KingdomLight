@@ -2,10 +2,13 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
 #include "Components/CapsuleComponent.h"
 #include "IAimAssistTargetInterface.h"
+#include "UObject/UObjectGlobals.h"
+
 #include "AimAssistTargetComponent.generated.h"
+
+class UObject;
 
 /**
  * This component can be added to any actor to have it register with the Aim Assist Target Manager.

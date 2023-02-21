@@ -68,11 +68,11 @@ private:
 	FTextFilterExpressionEvaluator SearchTextEvaluator;
 
 	UPROPERTY()
-	TArray<UGameSetting*> SettingRootList;
+	TArray<TObjectPtr<UGameSetting>> SettingRootList;
 
 	// If this is non-empty, then only settings in here are allowed
 	UPROPERTY()
-	TArray<UGameSetting*> SettingAllowList;
+	TArray<TObjectPtr<UGameSetting>> SettingAllowList;
 };
 
 /**

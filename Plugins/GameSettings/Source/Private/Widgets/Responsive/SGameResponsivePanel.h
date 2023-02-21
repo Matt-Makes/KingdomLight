@@ -2,14 +2,19 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "UObject/ObjectMacros.h"
-#include "Widgets/SWidget.h"
-#include "Widgets/SBoxPanel.h"
-#include "Components/PanelWidget.h"
+#include "Containers/Array.h"
+#include "HAL/Platform.h"
+#include "Layout/Visibility.h"
+#include "Math/Vector2D.h"
+#include "Misc/Attribute.h"
+#include "Templates/SharedPointer.h"
+#include "Widgets/DeclarativeSyntaxSupport.h"
 #include "Widgets/Layout/SGridPanel.h"
+#include "Widgets/SCompoundWidget.h"
 
-class UGameResponsivePanelSlot;
+class FArrangedChildren;
+class SWidget;
+struct FGeometry;
 
 class SGameResponsivePanel : public SCompoundWidget
 {

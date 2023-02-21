@@ -1,8 +1,10 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "EditCondition/WhenPlatformHasTrait.h"
-#include "GameSettingFilterState.h"
+
 #include "CommonUIVisibilitySubsystem.h"
+#include "GameSettingFilterState.h"
+#include "Misc/AssertionMacros.h"
 
 #define LOCTEXT_NAMESPACE "GameSetting"
 

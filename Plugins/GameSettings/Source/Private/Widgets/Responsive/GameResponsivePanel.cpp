@@ -5,6 +5,8 @@
 #include "Widgets/Layout/SGridPanel.h"
 #include "HAL/PlatformApplicationMisc.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(GameResponsivePanel)
+
 #define LOCTEXT_NAMESPACE "GameSetting"
 
 /////////////////////////////////////////////////////
@@ -14,7 +16,7 @@ UGameResponsivePanel::UGameResponsivePanel(const FObjectInitializer& ObjectIniti
 	: Super(ObjectInitializer)
 {
 	bIsVariable = false;
-	Visibility = ESlateVisibility::SelfHitTestInvisible;
+	SetVisibility(ESlateVisibility::SelfHitTestInvisible);
 }
 
 void UGameResponsivePanel::ReleaseSlateResources(bool bReleaseChildren)
@@ -86,3 +88,4 @@ const FText UGameResponsivePanel::GetPaletteCategory()
 /////////////////////////////////////////////////////
 
 #undef LOCTEXT_NAMESPACE
+

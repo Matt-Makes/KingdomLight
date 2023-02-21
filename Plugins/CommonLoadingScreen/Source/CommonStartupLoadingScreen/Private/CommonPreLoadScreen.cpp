@@ -1,9 +1,11 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "CommonPreLoadScreen.h"
-#include "SCommonPreLoadingScreenWidget.h"
-#include "Misc/App.h"
+
 #include "CoreGlobals.h"
+#include "Misc/App.h"
+#include "SCommonPreLoadingScreenWidget.h"
+#include "Widgets/DeclarativeSyntaxSupport.h"
 
 #define LOCTEXT_NAMESPACE "CommonPreLoadingScreen"
 

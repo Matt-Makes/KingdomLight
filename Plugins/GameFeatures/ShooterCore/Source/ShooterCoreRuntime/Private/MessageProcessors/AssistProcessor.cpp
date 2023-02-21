@@ -1,11 +1,19 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "MessageProcessors/AssistProcessor.h"
+
 #include "GameFramework/GameplayMessageSubsystem.h"
-#include "NativeGameplayTags.h"
+#include "GameFramework/PlayerState.h"
+#include "GameplayTagContainer.h"
 #include "Messages/LyraVerbMessage.h"
 #include "Messages/LyraVerbMessageHelpers.h"
-#include "GameFramework/PlayerState.h"
+#include "NativeGameplayTags.h"
+#include "Templates/Casts.h"
+#include "Templates/Tuple.h"
+#include "UObject/NameTypes.h"
+#include "UObject/ObjectPtr.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(AssistProcessor)
 
 UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_Lyra_Elimination_Message, "Lyra.Elimination.Message");
 UE_DEFINE_GAMEPLAY_TAG_STATIC(TAG_Lyra_Damage_Message, "Lyra.Damage.Message");
@@ -69,3 +77,4 @@ void UAssistProcessor::OnEliminationMessage(FGameplayTag Channel, const FLyraVer
 		}
 	}
 }
+
