@@ -2,20 +2,15 @@
 
 #pragma once
 
-#include "CommonInputBaseTypes.h"
-#include "Containers/Array.h"
-#include "Containers/Map.h"
-#include "Containers/UnrealString.h"
-#include "Delegates/Delegate.h"
 #include "GameFramework/GameUserSettings.h"
 #include "Input/LyraMappableConfigPair.h"
 #include "InputCoreTypes.h"
-#include "Performance/LyraPerformanceStatTypes.h"
-#include "Scalability.h"
-#include "UObject/NameTypes.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraSettingsLocal.generated.h"
+
+enum class ECommonInputType : uint8;
+enum class ELyraDisplayablePerformanceStat : uint8;
+enum class ELyraStatDisplayMode : uint8;
 
 class ULyraLocalPlayer;
 class UObject;

@@ -2,10 +2,8 @@
 
 #pragma once
 
-#include "Internationalization/Text.h"
 #include "Inventory/LyraInventoryItemDefinition.h"
 #include "Styling/SlateBrush.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "InventoryFragment_QuickBarIcon.generated.h"
 

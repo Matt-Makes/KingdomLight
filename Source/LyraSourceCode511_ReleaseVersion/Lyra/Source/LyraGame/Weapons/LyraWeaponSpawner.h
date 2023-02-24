@@ -2,15 +2,11 @@
 
 #pragma once
 
-#include "Engine/EngineTypes.h"
 #include "GameFramework/Actor.h"
-#include "GameplayTagContainer.h"
-#include "HAL/Platform.h"
-#include "Math/Transform.h"
-#include "Templates/SubclassOf.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraWeaponSpawner.generated.h"
+
+namespace EEndPlayReason { enum Type : int; }
 
 class APawn;
 class UCapsuleComponent;

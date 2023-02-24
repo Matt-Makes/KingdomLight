@@ -2,19 +2,11 @@
 
 #pragma once
 
-#include "Abilities/GameplayAbilityTargetTypes.h"
-#include "Containers/Array.h"
-#include "Delegates/IDelegateInstance.h"
-#include "Engine/EngineTypes.h"
-#include "Engine/HitResult.h"
 #include "Equipment/LyraGameplayAbility_FromEquipment.h"
-#include "GameplayAbilitySpec.h"
-#include "Math/Transform.h"
-#include "Math/UnrealMathSSE.h"
-#include "Math/Vector.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraGameplayAbility_RangedWeapon.generated.h"
+
+enum ECollisionChannel : int;
 
 class APawn;
 class ULyraRangedWeaponInstance;

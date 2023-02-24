@@ -3,8 +3,6 @@
 #pragma once
 
 #include "Engine/DataAsset.h"
-#include "UObject/SoftObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraGameData.generated.h"
 

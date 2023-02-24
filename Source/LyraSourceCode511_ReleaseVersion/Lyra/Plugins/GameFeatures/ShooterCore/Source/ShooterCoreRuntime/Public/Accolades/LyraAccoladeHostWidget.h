@@ -5,12 +5,7 @@
 #include "Accolades/LyraAccoladeDefinition.h"
 #include "AsyncMixin.h"
 #include "CommonUserWidget.h"
-#include "Containers/Array.h"
-#include "Engine/EngineTypes.h"
 #include "GameFramework/GameplayMessageSubsystem.h"
-#include "GameplayTagContainer.h"
-#include "HAL/Platform.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraAccoladeHostWidget.generated.h"
 

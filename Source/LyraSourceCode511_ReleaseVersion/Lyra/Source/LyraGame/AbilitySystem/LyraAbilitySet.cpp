@@ -2,20 +2,9 @@
 
 #include "LyraAbilitySet.h"
 
-#include "Abilities/LyraGameplayAbility.h"
-#include "AttributeSet.h"
-#include "Containers/UnrealString.h"
-#include "GameFramework/Actor.h"
-#include "GameplayEffect.h"
-#include "Logging/LogCategory.h"
-#include "Logging/LogMacros.h"
+#include "AbilitySystem/Abilities/LyraGameplayAbility.h"
 #include "LyraAbilitySystemComponent.h"
 #include "LyraLogChannels.h"
-#include "Misc/AssertionMacros.h"
-#include "Templates/ChooseClass.h"
-#include "Trace/Detail/Channel.h"
-#include "UObject/Object.h"
-#include "UObject/UObjectBaseUtility.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraAbilitySet)
 

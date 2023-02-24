@@ -2,23 +2,11 @@
 
 #include "LyraCameraComponent.h"
 
-#include "Camera/CameraTypes.h"
-#include "Containers/EnumAsByte.h"
-#include "Containers/UnrealString.h"
 #include "Engine/Canvas.h"
 #include "Engine/Engine.h"
-#include "Engine/Scene.h"
 #include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerController.h"
 #include "LyraCameraMode.h"
-#include "Math/Color.h"
-#include "Math/Rotator.h"
-#include "Math/UnrealMathSSE.h"
-#include "Math/Vector.h"
-#include "Misc/AssertionMacros.h"
-#include "Templates/Casts.h"
-#include "Templates/SubclassOf.h"
-#include "UObject/UObjectBaseUtility.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraCameraComponent)
 

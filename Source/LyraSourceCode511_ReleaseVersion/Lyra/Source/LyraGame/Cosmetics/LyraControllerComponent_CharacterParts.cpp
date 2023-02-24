@@ -1,10 +1,11 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "Cosmetics/LyraControllerComponent_CharacterParts.h"
+#include "Cosmetics/LyraCharacterPartTypes.h"
 #include "Cosmetics/LyraPawnComponent_CharacterParts.h"
-#include "GameFramework/Controller.h"
+#include "GameFramework/CheatManagerDefines.h"
 #include "LyraCosmeticDeveloperSettings.h"
-#include "GameFramework/CheatManager.h"
+#include "GameFramework/Pawn.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraControllerComponent_CharacterParts)
 

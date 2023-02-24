@@ -2,15 +2,7 @@
 
 #pragma once
 
-#include "Containers/Array.h"
-#include "Containers/Map.h"
-#include "Engine/EngineTypes.h"
 #include "LyraNumberPopComponent.h"
-#include "Math/Color.h"
-#include "Math/Transform.h"
-#include "Math/UnrealMathSSE.h"
-#include "UObject/NameTypes.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraNumberPopComponent_MeshText.generated.h"
 

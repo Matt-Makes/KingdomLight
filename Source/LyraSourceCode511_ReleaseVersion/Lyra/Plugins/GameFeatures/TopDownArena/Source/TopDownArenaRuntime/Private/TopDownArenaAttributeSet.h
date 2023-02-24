@@ -4,10 +4,6 @@
 
 #include "AbilitySystem/Attributes/LyraAttributeSet.h"
 #include "AbilitySystemComponent.h"
-#include "AttributeSet.h"
-#include "Misc/AssertionMacros.h"
-#include "UObject/Class.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "TopDownArenaAttributeSet.generated.h"
 

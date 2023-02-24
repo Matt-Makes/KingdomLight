@@ -2,12 +2,7 @@
 
 #include "LyraActorUtilities.h"
 
-#include "Components/ActorComponent.h"
-#include "Engine/EngineBaseTypes.h"
 #include "GameFramework/Actor.h"
-#include "Misc/AssertionMacros.h"
-#include "Templates/Casts.h"
-#include "UObject/Object.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraActorUtilities)
 

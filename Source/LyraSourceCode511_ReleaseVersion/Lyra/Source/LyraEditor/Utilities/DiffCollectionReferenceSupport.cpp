@@ -1,24 +1,11 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "Algo/Sort.h"
-#include "Algo/Transform.h"
 #include "AssetRegistry/IAssetRegistry.h"
 #include "CollectionManagerModule.h"
-#include "CollectionManagerTypes.h"
-#include "Containers/Array.h"
-#include "Containers/Map.h"
-#include "Containers/Set.h"
-#include "Containers/UnrealString.h"
-#include "Delegates/Delegate.h"
 #include "HAL/IConsoleManager.h"
-#include "HAL/Platform.h"
 #include "ICollectionManager.h"
-#include "Misc/OutputDevice.h"
-#include "Misc/PackageName.h"
-#include "Templates/Function.h"
 #include "Templates/Greater.h"
-#include "Templates/Tuple.h"
-#include "UObject/NameTypes.h"
+#include "UObject/SoftObjectPath.h"
 
 class UWorld;
 

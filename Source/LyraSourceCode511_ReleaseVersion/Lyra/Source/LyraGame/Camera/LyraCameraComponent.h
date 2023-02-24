@@ -3,9 +3,7 @@
 #pragma once
 
 #include "Camera/CameraComponent.h"
-#include "Delegates/Delegate.h"
 #include "GameFramework/Actor.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraCameraComponent.generated.h"
 

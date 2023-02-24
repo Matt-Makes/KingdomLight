@@ -3,8 +3,6 @@
 #pragma once
 
 #include "Engine/DeveloperSettingsBackedByCVars.h"
-#include "UObject/NameTypes.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraWeaponDebugSettings.generated.h"
 

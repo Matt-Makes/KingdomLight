@@ -5,9 +5,6 @@
 #include "Engine/DataAsset.h"
 #include "Engine/DataTable.h"
 #include "GameplayTagContainer.h"
-#include "Internationalization/Text.h"
-#include "UObject/SoftObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraAccoladeDefinition.generated.h"
 

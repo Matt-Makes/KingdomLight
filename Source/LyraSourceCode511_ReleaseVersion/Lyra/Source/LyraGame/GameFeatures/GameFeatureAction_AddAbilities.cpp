@@ -1,14 +1,12 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "GameFeatureAction_AddAbilities.h"
-#include "GameFeaturesSubsystem.h"
+#include "Engine/GameInstance.h"
 #include "Components/GameFrameworkComponentManager.h"
-#include "GameFeaturesSubsystemSettings.h"
-#include "Engine/AssetManager.h"
-#include "AbilitySystemComponent.h"
-#include "AttributeSet.h"
 #include "AbilitySystem/LyraAbilitySystemComponent.h"
+#include "Engine/World.h"
 #include "Player/LyraPlayerState.h" //@TODO: For the fname
+#include "GameFeatures/GameFeatureAction_WorldActionBase.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(GameFeatureAction_AddAbilities)
 

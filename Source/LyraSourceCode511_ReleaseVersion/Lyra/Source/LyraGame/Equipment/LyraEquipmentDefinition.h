@@ -2,13 +2,7 @@
 
 #pragma once
 
-#include "Containers/Array.h"
-#include "Math/Transform.h"
 #include "Templates/SubclassOf.h"
-#include "UObject/NameTypes.h"
-#include "UObject/Object.h"
-#include "UObject/ObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraEquipmentDefinition.generated.h"
 

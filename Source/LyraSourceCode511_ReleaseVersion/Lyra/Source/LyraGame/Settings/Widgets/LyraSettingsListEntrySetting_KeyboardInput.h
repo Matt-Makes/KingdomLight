@@ -2,14 +2,11 @@
 
 #pragma once
 
-#include "HAL/Platform.h"
-#include "InputCoreTypes.h"
-#include "Templates/SubclassOf.h"
-#include "UObject/UObjectGlobals.h"
 #include "Widgets/GameSettingListEntry.h"
-#include "Widgets/Misc/KeyAlreadyBoundWarning.h"
 
 #include "LyraSettingsListEntrySetting_KeyboardInput.generated.h"
+
+class UKeyAlreadyBoundWarning;
 
 class UGameSetting;
 class UGameSettingPressAnyKey;

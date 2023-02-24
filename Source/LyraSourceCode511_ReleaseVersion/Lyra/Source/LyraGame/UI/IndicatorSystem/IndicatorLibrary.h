@@ -3,7 +3,6 @@
 #pragma once
 
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "IndicatorLibrary.generated.h"
 

@@ -2,7 +2,6 @@
 
 #include "ApplyFrontendPerfSettingsAction.h"
 
-#include "Misc/AssertionMacros.h"
 #include "Settings/LyraSettingsLocal.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(ApplyFrontendPerfSettingsAction)

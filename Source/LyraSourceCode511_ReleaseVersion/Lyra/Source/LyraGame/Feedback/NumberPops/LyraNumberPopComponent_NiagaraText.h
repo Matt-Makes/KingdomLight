@@ -2,10 +2,7 @@
 
 #pragma once
 
-#include "Containers/Array.h"
-#include "HAL/Platform.h"
 #include "LyraNumberPopComponent.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraNumberPopComponent_NiagaraText.generated.h"
 

@@ -1,12 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "LyraPlayerSpawningManagerComponent.h"
-#include "Engine/World.h"
-#include "GameFramework/Controller.h"
-#include "GameFramework/GameState.h"
-#include "GameFramework/PlayerController.h"
 #include "GameFramework/PlayerState.h"
-#include "GameFramework/PlayerStart.h"
 #include "EngineUtils.h"
 #include "Engine/PlayerStartPIE.h"
 #include "LyraPlayerStart.h"

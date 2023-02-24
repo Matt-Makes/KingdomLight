@@ -2,41 +2,12 @@
 
 #include "SActorCanvas.h"
 
-#include "Blueprint/UserWidget.h"
-#include "Containers/EnumAsByte.h"
-#include "Delegates/Delegate.h"
 #include "Engine/GameViewportClient.h"
-#include "GameFramework/PlayerController.h"
 #include "IActorIndicatorWidget.h"
 #include "Layout/ArrangedChildren.h"
-#include "Layout/ArrangedWidget.h"
 #include "LyraIndicatorManagerComponent.h"
-#include "Math/Color.h"
-#include "Math/IntPoint.h"
-#include "Math/IntRect.h"
-#include "Math/Plane.h"
-#include "Math/UnrealMathSSE.h"
-#include "Math/Vector.h"
-#include "Rendering/DrawElements.h"
-#include "Rendering/RenderingCommon.h"
 #include "SceneView.h"
-#include "Stats/Stats.h"
-#include "Stats/Stats2.h"
-#include "Styling/SlateBrush.h"
-#include "Styling/WidgetStyle.h"
-#include "Templates/Casts.h"
-#include "Templates/Function.h"
-#include "Templates/SubclassOf.h"
-#include "Templates/UniquePtr.h"
-#include "Templates/UnrealTemplate.h"
-#include "Types/PaintArgs.h"
-#include "Types/WidgetActiveTimerDelegate.h"
 #include "UI/IndicatorSystem/IndicatorDescriptor.h"
-#include "UObject/Class.h"
-#include "UObject/ObjectPtr.h"
-#include "UObject/SoftObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
-#include "Widgets/InvalidateWidgetReason.h"
 #include "Widgets/Layout/SBox.h"
 #include "Widgets/SLeafWidget.h"
 
@@ -116,7 +87,7 @@ public:
 			FSlateDrawElement::MakeRotatedBox(
 				OutDrawElements,
 				MaxLayerId++,
-				AllottedGeometry.ToPaintGeometry(FVector2D::ZeroVector, Arrow->ImageSize, 1.f),
+				AllottedGeometry.ToPaintGeometry(Arrow->ImageSize, FSlateLayoutTransform()),
 				Arrow,
 				DrawEffects,
 				FMath::DegreesToRadians(GetRotation()),
@@ -201,6 +172,9 @@ EActiveTimerReturnType SActorCanvas::UpdateCanvas(double InCurrentTime, float In
 		IndicatorComponent = ULyraIndicatorManagerComponent::GetComponent(LocalPlayerContext.GetPlayerController());
 		if (IndicatorComponent)
 		{
+			// World may have changed
+			IndicatorPool.SetWorld(LocalPlayerContext.GetWorld());
+
 			IndicatorComponentPtr = IndicatorComponent;
 			IndicatorComponent->OnIndicatorAdded.AddSP(this, &SActorCanvas::OnIndicatorAdded);
 			IndicatorComponent->OnIndicatorRemoved.AddSP(this, &SActorCanvas::OnIndicatorRemoved);

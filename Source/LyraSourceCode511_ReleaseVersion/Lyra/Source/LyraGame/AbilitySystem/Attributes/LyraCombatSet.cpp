@@ -2,9 +2,8 @@
 
 #include "LyraCombatSet.h"
 
-#include "Containers/Array.h"
+#include "AbilitySystem/Attributes/LyraAttributeSet.h"
 #include "Net/UnrealNetwork.h"
-#include "UObject/CoreNetTypes.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraCombatSet)
 

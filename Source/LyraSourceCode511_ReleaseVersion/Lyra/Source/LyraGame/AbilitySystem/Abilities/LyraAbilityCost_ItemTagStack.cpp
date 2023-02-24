@@ -2,14 +2,9 @@
 
 #include "LyraAbilityCost_ItemTagStack.h"
 
-#include "Abilities/GameplayAbilityTypes.h"
-#include "AbilitySystem/Abilities/LyraGameplayAbility.h"
 #include "Equipment/LyraGameplayAbility_FromEquipment.h"
 #include "Inventory/LyraInventoryItemInstance.h"
-#include "Math/UnrealMathSSE.h"
 #include "NativeGameplayTags.h"
-#include "Templates/Casts.h"
-#include "UObject/NameTypes.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraAbilityCost_ItemTagStack)
 

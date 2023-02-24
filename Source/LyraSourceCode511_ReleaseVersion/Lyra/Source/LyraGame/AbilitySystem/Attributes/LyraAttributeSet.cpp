@@ -3,9 +3,6 @@
 #include "LyraAttributeSet.h"
 
 #include "AbilitySystem/LyraAbilitySystemComponent.h"
-#include "Misc/AssertionMacros.h"
-#include "Templates/Casts.h"
-#include "UObject/Object.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraAttributeSet)
 

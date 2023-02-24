@@ -2,13 +2,11 @@
 
 #pragma once
 
-#include "Containers/Array.h"
-#include "Engine/OverlapResult.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "UObject/ScriptInterface.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "InteractionStatics.generated.h"
+
+template <typename InterfaceType> class TScriptInterface;
 
 class AActor;
 class IInteractableTarget;

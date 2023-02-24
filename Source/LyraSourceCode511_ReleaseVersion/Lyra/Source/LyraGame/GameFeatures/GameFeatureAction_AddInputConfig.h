@@ -2,10 +2,12 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
 #include "GameFeatureAction_WorldActionBase.h"
-#include "Input/LyraMappableConfigPair.h"
+#include "GameplayTagContainer.h"
+#include "UObject/WeakObjectPtr.h"
 #include "GameFeatureAction_AddInputConfig.generated.h"
+
+struct FMappableConfigPair;
 
 class APawn;
 struct FComponentRequestHandle;

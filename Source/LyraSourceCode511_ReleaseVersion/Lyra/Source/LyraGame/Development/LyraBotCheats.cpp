@@ -2,7 +2,7 @@
 
 #include "LyraBotCheats.h"
 #include "Engine/World.h"
-#include "GameFramework/GameStateBase.h"
+#include "GameFramework/CheatManagerDefines.h"
 #include "GameModes/LyraBotCreationComponent.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraBotCheats)

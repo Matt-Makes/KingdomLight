@@ -2,15 +2,14 @@
 
 #pragma once
 
-#include "Containers/Array.h"
-#include "HAL/Platform.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "Templates/SubclassOf.h"
 #include "UObject/Interface.h"
-#include "UObject/ScriptInterface.h"
-#include "UObject/UObjectGlobals.h"
 
+#include "UObject/ObjectPtr.h"
 #include "IPickupable.generated.h"
+
+template <typename InterfaceType> class TScriptInterface;
 
 class AActor;
 class ULyraInventoryItemDefinition;

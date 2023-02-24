@@ -2,10 +2,7 @@
 
 #include "TopDownArenaAttributeSet.h"
 
-#include "Containers/Array.h"
-#include "Math/UnrealMathUtility.h"
 #include "Net/UnrealNetwork.h"
-#include "UObject/CoreNetTypes.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(TopDownArenaAttributeSet)
 

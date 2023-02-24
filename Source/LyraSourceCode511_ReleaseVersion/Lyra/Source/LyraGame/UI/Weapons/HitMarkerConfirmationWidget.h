@@ -3,11 +3,7 @@
 #pragma once
 
 #include "Components/Widget.h"
-#include "Containers/Map.h"
 #include "GameplayTagContainer.h"
-#include "Styling/SlateBrush.h"
-#include "Templates/SharedPointer.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "HitMarkerConfirmationWidget.generated.h"
 

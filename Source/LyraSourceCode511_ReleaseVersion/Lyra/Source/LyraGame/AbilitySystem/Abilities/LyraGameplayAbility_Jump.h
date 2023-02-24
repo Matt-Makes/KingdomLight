@@ -2,9 +2,7 @@
 
 #pragma once
 
-#include "GameplayAbilitySpec.h"
 #include "LyraGameplayAbility.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraGameplayAbility_Jump.generated.h"
 

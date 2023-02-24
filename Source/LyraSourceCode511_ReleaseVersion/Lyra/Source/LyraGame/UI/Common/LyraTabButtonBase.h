@@ -4,8 +4,6 @@
 
 #include "LyraTabListWidgetBase.h"
 #include "UI/Foundation/LyraButtonBase.h"
-#include "UObject/SoftObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraTabButtonBase.generated.h"
 

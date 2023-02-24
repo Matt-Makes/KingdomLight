@@ -3,7 +3,6 @@
 #pragma once
 
 #include "GameFramework/GameSession.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraGameSession.generated.h"
 
@@ -20,6 +19,9 @@ public:
 	ALyraGameSession(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
 protected:
+
+	/** Override to disable the default behavior */
+	virtual bool ProcessAutoLogin() override;
 
 	virtual void HandleMatchHasStarted() override;
 	virtual void HandleMatchHasEnded() override;

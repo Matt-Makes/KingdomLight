@@ -3,12 +3,7 @@
 #pragma once
 
 #include "Components/Widget.h"
-#include "Containers/Array.h"
-#include "HAL/Platform.h"
-#include "Styling/SlateBrush.h"
-#include "Templates/SharedPointer.h"
 #include "UI/Weapons/SCircumferenceMarkerWidget.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "CircumferenceMarkerWidget.generated.h"
 

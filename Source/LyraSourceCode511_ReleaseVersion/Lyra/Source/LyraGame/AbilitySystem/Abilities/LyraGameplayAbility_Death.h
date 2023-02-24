@@ -2,9 +2,7 @@
 
 #pragma once
 
-#include "GameplayAbilitySpec.h"
 #include "LyraGameplayAbility.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraGameplayAbility_Death.generated.h"
 
@@ -30,8 +28,6 @@ public:
 	ULyraGameplayAbility_Death(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
 protected:
-
-	void DoneAddingNativeTags();
 
 	virtual void ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* TriggerEventData) override;
 	virtual void EndAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, bool bReplicateEndAbility, bool bWasCancelled) override;

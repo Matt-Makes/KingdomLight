@@ -15,6 +15,9 @@ namespace LyraTest
 		[AutoParam]
 		public int TargetNumOfCycledMatches = 2;
 
+		[AutoParam]
+		public bool WithPacketHandlerEncryption = false;
+
 		public override void ApplyToConfig(UnrealAppConfig AppConfig, UnrealSessionRole ConfigRole, IEnumerable<UnrealSessionRole> OtherRoles)
 		{
 			base.ApplyToConfig(AppConfig, ConfigRole, OtherRoles);
@@ -22,6 +25,11 @@ namespace LyraTest
 			if (AppConfig.ProcessType.IsClient())
 			{
 				AppConfig.CommandLine += string.Format(" -TargetNumOfCycledMatches={0}", TargetNumOfCycledMatches);
+			}
+
+			if (WithPacketHandlerEncryption)
+			{
+				AppConfig.CommandLine += " -ini:Engine:[PacketHandlerComponents]:EncryptionComponent=AESGCMHandlerComponent -execcmds=\"Lyra.TestEncryption true\"";
 			}
 
 			const float InitTime = 120.0f;

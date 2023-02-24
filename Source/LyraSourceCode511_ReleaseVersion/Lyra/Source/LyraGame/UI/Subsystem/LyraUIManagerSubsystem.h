@@ -4,7 +4,6 @@
 
 #include "Containers/Ticker.h"
 #include "GameUIManagerSubsystem.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraUIManagerSubsystem.generated.h"
 

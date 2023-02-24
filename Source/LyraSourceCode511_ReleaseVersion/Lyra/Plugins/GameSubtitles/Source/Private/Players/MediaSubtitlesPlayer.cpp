@@ -2,14 +2,10 @@
 
 #include "Players/MediaSubtitlesPlayer.h"
 
-#include "Containers/Array.h"
-#include "Containers/UnrealString.h"
 #include "MediaPlayer.h"
-#include "Misc/Timespan.h"
 #include "Overlays.h"
 #include "Stats/Stats.h"
 #include "SubtitleManager.h"
-#include "UObject/WeakObjectPtr.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(MediaSubtitlesPlayer)
 

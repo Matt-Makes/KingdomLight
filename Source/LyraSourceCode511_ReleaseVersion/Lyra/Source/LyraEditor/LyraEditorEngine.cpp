@@ -4,22 +4,11 @@
 
 #include "Development/LyraDeveloperSettings.h"
 #include "Development/LyraPlatformEmulationSettings.h"
-#include "Engine/World.h"
-#include "Framework/Commands/InputBindingManager.h"
-#include "Framework/Commands/InputChord.h"
-#include "Framework/Commands/UICommandInfo.h"
+#include "Engine/GameInstance.h"
 #include "Framework/Notifications/NotificationManager.h"
 #include "GameModes/LyraWorldSettings.h"
-#include "InputCoreTypes.h"
-#include "Internationalization/Internationalization.h"
-#include "Misc/AssertionMacros.h"
-#include "Misc/Optional.h"
-#include "PlayInEditorDataTypes.h"
 #include "Settings/ContentBrowserSettings.h"
 #include "Settings/LevelEditorPlaySettings.h"
-#include "Templates/Casts.h"
-#include "Templates/SharedPointer.h"
-#include "UObject/ObjectPtr.h"
 #include "Widgets/Notifications/SNotificationList.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraEditorEngine)

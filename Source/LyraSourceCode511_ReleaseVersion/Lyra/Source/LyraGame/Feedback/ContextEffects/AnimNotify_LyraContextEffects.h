@@ -2,11 +2,10 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
 #include "Animation/AnimNotifies/AnimNotify.h"
+#include "Chaos/ChaosEngineInterface.h"
 #include "GameplayTagContainer.h"
 #include "Engine/EngineTypes.h"
-#include "PhysicalMaterials/PhysicalMaterial.h"
 #include "AnimNotify_LyraContextEffects.generated.h"
 
 /**

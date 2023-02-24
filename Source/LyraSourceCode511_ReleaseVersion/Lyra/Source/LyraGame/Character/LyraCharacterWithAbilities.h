@@ -3,7 +3,6 @@
 #pragma once
 
 #include "Character/LyraCharacter.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraCharacterWithAbilities.generated.h"
 

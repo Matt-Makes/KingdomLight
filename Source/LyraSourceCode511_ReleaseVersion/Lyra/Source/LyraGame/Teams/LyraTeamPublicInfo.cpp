@@ -2,10 +2,8 @@
 
 #include "LyraTeamPublicInfo.h"
 
-#include "Containers/Array.h"
-#include "Misc/AssertionMacros.h"
 #include "Net/UnrealNetwork.h"
-#include "UObject/CoreNetTypes.h"
+#include "Teams/LyraTeamInfoBase.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraTeamPublicInfo)
 

@@ -2,12 +2,8 @@
 
 #include "LyraInventoryItemInstance.h"
 
-#include "Containers/Array.h"
-#include "GameplayTagContainer.h"
 #include "Inventory/LyraInventoryItemDefinition.h"
-#include "Misc/AssertionMacros.h"
 #include "Net/UnrealNetwork.h"
-#include "UObject/Class.h"
 
 #if UE_WITH_IRIS
 #include "Iris/ReplicationSystem/ReplicationFragmentUtil.h"
@@ -34,8 +30,6 @@ void ULyraInventoryItemInstance::GetLifetimeReplicatedProps(TArray<FLifetimeProp
 void ULyraInventoryItemInstance::RegisterReplicationFragments(UE::Net::FFragmentRegistrationContext& Context, UE::Net::EFragmentRegistrationFlags RegistrationFlags)
 {
 	using namespace UE::Net;
-
-	Super::RegisterReplicationFragments(Context, RegistrationFlags);
 
 	// Build descriptors and allocate PropertyReplicationFragments for this object
 	FReplicationFragmentUtil::CreateAndRegisterFragmentsForObject(this, Context, RegistrationFlags);

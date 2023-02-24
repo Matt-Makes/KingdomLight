@@ -2,11 +2,8 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
 #include "CommonActivatableWidget.h"
-#include "GameplayTagContainer.h"
 #include "GameFeatureAction_WorldActionBase.h"
-#include "UI/LyraHUD.h"
 #include "UIExtensionSystem.h"
 
 #include "GameFeatureAction_AddWidget.generated.h"
@@ -78,11 +75,17 @@ private:
 	TArray<FLyraHUDElementEntry> Widgets;
 
 private:
+
+	struct FPerActorData
+	{
+		TArray<TWeakObjectPtr<UCommonActivatableWidget>> LayoutsAdded;
+		TArray<FUIExtensionHandle> ExtensionHandles;
+	};
+
 	struct FPerContextData
 	{
 		TArray<TSharedPtr<FComponentRequestHandle>> ComponentRequests;
-		TArray<TWeakObjectPtr<UCommonActivatableWidget>> LayoutsAdded;
-		TArray<FUIExtensionHandle> ExtensionHandles;
+		TMap<FObjectKey, FPerActorData> ActorData; 
 	};
 
 	TMap<FGameFeatureStateChangeContext, FPerContextData> ContextData;

@@ -1,15 +1,13 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "LyraGameplayCueManager.h"
+#include "Engine/AssetManager.h"
 #include "LyraLogChannels.h"
 #include "GameplayCueSet.h"
 #include "AbilitySystemGlobals.h"
-#include "HAL/IConsoleManager.h"
 #include "GameplayTagsManager.h"
 #include "UObject/UObjectThreadContext.h"
-#include "System/LyraAssetManager.h"
 #include "Async/Async.h"
-#include "Algo/Transform.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraGameplayCueManager)
 

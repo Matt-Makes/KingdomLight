@@ -2,23 +2,13 @@
 
 #pragma once
 
-#include "Chaos/ChaosEngineInterface.h"
-#include "Containers/Array.h"
-#include "Containers/EnumAsByte.h"
-#include "Containers/Map.h"
-#include "Containers/Set.h"
 #include "Engine/DeveloperSettings.h"
 #include "GameplayTagContainer.h"
-#include "Math/MathFwd.h"
-#include "Math/Rotator.h"
-#include "Math/Vector.h"
 #include "Subsystems/WorldSubsystem.h"
-#include "UObject/NameTypes.h"
-#include "UObject/Object.h"
-#include "UObject/SoftObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraContextEffectsSubsystem.generated.h"
+
+enum EPhysicalSurface : int;
 
 class AActor;
 class UAudioComponent;

@@ -1,7 +1,6 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "LyraHealExecution.h"
-#include "GameplayEffectTypes.h"
 #include "AbilitySystem/Attributes/LyraHealthSet.h"
 #include "AbilitySystem/Attributes/LyraCombatSet.h"
 

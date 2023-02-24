@@ -3,11 +3,7 @@
 #pragma once
 
 #include "Components/ControllerComponent.h"
-#include "Containers/Array.h"
-#include "HAL/Platform.h"
 #include "Inventory/LyraInventoryItemInstance.h"
-#include "UObject/ObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraQuickBarComponent.generated.h"
 

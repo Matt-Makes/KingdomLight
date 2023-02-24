@@ -2,12 +2,8 @@
 
 #pragma once
 
-#include "Containers/Array.h"
-#include "Containers/Map.h"
 #include "GameFeatureAction_WorldActionBase.h"
-#include "HAL/Platform.h"
 #include "UObject/ObjectKey.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "GameFeatureAction_SplitscreenConfig.generated.h"
 

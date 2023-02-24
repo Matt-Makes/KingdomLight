@@ -7,7 +7,6 @@
 #include "PlayerMappableInputConfig.h"
 #include "Settings/LyraSettingsLocal.h"
 #include "System/LyraAssetManager.h"
-#include "Templates/Casts.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraMappableConfigPair)
 

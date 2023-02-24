@@ -3,7 +3,6 @@
 #pragma once
 
 #include "UObject/Interface.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraAbilitySourceInterface.generated.h"
 

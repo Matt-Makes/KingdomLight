@@ -2,11 +2,16 @@
 
 #include "GameFeatures/GameFeatureAction_AddInputConfig.h"
 #include "Components/GameFrameworkComponentManager.h"
+#include "Engine/GameInstance.h"
 #include "EnhancedInputSubsystems.h"
 #include "Character/LyraHeroComponent.h"	// for NAME_BindInputsNow
+#include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
 #include "Engine/LocalPlayer.h"
+#include "GameFeatures/GameFeatureAction_WorldActionBase.h"
 #include "PlayerMappableInputConfig.h"
+#include "GameFramework/Pawn.h"
+#include "Input/LyraMappableConfigPair.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(GameFeatureAction_AddInputConfig)
 

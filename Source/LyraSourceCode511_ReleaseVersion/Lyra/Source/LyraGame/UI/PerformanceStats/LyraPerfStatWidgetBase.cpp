@@ -3,7 +3,6 @@
 #include "LyraPerfStatWidgetBase.h"
 
 #include "Engine/GameInstance.h"
-#include "Engine/World.h"
 #include "Performance/LyraPerformanceStatSubsystem.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraPerfStatWidgetBase)

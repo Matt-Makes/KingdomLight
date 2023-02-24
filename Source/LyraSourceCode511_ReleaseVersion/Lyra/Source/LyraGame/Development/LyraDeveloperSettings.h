@@ -2,10 +2,12 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
 #include "Engine/DeveloperSettingsBackedByCVars.h"
-#include "GameplayTagContainer.h"
+#include "UObject/PrimaryAssetId.h"
+#include "UObject/SoftObjectPath.h"
 #include "LyraDeveloperSettings.generated.h"
+
+struct FPropertyChangedEvent;
 
 class ULyraExperienceDefinition;
 

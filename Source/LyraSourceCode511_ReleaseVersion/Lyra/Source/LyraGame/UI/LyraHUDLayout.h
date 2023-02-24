@@ -3,8 +3,6 @@
 #pragma once
 
 #include "LyraActivatableWidget.h"
-#include "UObject/SoftObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraHUDLayout.generated.h"
 

@@ -4,7 +4,6 @@
 
 #include "GameFramework/GameplayMessageSubsystem.h"
 #include "Messages/LyraVerbMessage.h"
-#include "Misc/AssertionMacros.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraVerbMessageReplication)
 

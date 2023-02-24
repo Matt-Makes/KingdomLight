@@ -3,7 +3,6 @@
 #pragma once
 
 #include "SignificanceManager.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraSignificanceManager.generated.h"
 

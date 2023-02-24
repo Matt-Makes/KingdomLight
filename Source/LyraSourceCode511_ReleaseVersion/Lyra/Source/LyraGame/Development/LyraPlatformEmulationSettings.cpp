@@ -1,9 +1,8 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "LyraPlatformEmulationSettings.h"
-#include "Interfaces/IProjectManager.h"
 #include "CommonUIVisibilitySubsystem.h"
-#include "Engine/PlatformSettings.h"
+#include "Engine/PlatformSettingsManager.h"
 #include "Misc/App.h"
 #include "Widgets/Notifications/SNotificationList.h"
 #include "Framework/Notifications/NotificationManager.h"

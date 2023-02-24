@@ -3,17 +3,12 @@
 #pragma once
 
 #include "Abilities/GameplayAbility.h"
-#include "AbilitySystemComponent.h"
-#include "Containers/Array.h"
-#include "Containers/Map.h"
-#include "GameplayAbilitySpec.h"
-#include "GameplayEffectTypes.h"
-#include "GameplayTagContainer.h"
-#include "Templates/SubclassOf.h"
-#include "UObject/ObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraGameplayAbility.generated.h"
+
+struct FGameplayAbilityActivationInfo;
+struct FGameplayAbilitySpec;
+struct FGameplayAbilitySpecHandle;
 
 class AActor;
 class AController;

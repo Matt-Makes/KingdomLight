@@ -3,7 +3,6 @@
 #pragma once
 
 #include "GameplayEffectExecutionCalculation.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraHealExecution.generated.h"
 

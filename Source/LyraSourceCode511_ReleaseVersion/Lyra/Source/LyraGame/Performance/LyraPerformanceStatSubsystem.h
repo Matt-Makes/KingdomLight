@@ -3,12 +3,11 @@
 #pragma once
 
 #include "ChartCreation.h"
-#include "LyraPerformanceStatTypes.h"
 #include "Subsystems/GameInstanceSubsystem.h"
-#include "Templates/SharedPointer.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraPerformanceStatSubsystem.generated.h"
+
+enum class ELyraDisplayablePerformanceStat : uint8;
 
 class FSubsystemCollectionBase;
 class ULyraPerformanceStatSubsystem;

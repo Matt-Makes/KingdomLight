@@ -1,40 +1,17 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "CommonInputBaseTypes.h"
-#include "Containers/Array.h"
-#include "Containers/Map.h"
-#include "Containers/Set.h"
-#include "Containers/UnrealString.h"
 #include "CustomSettings/LyraSettingKeyboardInput.h"
-#include "DataSource/GameSettingDataSourceDynamic.h"
+#include "DataSource/GameSettingDataSource.h"
 #include "EditCondition/WhenCondition.h"
-#include "Engine/PlatformSettingsManager.h"
-#include "EnhancedActionKeyMapping.h"
-#include "GameSetting.h"
 #include "GameSettingCollection.h"
-#include "GameSettingFilterState.h"
 #include "GameSettingValueDiscreteDynamic.h"
 #include "GameSettingValueScalarDynamic.h"
-#include "HAL/Platform.h"
-#include "Input/LyraMappableConfigPair.h"
-#include "InputCoreTypes.h"
-#include "Internationalization/Internationalization.h"
-#include "Internationalization/Text.h"
-#include "Logging/LogCategory.h"
-#include "Logging/LogMacros.h"
 #include "LyraGameSettingRegistry.h"
 #include "LyraSettingsLocal.h"
 #include "LyraSettingsShared.h"
-#include "Math/Range.h"
-#include "Misc/AssertionMacros.h"
 #include "Player/LyraLocalPlayer.h"
 #include "PlayerMappableInputConfig.h"
-#include "Templates/Casts.h"
-#include "Templates/SharedPointer.h"
-#include "Trace/Detail/Channel.h"
-#include "UObject/NameTypes.h"
-#include "UObject/UObjectGlobals.h"
-#include "UObject/UnrealNames.h"
 
 class ULocalPlayer;
 
@@ -192,16 +169,16 @@ UGameSettingCollection* ULyraGameSettingRegistry::InitializeMouseAndKeyboardSett
 					ULyraSettingKeyboardInput* ExistingSetting = nullptr;
 
 					// Make sure that we cannot add two settings with the same FName for saving purposes
-					if (AddedSettings.Contains(Mapping.PlayerMappableOptions.Name))
+					if (AddedSettings.Contains(Mapping.GetMappingName()))
 					{
-						UE_LOG(LogLyraGameSettingRegistry, Warning, TEXT("A setting with the name '%s' from config '%s' has already been added! Please remove duplicate name."), *Mapping.PlayerMappableOptions.Name.ToString(), *InputConfigPair.Config->GetConfigName().ToString());
+						UE_LOG(LogLyraGameSettingRegistry, Warning, TEXT("A setting with the name '%s' from config '%s' has already been added! Please remove duplicate name."), *Mapping.GetMappingName().ToString(), *InputConfigPair.Config->GetConfigName().ToString());
 						continue;
 					}
 					
 					for (UGameSetting* Setting : ConfigSettingCollection->GetChildSettings())
 					{
 						ULyraSettingKeyboardInput* LyraKeyboardSetting = Cast<ULyraSettingKeyboardInput>(Setting);
-						if (LyraKeyboardSetting->GetSettingDisplayName().EqualToCaseIgnored(Mapping.PlayerMappableOptions.DisplayName))
+						if (LyraKeyboardSetting->GetSettingDisplayName().EqualToCaseIgnored(Mapping.GetDisplayName()))
 						{
 							ExistingSetting = LyraKeyboardSetting;
 							break;
@@ -210,12 +187,12 @@ UGameSettingCollection* ULyraGameSettingRegistry::InitializeMouseAndKeyboardSett
 					
 					FEnhancedActionKeyMapping MappingSynthesized(Mapping);
 					// If the player has bound a custom key to this action, then set it to that
-					if (const FKey* PlayerBoundKey = CustomKeyMap.Find(Mapping.PlayerMappableOptions.Name))
+					if (const FKey* PlayerBoundKey = CustomKeyMap.Find(Mapping.GetMappingName()))
 					{
 						MappingSynthesized.Key = *PlayerBoundKey;
 					}
 
-					if (MappingSynthesized.PlayerMappableOptions.Name != NAME_None && !MappingSynthesized.PlayerMappableOptions.DisplayName.IsEmpty())
+					if (MappingSynthesized.GetMappingName() != NAME_None && !MappingSynthesized.GetDisplayName().IsEmpty())
 					{
 						// Create the settings widget and initialize it, adding it to this config's section
 						ULyraSettingKeyboardInput* InputBinding = ExistingSetting ? ExistingSetting : NewObject<ULyraSettingKeyboardInput>();
@@ -228,11 +205,11 @@ UGameSettingCollection* ULyraGameSettingRegistry::InitializeMouseAndKeyboardSett
 							ConfigSettingCollection->AddSetting(InputBinding);	
 						}
 						
-						AddedSettings.Add(MappingSynthesized.PlayerMappableOptions.Name);
+						AddedSettings.Add(MappingSynthesized.GetMappingName());
 					}
 					else
 					{
-						UE_LOG(LogLyraGameSettingRegistry, Warning, TEXT("A setting with the name '%s' from config '%s' could not be added, one of its names is empty!"), *Mapping.PlayerMappableOptions.Name.ToString(), *InputConfigPair.Config->GetConfigName().ToString());
+						UE_LOG(LogLyraGameSettingRegistry, Warning, TEXT("A setting with the name '%s' from config '%s' could not be added, one of its names is empty!"), *Mapping.GetMappingName().ToString(), *InputConfigPair.Config->GetConfigName().ToString());
 						ensure(false);
 					}
 				}

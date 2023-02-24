@@ -3,14 +3,11 @@
 #pragma once
 
 #include "Components/ActorComponent.h"
-#include "Containers/Map.h"
-#include "Engine/EngineBaseTypes.h"
-#include "Engine/EngineTypes.h"
 #include "GameFramework/GameplayMessageSubsystem.h"
-#include "HAL/Platform.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraDamageLogDebuggerComponent.generated.h"
+
+namespace EEndPlayReason { enum Type : int; }
 
 class UObject;
 struct FGameplayTag;

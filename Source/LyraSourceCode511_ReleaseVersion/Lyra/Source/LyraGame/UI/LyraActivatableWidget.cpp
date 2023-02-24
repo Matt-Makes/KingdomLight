@@ -3,8 +3,6 @@
 #include "LyraActivatableWidget.h"
 
 #include "Editor/WidgetCompilerLog.h"
-#include "CommonInputModeTypes.h"
-#include "Input/UIActionBindingHandle.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraActivatableWidget)
 

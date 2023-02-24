@@ -2,14 +2,8 @@
 
 #pragma once
 
-#include "CoreTypes.h"
-#include "Delegates/Delegate.h"
 #include "Engine/CancellableAsyncAction.h"
-#include "UObject/Object.h"
-#include "UObject/UObjectGlobals.h"
 #include "UObject/WeakInterfacePtr.h"
-#include "UObject/WeakObjectPtr.h"
-#include "UObject/WeakObjectPtrTemplates.h"
 
 #include "AsyncAction_ObserveTeamColors.generated.h"
 

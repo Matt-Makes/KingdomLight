@@ -3,18 +3,10 @@
 #include "LyraCameraMode.h"
 
 #include "Components/CapsuleComponent.h"
-#include "Containers/UnrealString.h"
 #include "Engine/Canvas.h"
-#include "GameFramework/Actor.h"
 #include "GameFramework/Character.h"
-#include "GameFramework/Pawn.h"
 #include "LyraCameraComponent.h"
 #include "LyraPlayerCameraManager.h"
-#include "Math/Color.h"
-#include "Misc/AssertionMacros.h"
-#include "Templates/Casts.h"
-#include "UObject/Class.h"
-#include "UObject/UnrealNames.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraCameraMode)
 

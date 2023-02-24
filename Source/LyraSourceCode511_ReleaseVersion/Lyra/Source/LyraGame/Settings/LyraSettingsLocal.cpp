@@ -1,22 +1,21 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "LyraSettingsLocal.h"
-#include "Sound/SoundClass.h"
-#include "AudioDeviceManager.h"
-#include "AudioDevice.h"
-#include "LyraLogChannels.h"
-#include "AudioMixerBlueprintLibrary.h"
-#include "CommonInputBaseTypes.h"
+#include "Engine/Engine.h"
+#include "EnhancedActionKeyMapping.h"
+#include "Framework/Application/SlateApplication.h"
+#include "Engine/World.h"
+#include "Misc/App.h"
 #include "CommonInputSubsystem.h"
+#include "GenericPlatform/GenericPlatformFramePacer.h"
 #include "Player/LyraLocalPlayer.h"
+#include "Performance/LyraPerformanceStatTypes.h"
 #include "PlayerMappableInputConfig.h"
 #include "EnhancedInputSubsystems.h"
-#include "CommonInputBaseTypes.h"
-#include "NativeGameplayTags.h"
 #include "ICommonUIModule.h"
 #include "CommonUISettings.h"
+#include "SoundControlBusMix.h"
 #include "Widgets/Layout/SSafeZone.h"
-#include "ProfilingDebugging/CsvProfiler.h"
 #include "Performance/LyraPerformanceSettings.h"
 #include "DeviceProfiles/DeviceProfileManager.h"
 #include "DeviceProfiles/DeviceProfile.h"
@@ -26,6 +25,7 @@
 #include "AudioModulationStatics.h"
 #include "Audio/LyraAudioSettings.h"
 #include "Audio/LyraAudioMixEffectsSubsystem.h"
+#include "EnhancedActionKeyMapping.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraSettingsLocal)
 
@@ -1344,8 +1344,8 @@ void ULyraSettingsLocal::GetAllMappingNamesFromKey(const FKey InKey, TArray<FNam
 		{
 			for (const FEnhancedActionKeyMapping& Mapping : Pair.Config->GetPlayerMappableKeys())
 			{
-				FName MappingName(Mapping.PlayerMappableOptions.DisplayName.ToString());
-				FName ActionName = Mapping.PlayerMappableOptions.Name;
+				FName MappingName(Mapping.GetDisplayName().ToString());
+				FName ActionName = Mapping.GetMappingName();
 				// make sure it isn't custom bound as well
 				if (const FKey* MappingKey = CustomKeyboardConfig.Find(ActionName))
 				{
@@ -1382,9 +1382,9 @@ void ULyraSettingsLocal::AddOrUpdateCustomKeyboardBindings(const FName MappingNa
 			{
 				// Make sure that the mapping has a valid name, its possible to have an empty name
 				// if someone has marked a mapping as "Player Mappable" but deleted the default field value
-				if (Mapping.PlayerMappableOptions.Name != NAME_None)
+				if (Mapping.GetMappingName() != NAME_None)
 				{
-					CustomKeyboardConfig.Add(Mapping.PlayerMappableOptions.Name, Mapping.Key);
+					CustomKeyboardConfig.Add(Mapping.GetMappingName(), Mapping.Key);
 				}
 			}
 		}
@@ -1405,7 +1405,7 @@ void ULyraSettingsLocal::AddOrUpdateCustomKeyboardBindings(const FName MappingNa
 	// Tell the enhanced input subsystem for this local player that we should remap some input! Woo
 	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(LocalPlayer))
 	{
-		Subsystem->AddPlayerMappedKey(MappingName, NewKey);
+		Subsystem->AddPlayerMappedKeyInSlot(MappingName, NewKey);
 	}
 }
 
@@ -1413,7 +1413,7 @@ void ULyraSettingsLocal::ResetKeybindingToDefault(const FName MappingName, ULyra
 {
 	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(LocalPlayer))
 	{
-		Subsystem->RemovePlayerMappedKey(MappingName);
+		Subsystem->RemoveAllPlayerMappedKeysForMapping(MappingName);
 	}
 }
 

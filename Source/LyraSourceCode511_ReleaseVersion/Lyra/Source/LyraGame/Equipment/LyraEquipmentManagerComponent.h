@@ -4,18 +4,7 @@
 
 #include "AbilitySystem/LyraAbilitySet.h"
 #include "Components/PawnComponent.h"
-#include "Containers/Array.h"
-#include "Containers/ArrayView.h"
-#include "Containers/Map.h"
-#include "Containers/Set.h"
-#include "Containers/SparseArray.h"
-#include "Containers/UnrealString.h"
-#include "HAL/Platform.h"
 #include "Net/Serialization/FastArraySerializer.h"
-#include "Templates/SubclassOf.h"
-#include "Templates/UnrealTemplate.h"
-#include "UObject/Class.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraEquipmentManagerComponent.generated.h"
 

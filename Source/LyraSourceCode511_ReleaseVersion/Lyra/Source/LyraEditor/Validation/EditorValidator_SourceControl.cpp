@@ -3,23 +3,10 @@
 #include "EditorValidator_SourceControl.h"
 
 #include "AssetRegistry/AssetRegistryModule.h"
-#include "AssetRegistry/IAssetRegistry.h"
-#include "Containers/UnrealString.h"
-#include "HAL/Platform.h"
 #include "ISourceControlModule.h"
-#include "ISourceControlProvider.h"
-#include "ISourceControlState.h"
-#include "Internationalization/Text.h"
-#include "Misc/AssertionMacros.h"
-#include "Misc/AssetRegistryInterface.h"
 #include "Misc/PackageName.h"
-#include "Modules/ModuleManager.h"
 #include "SourceControlHelpers.h"
-#include "SourceControlOperations.h"
-#include "Templates/SharedPointer.h"
-#include "UObject/NameTypes.h"
-#include "UObject/Object.h"
-#include "UObject/Package.h"
+#include "Validation/EditorValidator.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(EditorValidator_SourceControl)
 
@@ -60,9 +47,10 @@ EDataValidationResult UEditorValidator_SourceControl::ValidateLoadedAsset_Implem
 				if (!DependencyStr.StartsWith(ScriptPackagePrefix))
 				{
 					FSourceControlStatePtr DependencyState = SourceControlProvider.GetState(SourceControlHelpers::PackageFilename(DependencyStr), EStateCacheUsage::Use);
-					if (DependencyState.IsValid() && !DependencyState->IsSourceControlled())
+					if (DependencyState.IsValid() && !DependencyState->IsSourceControlled() && !DependencyState->IsUnknown())
 					{
-						AssetFails(InAsset, FText::Format(LOCTEXT("SourceControl_NotMarkedForAdd", "References {0} which is not marked for add in perforce"), FText::FromString(DependencyStr)), ValidationErrors);
+						// The editor doesn't sync state for all assets, so we only want to warn on assets that are known about
+						AssetFails(InAsset, FText::Format(LOCTEXT("SourceControl_NotMarkedForAdd", "References {0} which is not marked for add in source control"), FText::FromString(DependencyStr)), ValidationErrors);
 					}
 				}
 			}

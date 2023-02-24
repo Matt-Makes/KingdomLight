@@ -2,10 +2,8 @@
 
 #pragma once
 
-#include "Containers/Array.h"
 #include "GameplayTagContainer.h"
 #include "Templates/SubclassOf.h"
-#include "UObject/ObjectPtr.h"
 
 #include "LyraCosmeticAnimationTypes.generated.h"
 

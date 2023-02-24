@@ -1,12 +1,13 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "GameFeatureAction_AddInputContextMapping.h"
-#include "GameFeaturesSubsystem.h"
-#include "GameFeaturesSubsystemSettings.h"
 #include "Components/GameFrameworkComponentManager.h"
+#include "Engine/GameInstance.h"
 #include "GameFramework/PlayerController.h"
 #include "Engine/LocalPlayer.h"
+#include "Engine/World.h"
 #include "EnhancedInputSubsystems.h"
+#include "GameFeatures/GameFeatureAction_WorldActionBase.h"
 #include "InputMappingContext.h"
 #include "Character/LyraHeroComponent.h"
 

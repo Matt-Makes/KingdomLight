@@ -2,12 +2,11 @@
 
 #pragma once
 
-#include "Containers/Array.h"
-#include "Engine/EngineTypes.h"
 #include "GameFramework/HUD.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraHUD.generated.h"
+
+namespace EEndPlayReason { enum Type : int; }
 
 class AActor;
 class UObject;

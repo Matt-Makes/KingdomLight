@@ -3,8 +3,6 @@
 #include "LyraWidgetFactory_Class.h"
 
 #include "Blueprint/UserWidget.h"
-#include "UObject/Class.h"
-#include "UObject/Object.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraWidgetFactory_Class)
 

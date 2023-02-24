@@ -2,13 +2,9 @@
 
 #include "LyraTeamInfoBase.h"
 
-#include "Containers/Array.h"
-#include "CoreTypes.h"
 #include "Engine/World.h"
-#include "Misc/AssertionMacros.h"
 #include "Net/UnrealNetwork.h"
 #include "Teams/LyraTeamSubsystem.h"
-#include "UObject/CoreNetTypes.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraTeamInfoBase)
 
@@ -44,7 +40,11 @@ void ALyraTeamInfoBase::EndPlay(const EEndPlayReason::Type EndPlayReason)
 	if (TeamId != INDEX_NONE)
 	{
 		ULyraTeamSubsystem* TeamSubsystem = GetWorld()->GetSubsystem<ULyraTeamSubsystem>();
-		TeamSubsystem->UnregisterTeamInfo(this);
+		if (TeamSubsystem)
+		{
+			// EndPlay can happen at weird times where the subsystem has already been destroyed
+			TeamSubsystem->UnregisterTeamInfo(this);
+		}
 	}
 
 	Super::EndPlay(EndPlayReason);
@@ -60,7 +60,10 @@ void ALyraTeamInfoBase::TryRegisterWithTeamSubsystem()
 	if (TeamId != INDEX_NONE)
 	{
 		ULyraTeamSubsystem* TeamSubsystem = GetWorld()->GetSubsystem<ULyraTeamSubsystem>();
-		RegisterWithTeamSubsystem(TeamSubsystem);
+		if (ensure(TeamSubsystem))
+		{
+			RegisterWithTeamSubsystem(TeamSubsystem);
+		}
 	}
 }
 

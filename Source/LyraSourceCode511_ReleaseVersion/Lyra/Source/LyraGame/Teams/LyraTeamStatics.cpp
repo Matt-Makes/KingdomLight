@@ -2,20 +2,11 @@
 
 #include "LyraTeamStatics.h"
 
-#include "Containers/Map.h"
-#include "Containers/UnrealString.h"
-#include "CoreTypes.h"
 #include "Engine/Engine.h"
 #include "Engine/World.h"
-#include "Logging/LogCategory.h"
-#include "Logging/LogMacros.h"
 #include "LyraLogChannels.h"
 #include "Teams/LyraTeamDisplayAsset.h"
 #include "Teams/LyraTeamSubsystem.h"
-#include "Trace/Detail/Channel.h"
-#include "UObject/Object.h"
-#include "UObject/ObjectPtr.h"
-#include "UObject/UObjectBaseUtility.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraTeamStatics)
 

@@ -3,9 +3,6 @@
 #pragma once
 
 #include "Components/Widget.h"
-#include "Styling/SlateBrush.h"
-#include "Templates/SharedPointer.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "IndicatorLayer.generated.h"
 

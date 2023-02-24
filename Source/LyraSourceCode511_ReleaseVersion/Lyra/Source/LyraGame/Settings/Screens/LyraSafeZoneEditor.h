@@ -3,14 +3,11 @@
 #pragma once
 
 #include "CommonActivatableWidget.h"
-#include "CommonInputBaseTypes.h"
-#include "Delegates/Delegate.h"
-#include "Input/Reply.h"
-#include "UObject/UObjectGlobals.h"
-#include "UObject/WeakObjectPtrTemplates.h"
 #include "Widgets/IGameSettingActionInterface.h"
 
 #include "LyraSafeZoneEditor.generated.h"
+
+enum class ECommonInputType : uint8;
 
 class UCommonButtonBase;
 class UCommonRichTextBlock;

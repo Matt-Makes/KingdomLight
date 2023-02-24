@@ -2,12 +2,8 @@
 
 #pragma once
 
-#include "Engine/EngineTypes.h"
-#include "GenericTeamAgentInterface.h"
-#include "HAL/Platform.h"
 #include "ModularPawn.h"
 #include "Teams/LyraTeamAgentInterface.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraPawn.generated.h"
 

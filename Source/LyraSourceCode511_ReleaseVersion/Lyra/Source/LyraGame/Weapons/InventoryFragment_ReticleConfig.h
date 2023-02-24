@@ -2,10 +2,7 @@
 
 #pragma once
 
-#include "Containers/Array.h"
 #include "Inventory/LyraInventoryItemDefinition.h"
-#include "Templates/SubclassOf.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "InventoryFragment_ReticleConfig.generated.h"
 

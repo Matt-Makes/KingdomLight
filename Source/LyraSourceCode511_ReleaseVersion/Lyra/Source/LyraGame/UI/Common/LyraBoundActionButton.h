@@ -2,10 +2,7 @@
 
 #pragma once
 
-#include "CommonInputBaseTypes.h"
 #include "Input/CommonBoundActionButton.h"
-#include "Templates/SubclassOf.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraBoundActionButton.generated.h"
 

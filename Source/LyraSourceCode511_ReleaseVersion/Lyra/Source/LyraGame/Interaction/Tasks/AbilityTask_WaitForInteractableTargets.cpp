@@ -2,27 +2,10 @@
 
 #include "Interaction/Tasks/AbilityTask_WaitForInteractableTargets.h"
 
-#include "Abilities/GameplayAbility.h"
-#include "Abilities/GameplayAbilityTypes.h"
 #include "AbilitySystemComponent.h"
-#include "CollisionQueryParams.h"
-#include "Engine/HitResult.h"
-#include "Engine/NetSerialization.h"
 #include "Engine/World.h"
-#include "GameFramework/Actor.h"
 #include "GameFramework/PlayerController.h"
-#include "GameplayAbilitySpec.h"
 #include "Interaction/IInteractableTarget.h"
-#include "Math/Rotator.h"
-#include "Math/UnrealMathSSE.h"
-#include "Math/Vector.h"
-#include "Misc/AssertionMacros.h"
-#include "Templates/SharedPointer.h"
-#include "Templates/SubclassOf.h"
-#include "UObject/ObjectPtr.h"
-#include "UObject/ScriptInterface.h"
-#include "UObject/WeakObjectPtr.h"
-#include "UObject/WeakObjectPtrTemplates.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(AbilityTask_WaitForInteractableTargets)
 

@@ -3,7 +3,6 @@
 #pragma once
 
 #include "Engine/RuntimeOptionsBase.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraRuntimeOptions.generated.h"
 

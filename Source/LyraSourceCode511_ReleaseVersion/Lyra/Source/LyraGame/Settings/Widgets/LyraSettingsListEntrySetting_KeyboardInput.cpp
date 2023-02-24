@@ -2,18 +2,12 @@
 
 #include "Settings/Widgets/LyraSettingsListEntrySetting_KeyboardInput.h"
 
-#include "CommonActivatableWidget.h"
-#include "CommonButtonBase.h"
 #include "CommonUIExtensions.h"
-#include "Delegates/Delegate.h"
-#include "GameSetting.h"
-#include "Misc/AssertionMacros.h"
 #include "NativeGameplayTags.h"
 #include "Settings/CustomSettings/LyraSettingKeyboardInput.h"
-#include "Templates/Casts.h"
 #include "UI/Foundation/LyraButtonBase.h"
-#include "UObject/NameTypes.h"
 #include "Widgets/Misc/GameSettingPressAnyKey.h"
+#include "Widgets/Misc/KeyAlreadyBoundWarning.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraSettingsListEntrySetting_KeyboardInput)
 

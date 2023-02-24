@@ -2,10 +2,8 @@
 
 #pragma once
 
-#include "Containers/Array.h"
 #include "Engine/DataAsset.h"
 #include "GameplayTagContainer.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraAbilityTagRelationshipMapping.generated.h"
 

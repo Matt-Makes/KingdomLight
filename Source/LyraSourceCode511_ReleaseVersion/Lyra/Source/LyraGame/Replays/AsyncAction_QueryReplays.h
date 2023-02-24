@@ -2,12 +2,9 @@
 
 #pragma once
 
-#include "Delegates/Delegate.h"
 #include "Kismet/BlueprintAsyncActionBase.h"
-#include "Templates/SharedPointer.h"
-#include "UObject/UObjectGlobals.h"
-#include "UObject/WeakObjectPtrTemplates.h"
 
+#include "UObject/ObjectPtr.h"
 #include "AsyncAction_QueryReplays.generated.h"
 
 class APlayerController;

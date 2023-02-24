@@ -2,14 +2,12 @@
 
 #pragma once
 
-#include "Misc/Attribute.h"
 #include "Styling/CoreStyle.h"
-#include "Styling/ISlateStyle.h"
 #include "Styling/SlateTypes.h"
 #include "Styling/SlateWidgetStyleAsset.h"
-#include "Templates/SharedPointer.h"
-#include "Widgets/DeclarativeSyntaxSupport.h"
+#include "Styling/SlateWidgetStyleContainerBase.h"
 #include "Widgets/SCompoundWidget.h"
+#include "Widgets/Accessibility/SlateWidgetAccessibleTypes.h"
 
 class FText;
 struct FSlateBrush;

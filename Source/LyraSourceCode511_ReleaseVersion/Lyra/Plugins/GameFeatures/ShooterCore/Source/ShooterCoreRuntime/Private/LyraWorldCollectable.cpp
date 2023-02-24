@@ -2,7 +2,7 @@
 
 #include "LyraWorldCollectable.h"
 
-#include "Interaction/IInteractableTarget.h"
+#include "Async/TaskGraphInterfaces.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraWorldCollectable)
 

@@ -3,7 +3,6 @@
 #include "LyraControllerDisconnectedScreen.h"
 
 #include "Components/HorizontalBox.h"
-#include "HAL/PlatformApplicationMisc.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraControllerDisconnectedScreen)
 

@@ -2,16 +2,11 @@
 
 #include "TDM_PlayerSpawningManagmentComponent.h"
 
-#include "CoreTypes.h"
 #include "Engine/World.h"
-#include "GameFramework/Controller.h"
-#include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerState.h"
 #include "GameModes/LyraGameState.h"
-#include "Misc/AssertionMacros.h"
 #include "Player/LyraPlayerStart.h"
 #include "Teams/LyraTeamSubsystem.h"
-#include "UObject/ObjectPtr.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(TDM_PlayerSpawningManagmentComponent)
 
@@ -25,6 +20,11 @@ UTDM_PlayerSpawningManagmentComponent::UTDM_PlayerSpawningManagmentComponent(con
 AActor* UTDM_PlayerSpawningManagmentComponent::OnChoosePlayerStart(AController* Player, TArray<ALyraPlayerStart*>& PlayerStarts)
 {
 	ULyraTeamSubsystem* TeamSubsystem = GetWorld()->GetSubsystem<ULyraTeamSubsystem>();
+	if (!ensure(TeamSubsystem))
+	{
+		return nullptr;
+	}
+
 	const int32 PlayerTeamId = TeamSubsystem->FindTeamFromObject(Player);
 
 	// We should have a TeamId by now, but early login stuff before post login can try to do stuff, ignore it.

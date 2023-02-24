@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
 #include "GameFeatureAction_WorldActionBase.h"
 #include "Abilities/GameplayAbility.h"
 #include "AbilitySystem/LyraAbilitySet.h"

@@ -4,14 +4,7 @@
 
 #include "Abilities/LyraGameplayAbility.h"
 #include "AbilitySystemComponent.h"
-#include "Containers/Array.h"
-#include "Engine/EngineTypes.h"
-#include "GameplayAbilitySpec.h"
-#include "GameplayTagContainer.h"
-#include "HAL/Platform.h"
 #include "NativeGameplayTags.h"
-#include "Templates/Function.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraAbilitySystemComponent.generated.h"
 

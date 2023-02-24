@@ -4,9 +4,6 @@
 
 #include "Components/ControllerComponent.h"
 #include "GameplayTagContainer.h"
-#include "Math/UnrealMathSSE.h"
-#include "Math/Vector.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraNumberPopComponent.generated.h"
 

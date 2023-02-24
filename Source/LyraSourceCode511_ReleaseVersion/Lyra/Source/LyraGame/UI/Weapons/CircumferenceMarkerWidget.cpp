@@ -2,10 +2,6 @@
 
 #include "CircumferenceMarkerWidget.h"
 
-#include "Components/SlateWrapperTypes.h"
-#include "Misc/Attribute.h"
-#include "UI/Weapons/SCircumferenceMarkerWidget.h"
-#include "Widgets/DeclarativeSyntaxSupport.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(CircumferenceMarkerWidget)
 

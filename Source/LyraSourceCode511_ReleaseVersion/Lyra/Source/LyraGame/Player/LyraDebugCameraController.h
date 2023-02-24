@@ -3,7 +3,6 @@
 #pragma once
 
 #include "Engine/DebugCameraController.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraDebugCameraController.generated.h"
 

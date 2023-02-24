@@ -2,10 +2,7 @@
 
 #pragma once
 
-#include "Containers/Array.h"
 #include "Engine/DataAsset.h"
-#include "Templates/SubclassOf.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraPawnData.generated.h"
 

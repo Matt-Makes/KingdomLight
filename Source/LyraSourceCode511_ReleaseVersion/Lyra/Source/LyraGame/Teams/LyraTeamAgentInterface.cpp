@@ -2,13 +2,8 @@
 
 #include "Teams/LyraTeamAgentInterface.h"
 
-#include "Containers/UnrealString.h"
-#include "HAL/Platform.h"
-#include "Logging/LogCategory.h"
-#include "Logging/LogMacros.h"
 #include "LyraLogChannels.h"
-#include "Trace/Detail/Channel.h"
-#include "UObject/UObjectBaseUtility.h"
+#include "UObject/ScriptInterface.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraTeamAgentInterface)
 

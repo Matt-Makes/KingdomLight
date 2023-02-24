@@ -4,23 +4,11 @@
 
 #include "AbilitySystemComponent.h"
 #include "AbilitySystemGlobals.h"
-#include "Containers/UnrealString.h"
-#include "Delegates/Delegate.h"
-#include "Engine/EngineBaseTypes.h"
 #include "Engine/World.h"
-#include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerState.h"
 #include "GameModes/LyraGameMode.h"
-#include "Logging/LogCategory.h"
-#include "Logging/LogMacros.h"
 #include "LyraLogChannels.h"
-#include "Misc/AssertionMacros.h"
 #include "Perception/AIPerceptionComponent.h"
-#include "Templates/Casts.h"
-#include "Trace/Detail/Channel.h"
-#include "UObject/ObjectPtr.h"
-#include "UObject/UObjectBaseUtility.h"
-#include "UObject/UnrealNames.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraPlayerBotController)
 

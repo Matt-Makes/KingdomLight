@@ -3,11 +3,8 @@
 #include "CustomSettings/LyraSettingValueDiscrete_PerfStat.h"
 #include "EditCondition/WhenPlayingAsPrimaryPlayer.h"
 #include "GameSettingCollection.h"
-#include "HAL/Platform.h"
-#include "Internationalization/Internationalization.h"
 #include "LyraGameSettingRegistry.h"
 #include "Performance/LyraPerformanceStatTypes.h"
-#include "UObject/UObjectGlobals.h"
 
 class ULyraLocalPlayer;
 

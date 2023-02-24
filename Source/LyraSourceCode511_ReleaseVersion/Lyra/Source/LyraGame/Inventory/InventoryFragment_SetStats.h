@@ -2,11 +2,8 @@
 
 #pragma once
 
-#include "Containers/Map.h"
 #include "GameplayTagContainer.h"
-#include "HAL/Platform.h"
 #include "Inventory/LyraInventoryItemDefinition.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "InventoryFragment_SetStats.generated.h"
 

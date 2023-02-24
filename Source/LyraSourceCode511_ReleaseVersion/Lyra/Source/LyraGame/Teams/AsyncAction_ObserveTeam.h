@@ -2,12 +2,8 @@
 
 #pragma once
 
-#include "Delegates/Delegate.h"
 #include "Engine/CancellableAsyncAction.h"
-#include "HAL/Platform.h"
-#include "UObject/Object.h"
 #include "UObject/ScriptInterface.h"
-#include "UObject/UObjectGlobals.h"
 #include "UObject/WeakInterfacePtr.h"
 
 #include "AsyncAction_ObserveTeam.generated.h"

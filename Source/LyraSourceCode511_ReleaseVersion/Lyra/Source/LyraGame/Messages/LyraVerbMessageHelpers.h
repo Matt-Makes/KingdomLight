@@ -2,12 +2,12 @@
 
 #pragma once
 
-#include "GameplayEffectTypes.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "LyraVerbMessage.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraVerbMessageHelpers.generated.h"
+
+struct FGameplayCueParameters;
+struct FLyraVerbMessage;
 
 class APlayerController;
 class APlayerState;

@@ -3,9 +3,7 @@
 #pragma once
 
 #include "CommonUserWidget.h"
-#include "Components/SlateWrapperTypes.h"
 #include "GameplayTagContainer.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraTaggedWidget.generated.h"
 

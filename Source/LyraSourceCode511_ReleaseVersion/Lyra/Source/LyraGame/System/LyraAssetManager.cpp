@@ -6,10 +6,12 @@
 #include "LyraGameData.h"
 #include "AbilitySystemGlobals.h"
 #include "Character/LyraPawnData.h"
+#include "Misc/App.h"
 #include "Stats/StatsMisc.h"
 #include "Engine/Engine.h"
 #include "AbilitySystem/LyraGameplayCueManager.h"
 #include "Misc/ScopedSlowTask.h"
+#include "System/LyraAssetManagerStartupJob.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraAssetManager)
 
@@ -123,8 +125,6 @@ void ULyraAssetManager::StartInitialLoading()
 void ULyraAssetManager::InitializeAbilitySystem()
 {
 	SCOPED_BOOT_TIMING("ULyraAssetManager::InitializeAbilitySystem");
-
-	FLyraGameplayTags::InitializeNativeTags();
 
 	UAbilitySystemGlobals::Get().InitGlobalData();
 }

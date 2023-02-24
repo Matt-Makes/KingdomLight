@@ -2,29 +2,15 @@
 
 #include "LyraFrontendStateComponent.h"
 
-#include "CommonActivatableWidget.h"
 #include "CommonGameInstance.h"
 #include "CommonSessionSubsystem.h"
 #include "CommonUserSubsystem.h"
-#include "CommonUserTypes.h"
-#include "Containers/Array.h"
-#include "Containers/UnrealString.h"
-#include "ControlFlow.h"
 #include "ControlFlowManager.h"
-#include "Delegates/Delegate.h"
-#include "Engine/GameInstance.h"
-#include "Engine/World.h"
-#include "GameFramework/GameModeBase.h"
-#include "GameFramework/GameStateBase.h"
 #include "GameModes/LyraExperienceManagerComponent.h"
-#include "Internationalization/Text.h"
 #include "Kismet/GameplayStatics.h"
-#include "Misc/AssertionMacros.h"
-#include "Misc/Optional.h"
 #include "NativeGameplayTags.h"
 #include "PrimaryGameLayout.h"
-#include "Templates/Casts.h"
-#include "UObject/NameTypes.h"
+#include "Widgets/CommonActivatableWidgetContainer.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraFrontendStateComponent)
 

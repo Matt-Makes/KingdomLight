@@ -3,19 +3,11 @@
 #pragma once
 
 #include "Components/ActorComponent.h"
-#include "Containers/Array.h"
-#include "Containers/Set.h"
-#include "Engine/EngineTypes.h"
-#include "GameplayTagContainer.h"
 #include "LyraContextEffectsInterface.h"
-#include "Math/MathFwd.h"
-#include "Math/Rotator.h"
-#include "Math/Vector.h"
-#include "UObject/NameTypes.h"
-#include "UObject/SoftObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraContextEffectComponent.generated.h"
+
+namespace EEndPlayReason { enum Type : int; }
 
 class UAnimSequenceBase;
 class UAudioComponent;

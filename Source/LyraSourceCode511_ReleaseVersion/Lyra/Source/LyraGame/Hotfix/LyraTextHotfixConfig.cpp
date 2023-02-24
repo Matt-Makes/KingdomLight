@@ -1,6 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "LyraTextHotfixConfig.h"
+#include "Internationalization/PolyglotTextData.h"
 #include "Internationalization/TextLocalizationManager.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraTextHotfixConfig)

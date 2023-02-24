@@ -1,18 +1,8 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "Chaos/TriangleMeshImplicitObject.h"
-#include "Containers/Array.h"
-#include "Containers/UnrealString.h"
-#include "Delegates/Delegate.h"
 #include "Engine/StaticMesh.h"
-#include "HAL/IConsoleManager.h"
-#include "Logging/LogCategory.h"
-#include "Logging/LogMacros.h"
-#include "Math/UnrealMathSSE.h"
 #include "PhysicsEngine/BodySetup.h"
-#include "Templates/SharedPointer.h"
-#include "Trace/Detail/Channel.h"
-#include "UObject/UObjectBaseUtility.h"
 #include "UObject/UObjectIterator.h"
 
 class FOutputDevice;

@@ -4,7 +4,6 @@
 
 #include "CommonUserWidget.h"
 #include "Performance/LyraPerformanceStatTypes.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraPerfStatContainerBase.generated.h"
 

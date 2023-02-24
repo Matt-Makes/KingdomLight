@@ -3,29 +3,15 @@
 #include "Teams/LyraTeamSubsystem.h"
 
 #include "AbilitySystemGlobals.h"
-#include "Containers/UnrealString.h"
-#include "CoreTypes.h"
-#include "GameFramework/Actor.h"
-#include "GameFramework/CheatManager.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/Pawn.h"
-#include "GameplayTagContainer.h"
-#include "GenericTeamAgentInterface.h"
-#include "Logging/LogCategory.h"
-#include "Logging/LogMacros.h"
 #include "LyraLogChannels.h"
 #include "LyraTeamAgentInterface.h"
 #include "LyraTeamCheats.h"
 #include "LyraTeamPrivateInfo.h"
 #include "LyraTeamPublicInfo.h"
-#include "Misc/AssertionMacros.h"
 #include "Player/LyraPlayerState.h"
-#include "System/GameplayTagStack.h"
 #include "Teams/LyraTeamInfoBase.h"
-#include "Templates/Casts.h"
-#include "Templates/Tuple.h"
-#include "Trace/Detail/Channel.h"
-#include "UObject/UObjectBaseUtility.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraTeamSubsystem)
 
@@ -102,24 +88,47 @@ void ULyraTeamSubsystem::Deinitialize()
 	Super::Deinitialize();
 }
 
-void ULyraTeamSubsystem::RegisterTeamInfo(ALyraTeamInfoBase* TeamInfo)
+bool ULyraTeamSubsystem::RegisterTeamInfo(ALyraTeamInfoBase* TeamInfo)
 {
-	check(TeamInfo);
-	const int32 TeamId = TeamInfo->GetTeamId();
-	check(TeamId != INDEX_NONE);
+	if (!ensure(TeamInfo))
+	{
+		return false;
+	}
 
-	FLyraTeamTrackingInfo& Entry = TeamMap.FindOrAdd(TeamId);
-	Entry.SetTeamInfo(TeamInfo);
+	const int32 TeamId = TeamInfo->GetTeamId();
+	if (ensure(TeamId != INDEX_NONE))
+	{
+		FLyraTeamTrackingInfo& Entry = TeamMap.FindOrAdd(TeamId);
+		Entry.SetTeamInfo(TeamInfo);
+
+		return true;
+	}
+
+	return false;
 }
 
-void ULyraTeamSubsystem::UnregisterTeamInfo(ALyraTeamInfoBase* TeamInfo)
+bool ULyraTeamSubsystem::UnregisterTeamInfo(ALyraTeamInfoBase* TeamInfo)
 {
-	check(TeamInfo);
-	const int32 TeamId = TeamInfo->GetTeamId();
-	check(TeamId != INDEX_NONE);
+	if (!ensure(TeamInfo))
+	{
+		return false;
+	}
 
-	FLyraTeamTrackingInfo& Entry = TeamMap.FindChecked(TeamId);
-	Entry.RemoveTeamInfo(TeamInfo);
+	const int32 TeamId = TeamInfo->GetTeamId();
+	if (ensure(TeamId != INDEX_NONE))
+	{
+		FLyraTeamTrackingInfo* Entry = TeamMap.Find(TeamId);
+
+		// If it couldn't find the entry, this is probably a leftover actor from a previous world, ignore it
+		if (Entry)
+		{
+			Entry->RemoveTeamInfo(TeamInfo);
+
+			return true;
+		}
+	}
+
+	return false;
 }
 
 bool ULyraTeamSubsystem::ChangeTeamForActor(AActor* ActorToChange, int32 NewTeamIndex)

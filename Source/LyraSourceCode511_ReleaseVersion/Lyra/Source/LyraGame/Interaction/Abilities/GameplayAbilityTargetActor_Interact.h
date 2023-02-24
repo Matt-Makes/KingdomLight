@@ -3,8 +3,6 @@
 #pragma once
 
 #include "Abilities/GameplayAbilityTargetActor_Trace.h"
-#include "Engine/HitResult.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "GameplayAbilityTargetActor_Interact.generated.h"
 

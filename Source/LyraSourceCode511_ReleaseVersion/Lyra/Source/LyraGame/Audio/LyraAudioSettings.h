@@ -2,11 +2,8 @@
 
 #pragma once
 
-#include "Containers/Array.h"
 #include "Engine/DeveloperSettings.h"
-#include "UObject/SoftObjectPath.h"
 #include "UObject/SoftObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraAudioSettings.generated.h"
 

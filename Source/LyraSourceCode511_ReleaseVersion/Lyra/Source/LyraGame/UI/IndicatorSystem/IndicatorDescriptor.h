@@ -3,20 +3,7 @@
 #pragma once
 
 #include "Components/SceneComponent.h"
-#include "Containers/EnumAsByte.h"
-#include "Math/UnrealMathSSE.h"
-#include "Math/Vector.h"
-#include "Math/Vector2D.h"
-#include "Templates/SharedPointer.h"
 #include "Types/SlateEnums.h"
-#include "UObject/NameTypes.h"
-#include "UObject/Object.h"
-#include "UObject/ObjectPtr.h"
-#include "UObject/SoftObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
-#include "UObject/UnrealNames.h"
-#include "UObject/WeakObjectPtr.h"
-#include "UObject/WeakObjectPtrTemplates.h"
 
 #include "IndicatorDescriptor.generated.h"
 
@@ -29,7 +16,7 @@ struct FSceneViewProjectionData;
 
 struct FIndicatorProjection
 {
-	bool Project(const UIndicatorDescriptor& IndicatorDescriptor, const FSceneViewProjectionData& InProjectionData, const FVector2D& ScreenSize, FVector& ScreenPositionWithDepth);
+	bool Project(const UIndicatorDescriptor& IndicatorDescriptor, const FSceneViewProjectionData& InProjectionData, const FVector2f& ScreenSize, FVector& ScreenPositionWithDepth);
 };
 
 UENUM(BlueprintType)

@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
 #include "LyraCameraMode.h"
 #include "Curves/CurveFloat.h"
 #include "LyraPenetrationAvoidanceFeeler.h"

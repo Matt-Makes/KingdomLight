@@ -2,15 +2,11 @@
 
 #pragma once
 
-#include "Containers/Array.h"
-#include "Internationalization/Text.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "Templates/SubclassOf.h"
-#include "UObject/Object.h"
-#include "UObject/ObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraInventoryItemDefinition.generated.h"
+
+template <typename T> class TSubclassOf;
 
 class ULyraInventoryItemInstance;
 struct FFrame;

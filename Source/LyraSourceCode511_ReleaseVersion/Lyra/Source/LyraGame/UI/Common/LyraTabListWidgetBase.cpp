@@ -2,17 +2,8 @@
 
 #include "LyraTabListWidgetBase.h"
 
-#include "Blueprint/UserWidget.h"
 #include "CommonAnimatedSwitcher.h"
 #include "CommonButtonBase.h"
-#include "CommonUserWidget.h"
-#include "Components/SlateWrapperTypes.h"
-#include "Components/Widget.h"
-#include "Containers/UnrealString.h"
-#include "Misc/AssertionMacros.h"
-#include "Templates/Casts.h"
-#include "Templates/SharedPointer.h"
-#include "UObject/Class.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraTabListWidgetBase)
 

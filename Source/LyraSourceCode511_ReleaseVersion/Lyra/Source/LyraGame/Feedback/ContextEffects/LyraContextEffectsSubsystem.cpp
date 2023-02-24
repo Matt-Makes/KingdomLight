@@ -3,12 +3,11 @@
 
 #include "LyraContextEffectsSubsystem.h"
 
-#include "Engine/EngineTypes.h"
 #include "Feedback/ContextEffects/LyraContextEffectsLibrary.h"
-#include "GameplayTagContainer.h"
+#include "Feedback/ContextEffects/LyraContextEffectsSubsystem.h"
 #include "Kismet/GameplayStatics.h"
-#include "NiagaraCommon.h"
 #include "NiagaraFunctionLibrary.h"
+#include "NiagaraSystem.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraContextEffectsSubsystem)
 

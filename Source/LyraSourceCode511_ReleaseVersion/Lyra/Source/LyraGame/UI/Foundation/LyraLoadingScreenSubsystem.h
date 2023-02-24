@@ -2,11 +2,10 @@
 
 #pragma once
 
-#include "Delegates/Delegate.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "Templates/SubclassOf.h"
-#include "UObject/UObjectGlobals.h"
 
+#include "UObject/WeakObjectPtr.h"
 #include "LyraLoadingScreenSubsystem.generated.h"
 
 class UObject;

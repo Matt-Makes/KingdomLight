@@ -2,11 +2,8 @@
 
 #pragma once
 
-#include "Internationalization/Text.h"
 #include "Inventory/LyraInventoryItemDefinition.h"
-#include "Math/Color.h"
 #include "UObject/ObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "InventoryFragment_PickupIcon.generated.h"
 

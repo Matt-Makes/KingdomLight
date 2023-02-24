@@ -2,7 +2,6 @@
 
 #include "GameplayTagStack.h"
 
-#include "Logging/LogVerbosity.h"
 #include "UObject/Stack.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(GameplayTagStack)

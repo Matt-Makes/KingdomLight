@@ -2,9 +2,8 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "InputModifiers.h"
 #include "GameplayTagContainer.h"
+#include "Math/IntRect.h"
 #include "ScalableFloat.h"
 #include "WorldCollision.h"
 #include "Input/LyraInputModifiers.h"

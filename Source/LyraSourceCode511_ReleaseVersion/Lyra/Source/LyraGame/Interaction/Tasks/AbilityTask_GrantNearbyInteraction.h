@@ -2,9 +2,6 @@
 #pragma once
 
 #include "Abilities/Tasks/AbilityTask.h"
-#include "Containers/Map.h"
-#include "Engine/EngineTypes.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "AbilityTask_GrantNearbyInteraction.generated.h"
 

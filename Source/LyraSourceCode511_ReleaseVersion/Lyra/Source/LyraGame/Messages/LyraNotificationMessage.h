@@ -2,8 +2,6 @@
 
 #pragma once
 
-#include "GameplayTagContainer.h"
-#include "Internationalization/Text.h"
 #include "NativeGameplayTags.h"
 
 #include "LyraNotificationMessage.generated.h"

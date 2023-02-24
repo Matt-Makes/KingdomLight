@@ -1,14 +1,12 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 #pragma once
 
-#include "Abilities/GameplayAbilityTargetTypes.h"
-#include "Engine/CollisionProfile.h"
-#include "Engine/EngineTypes.h"
 #include "Interaction/InteractionQuery.h"
 #include "Interaction/Tasks/AbilityTask_WaitForInteractableTargets.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "AbilityTask_WaitForInteractableTargets_SingleLineTrace.generated.h"
+
+struct FCollisionProfileName;
 
 class UGameplayAbility;
 class UObject;

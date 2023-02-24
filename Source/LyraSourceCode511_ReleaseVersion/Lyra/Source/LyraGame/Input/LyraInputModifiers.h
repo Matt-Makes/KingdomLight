@@ -2,18 +2,12 @@
 
 #pragma once
 
-#include "Containers/Array.h"
-#include "InputActionValue.h"
 #include "InputModifiers.h"
-#include "Math/Color.h"
-#include "Math/UnrealMathSSE.h"
-#include "Math/Vector.h"
-#include "UObject/NameTypes.h"
-#include "UObject/ObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
-#include "UObject/UnrealNames.h"
 
+#include "UObject/UnrealType.h"
 #include "LyraInputModifiers.generated.h"
+
+struct FInputActionValue;
 
 class FProperty;
 class UEnhancedPlayerInput;

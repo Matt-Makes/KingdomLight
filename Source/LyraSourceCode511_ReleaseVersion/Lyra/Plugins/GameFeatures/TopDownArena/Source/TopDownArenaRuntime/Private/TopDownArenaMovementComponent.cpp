@@ -2,11 +2,7 @@
 
 #include "TopDownArenaMovementComponent.h"
 
-#include "AbilitySystemComponent.h"
-#include "Containers/EnumAsByte.h"
-#include "Engine/EngineTypes.h"
-#include "GameplayAbilities/Public/AbilitySystemGlobals.h"
-#include "NativeGameplayTags.h"
+#include "AbilitySystemGlobals.h"
 #include "TopDownArenaAttributeSet.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(TopDownArenaMovementComponent)

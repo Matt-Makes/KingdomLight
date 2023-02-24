@@ -2,7 +2,8 @@
 
 #include "LyraInventoryItemDefinition.h"
 
-#include "UObject/Class.h"
+#include "Templates/SubclassOf.h"
+#include "UObject/ObjectPtr.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraInventoryItemDefinition)
 

@@ -3,12 +3,8 @@
 #pragma once
 
 #include "AbilitySystemComponent.h"
-#include "AttributeSet.h"
 #include "LyraAttributeSet.h"
-#include "Misc/AssertionMacros.h"
 #include "NativeGameplayTags.h"
-#include "UObject/Class.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraHealthSet.generated.h"
 

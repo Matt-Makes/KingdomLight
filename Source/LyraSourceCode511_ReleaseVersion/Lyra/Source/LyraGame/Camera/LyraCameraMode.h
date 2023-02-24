@@ -2,15 +2,8 @@
 
 #pragma once
 
-#include "Containers/Array.h"
 #include "Engine/World.h"
 #include "GameplayTagContainer.h"
-#include "Math/Rotator.h"
-#include "Math/UnrealMathSSE.h"
-#include "Math/Vector.h"
-#include "Templates/SubclassOf.h"
-#include "UObject/Object.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraCameraMode.generated.h"
 

@@ -4,25 +4,7 @@
 
 #include "AsyncMixin.h"
 #include "Blueprint/UserWidgetPool.h"
-#include "Containers/Array.h"
-#include "Containers/UnrealString.h"
-#include "Engine/LocalPlayer.h"
-#include "HAL/Platform.h"
-#include "Layout/Children.h"
-#include "Layout/Geometry.h"
-#include "Layout/Visibility.h"
-#include "Math/Vector2D.h"
-#include "Misc/Attribute.h"
-#include "Misc/Optional.h"
-#include "SlotBase.h"
-#include "Templates/SharedPointer.h"
-#include "Types/SlateEnums.h"
-#include "UObject/GCObject.h"
-#include "UObject/WeakObjectPtr.h"
-#include "UObject/WeakObjectPtrTemplates.h"
-#include "Widgets/DeclarativeSyntaxSupport.h"
 #include "Widgets/SPanel.h"
-#include "Widgets/SWidget.h"
 
 class FActiveTimerHandle;
 class FArrangedChildren;

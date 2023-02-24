@@ -2,8 +2,8 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
 #include "GameFeatureAction_WorldActionBase.h"
+#include "UObject/SoftObjectPtr.h"
 #include "GameFeatureAction_AddInputBinding.generated.h"
 
 class AActor;

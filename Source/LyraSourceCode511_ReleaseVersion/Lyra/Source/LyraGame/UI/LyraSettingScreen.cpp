@@ -2,12 +2,9 @@
 
 #include "LyraSettingScreen.h"
 
-#include "Containers/Array.h"
-#include "Delegates/Delegate.h"
 #include "Input/CommonUIInputTypes.h"
 #include "Player/LyraLocalPlayer.h"
 #include "Settings/LyraGameSettingRegistry.h"
-#include "Templates/Casts.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraSettingScreen)
 

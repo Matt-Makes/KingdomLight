@@ -2,13 +2,8 @@
 
 #include "LyraGameplayAbility_Jump.h"
 
-#include "Abilities/GameplayAbilityTypes.h"
+#include "AbilitySystem/Abilities/LyraGameplayAbility.h"
 #include "Character/LyraCharacter.h"
-#include "Containers/EnumAsByte.h"
-#include "GameFramework/Actor.h"
-#include "Templates/Casts.h"
-#include "UObject/WeakObjectPtr.h"
-#include "UObject/WeakObjectPtrTemplates.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraGameplayAbility_Jump)
 

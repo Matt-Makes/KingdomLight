@@ -3,8 +3,6 @@
 #pragma once
 
 #include "GameFeatureAction.h"
-#include "HAL/Platform.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "ApplyFrontendPerfSettingsAction.generated.h"
 

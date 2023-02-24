@@ -2,11 +2,7 @@
 
 #pragma once
 
-#include "Containers/Array.h"
 #include "GameSettingValueDiscrete.h"
-#include "HAL/Platform.h"
-#include "Internationalization/Text.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraSettingValueDiscrete_OverallQuality.generated.h"
 

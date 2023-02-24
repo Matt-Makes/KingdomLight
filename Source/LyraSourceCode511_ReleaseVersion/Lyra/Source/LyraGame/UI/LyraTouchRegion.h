@@ -2,9 +2,7 @@
 
 #pragma once
 
-#include "Input/Reply.h"
 #include "UI/LyraSimulatedInputWidget.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraTouchRegion.generated.h"
 

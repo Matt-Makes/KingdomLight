@@ -2,10 +2,7 @@
 
 #pragma once
 
-#include "Containers/Map.h"
-#include "HAL/Platform.h"
 #include "Messages/GameplayMessageProcessor.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "ElimChainProcessor.generated.h"
 

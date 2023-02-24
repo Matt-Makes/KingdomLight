@@ -2,11 +2,7 @@
 
 #pragma once
 
-#include "Delegates/Delegate.h"
 #include "Kismet/BlueprintAsyncActionBase.h"
-#include "UObject/Object.h"
-#include "UObject/UObjectGlobals.h"
-#include "UObject/WeakObjectPtrTemplates.h"
 
 #include "AsyncAction_ExperienceReady.generated.h"
 

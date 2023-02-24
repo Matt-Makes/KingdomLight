@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CommonGameViewportClient.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraGameViewportClient.generated.h"
 

@@ -2,17 +2,8 @@
 
 #pragma once
 
-#include "Containers/Array.h"
-#include "Containers/ArrayView.h"
-#include "Containers/Map.h"
-#include "Containers/Set.h"
-#include "Containers/SparseArray.h"
-#include "Containers/UnrealString.h"
 #include "GameplayTagContainer.h"
-#include "HAL/Platform.h"
 #include "Net/Serialization/FastArraySerializer.h"
-#include "Templates/UnrealTemplate.h"
-#include "UObject/Class.h"
 
 #include "GameplayTagStack.generated.h"
 

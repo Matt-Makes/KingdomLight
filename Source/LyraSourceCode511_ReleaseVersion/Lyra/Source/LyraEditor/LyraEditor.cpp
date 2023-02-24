@@ -3,52 +3,22 @@
 #include "LyraEditor.h"
 
 #include "AbilitySystemGlobals.h"
-#include "AssetToolsModule.h"
-#include "Containers/Array.h"
-#include "Containers/UnrealString.h"
 #include "DataValidationModule.h"
-#include "Delegates/Delegate.h"
 #include "Development/LyraDeveloperSettings.h"
-#include "Editor.h"
-#include "Editor/EditorEngine.h"
 #include "Editor/UnrealEdEngine.h"
-#include "Engine/Engine.h"
 #include "Engine/GameInstance.h"
-#include "Engine/World.h"
 #include "Framework/Application/SlateApplication.h"
-#include "Framework/Commands/UIAction.h"
 #include "Framework/MultiBox/MultiBoxBuilder.h"
-#include "Framework/SlateDelegates.h"
 #include "GameEditorStyle.h"
-#include "GameFramework/Actor.h"
 #include "GameModes/LyraExperienceManager.h"
 #include "GameplayAbilitiesEditorModule.h"
-#include "GameplayAbilitiesModule.h"
 #include "GameplayCueInterface.h"
 #include "GameplayCueNotify_Burst.h"
 #include "GameplayCueNotify_BurstLatent.h"
 #include "GameplayCueNotify_Looping.h"
-#include "HAL/Platform.h"
-#include "IAssetTools.h"
-#include "Internationalization/Internationalization.h"
-#include "Internationalization/Text.h"
-#include "Misc/AssertionMacros.h"
-#include "Misc/Attribute.h"
-#include "Misc/CoreMisc.h"
-#include "Modules/ModuleManager.h"
 #include "Private/AssetTypeActions_LyraContextEffectsLibrary.h"
-#include "Subsystems/AssetEditorSubsystem.h"
-#include "Styling/AppStyle.h"
-#include "Templates/SharedPointer.h"
-#include "Textures/SlateIcon.h"
 #include "ToolMenu.h"
-#include "ToolMenuEntry.h"
-#include "ToolMenuMisc.h"
-#include "ToolMenuSection.h"
 #include "ToolMenus.h"
-#include "UObject/Class.h"
-#include "UObject/NameTypes.h"
-#include "UObject/ObjectPtr.h"
 #include "UObject/UObjectIterator.h"
 #include "UnrealEdGlobals.h"
 #include "Validation/EditorValidator.h"
@@ -171,43 +141,6 @@ static TSharedRef<SWidget> GetCommonMapsDropdown()
 	return MenuBuilder.MakeWidget();
 }
 
-static void AddPlayer_Clicked()
-{
-	if (ensure(GEditor->PlayWorld))
-	{
-		if (UGameInstance* GameInstance = GEditor->PlayWorld->GetGameInstance())
-		{
-			if (GameInstance->GetNumLocalPlayers() == 1)
-			{
-				GameInstance->DebugCreatePlayer(1);
-			}
-			else
-			{
-				GameInstance->DebugRemovePlayer(1);
-			}
-		}
-	}
-}
-
-static TSharedRef<SWidget> AddLocalPlayer()
-{
-	FMenuBuilder MenuBuilder(true, nullptr);
-
-	MenuBuilder.AddMenuEntry(
-		LOCTEXT("SplitscreenButton", "Splitscreen"),
-		LOCTEXT("SplitscreenDescription", "Adds/Removes a Splitscreen Player to the current PIE session"),
-		FSlateIcon(),
-		FUIAction(
-			FExecuteAction::CreateStatic(&AddPlayer_Clicked),
-			FCanExecuteAction::CreateStatic(&HasPlayWorld),
-			FIsActionChecked(),
-			FIsActionButtonVisible::CreateStatic(&HasPlayWorld)
-		)
-	);
-
-	return MenuBuilder.MakeWidget();
-}
-
 static void CheckGameContent_Clicked()
 {
 	UEditorValidator::ValidateCheckedOutContent(/*bInteractive=*/true, EDataValidationUsecase::Manual);
@@ -217,21 +150,23 @@ static void RegisterGameEditorMenus()
 {
 	UToolMenu* Menu = UToolMenus::Get()->ExtendMenu("LevelEditor.LevelEditorToolBar.PlayToolBar");
 	FToolMenuSection& Section = Menu->AddSection("PlayGameExtensions", TAttribute<FText>(), FToolMenuInsert("Play", EToolMenuInsertType::After));
-	
-	FToolMenuEntry BlueprintEntry = FToolMenuEntry::InitComboButton(
-		"OpenGameMenu",
-		FUIAction(
-			FExecuteAction(),
-			FCanExecuteAction::CreateStatic(&HasPlayWorld),
-			FIsActionChecked(),
-			FIsActionButtonVisible::CreateStatic(&HasPlayWorld)),
-		FOnGetContent::CreateStatic(&AddLocalPlayer),
-		LOCTEXT("GameOptions_Label", "Game Options"),
-		LOCTEXT("GameOptions_ToolTip", "Game Options"),
-		FSlateIcon(FAppStyle::GetAppStyleSetName(), "LevelEditor.OpenLevelBlueprint")
-	);
-	BlueprintEntry.StyleNameOverride = "CalloutToolbar";
-	Section.AddEntry(BlueprintEntry);
+
+	// Uncomment this to add a custom toolbar that is displayed during PIE
+	// Useful for making easy access to changing game state artificially, adding cheats, etc
+	// FToolMenuEntry BlueprintEntry = FToolMenuEntry::InitComboButton(
+	// 	"OpenGameMenu",
+	// 	FUIAction(
+	// 		FExecuteAction(),
+	// 		FCanExecuteAction::CreateStatic(&HasPlayWorld),
+	// 		FIsActionChecked(),
+	// 		FIsActionButtonVisible::CreateStatic(&HasPlayWorld)),
+	// 	FOnGetContent::CreateStatic(&YourCustomMenu),
+	// 	LOCTEXT("GameOptions_Label", "Game Options"),
+	// 	LOCTEXT("GameOptions_ToolTip", "Game Options"),
+	// 	FSlateIcon(FAppStyle::GetAppStyleSetName(), "LevelEditor.OpenLevelBlueprint")
+	// );
+	// BlueprintEntry.StyleNameOverride = "CalloutToolbar";
+	// Section.AddEntry(BlueprintEntry);
 
 	FToolMenuEntry CheckContentEntry = FToolMenuEntry::InitToolBarButton(
 		"CheckContent",

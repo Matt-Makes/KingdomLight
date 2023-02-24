@@ -3,7 +3,7 @@
 #include "LyraBoundActionButton.h"
 
 #include "CommonInputSubsystem.h"
-#include "Delegates/Delegate.h"
+#include "CommonInputTypeEnum.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraBoundActionButton)
 

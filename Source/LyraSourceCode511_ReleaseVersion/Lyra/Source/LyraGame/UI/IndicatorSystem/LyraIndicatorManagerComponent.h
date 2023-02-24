@@ -3,9 +3,6 @@
 #pragma once
 
 #include "Components/ControllerComponent.h"
-#include "Containers/Array.h"
-#include "Delegates/Delegate.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraIndicatorManagerComponent.generated.h"
 

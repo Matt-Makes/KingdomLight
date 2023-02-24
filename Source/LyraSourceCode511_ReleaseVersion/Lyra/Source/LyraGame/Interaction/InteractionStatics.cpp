@@ -2,15 +2,10 @@
 
 #include "InteractionStatics.h"
 
-#include "Components/ActorComponent.h"
 #include "Components/PrimitiveComponent.h"
-#include "Engine/HitResult.h"
 #include "Engine/OverlapResult.h"
-#include "GameFramework/Actor.h"
 #include "IInteractableTarget.h"
-#include "Misc/AssertionMacros.h"
-#include "Templates/Casts.h"
-#include "UObject/Object.h"
+#include "UObject/ScriptInterface.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(InteractionStatics)
 

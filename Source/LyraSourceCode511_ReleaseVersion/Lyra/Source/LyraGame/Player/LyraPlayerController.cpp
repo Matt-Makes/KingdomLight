@@ -1,13 +1,13 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "LyraPlayerController.h"
+#include "CommonInputTypeEnum.h"
+#include "Components/PrimitiveComponent.h"
 #include "LyraLogChannels.h"
-#include "GameModes/LyraGameMode.h"
 #include "LyraCheatManager.h"
 #include "LyraPlayerState.h"
 #include "Camera/LyraPlayerCameraManager.h"
 #include "UI/LyraHUD.h"
-#include "Character/LyraPawnData.h"
 #include "AbilitySystem/LyraAbilitySystemComponent.h"
 #include "EngineUtils.h"
 #include "LyraGameplayTags.h"
@@ -281,7 +281,7 @@ bool ALyraPlayerController::GetIsAutoRunning() const
 	bool bIsAutoRunning = false;
 	if (const ULyraAbilitySystemComponent* LyraASC = GetLyraAbilitySystemComponent())
 	{
-		bIsAutoRunning = LyraASC->GetTagCount(FLyraGameplayTags::Get().Status_AutoRunning) > 0;
+		bIsAutoRunning = LyraASC->GetTagCount(LyraGameplayTags::Status_AutoRunning) > 0;
 	}
 	return bIsAutoRunning;
 }
@@ -290,7 +290,7 @@ void ALyraPlayerController::OnStartAutoRun()
 {
 	if (ULyraAbilitySystemComponent* LyraASC = GetLyraAbilitySystemComponent())
 	{
-		LyraASC->SetLooseGameplayTagCount(FLyraGameplayTags::Get().Status_AutoRunning, 1);
+		LyraASC->SetLooseGameplayTagCount(LyraGameplayTags::Status_AutoRunning, 1);
 		K2_OnStartAutoRun();
 	}	
 }
@@ -299,7 +299,7 @@ void ALyraPlayerController::OnEndAutoRun()
 {
 	if (ULyraAbilitySystemComponent* LyraASC = GetLyraAbilitySystemComponent())
 	{
-		LyraASC->SetLooseGameplayTagCount(FLyraGameplayTags::Get().Status_AutoRunning, 0);
+		LyraASC->SetLooseGameplayTagCount(LyraGameplayTags::Status_AutoRunning, 0);
 		K2_OnEndAutoRun();
 	}
 }

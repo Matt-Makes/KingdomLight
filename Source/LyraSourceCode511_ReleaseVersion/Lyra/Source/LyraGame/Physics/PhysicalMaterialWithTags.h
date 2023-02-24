@@ -4,7 +4,6 @@
 
 #include "GameplayTagContainer.h"
 #include "PhysicalMaterials/PhysicalMaterial.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "PhysicalMaterialWithTags.generated.h"
 

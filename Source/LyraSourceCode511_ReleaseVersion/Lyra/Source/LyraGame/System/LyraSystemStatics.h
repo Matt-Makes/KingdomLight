@@ -2,18 +2,12 @@
 
 #pragma once
 
-#include "Containers/Array.h"
-#include "Containers/UnrealString.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "Math/Color.h"
-#include "Math/MathFwd.h"
-#include "Templates/SubclassOf.h"
-#include "UObject/NameTypes.h"
-#include "UObject/PrimaryAssetId.h"
 #include "UObject/SoftObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraSystemStatics.generated.h"
+
+template <typename T> class TSubclassOf;
 
 class AActor;
 class UActorComponent;

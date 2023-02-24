@@ -17,6 +17,13 @@
 	"EnabledByDefault": false,
 	"ExplicitlyLoaded": true,
 	"BuiltInInitialFeatureState": "Registered",
+	"Modules": [
+		{
+			"Name": "ShooterTestsRuntime",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
 	"Plugins": [
 		{
 			"Name": "ShooterCore",

@@ -3,11 +3,7 @@
 #pragma once
 
 #include "AbilitySystem/Abilities/LyraGameplayAbility.h"
-#include "Containers/Array.h"
-#include "GameplayAbilitySpec.h"
 #include "Interaction/InteractionOption.h"
-#include "UObject/SoftObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraGameplayAbility_Interact.generated.h"
 

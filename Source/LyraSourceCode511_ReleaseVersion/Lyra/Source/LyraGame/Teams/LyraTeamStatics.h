@@ -2,11 +2,7 @@
 
 #pragma once
 
-#include "HAL/Platform.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "Math/Color.h"
-#include "UObject/NameTypes.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraTeamStatics.generated.h"
 

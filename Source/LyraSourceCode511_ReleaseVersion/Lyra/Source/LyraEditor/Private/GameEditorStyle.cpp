@@ -3,10 +3,6 @@
 #include "GameEditorStyle.h"
 
 #include "Brushes/SlateImageBrush.h"
-#include "Containers/UnrealString.h"
-#include "HAL/Platform.h"
-#include "Math/Vector2D.h"
-#include "Misc/AssertionMacros.h"
 #include "Misc/Paths.h"
 #include "Styling/SlateStyle.h"
 #include "Styling/SlateStyleRegistry.h"

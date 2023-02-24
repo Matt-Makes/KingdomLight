@@ -1,10 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "UI/LyraSimulatedInputWidget.h"
-#include "Engine/LocalPlayer.h"
 #include "EnhancedInputSubsystems.h"
-#include "EnhancedPlayerInput.h"
-#include "InputAction.h"
 #include "LyraLogChannels.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraSimulatedInputWidget)

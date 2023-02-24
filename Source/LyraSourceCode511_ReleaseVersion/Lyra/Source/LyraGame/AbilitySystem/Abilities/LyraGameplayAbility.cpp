@@ -4,7 +4,6 @@
 #include "LyraLogChannels.h"
 #include "AbilitySystem/LyraAbilitySystemComponent.h"
 #include "AbilitySystemLog.h"
-#include "HAL/PlatformStackWalk.h"
 #include "Player/LyraPlayerController.h"
 #include "Character/LyraCharacter.h"
 #include "LyraGameplayTags.h"
@@ -18,7 +17,6 @@
 #include "AbilitySystem/LyraGameplayEffectContext.h"
 #include "Physics/PhysicalMaterialWithTags.h"
 #include "GameFramework/PlayerState.h"
-#include "HAL/PlatformStackWalk.h"
 #include "Camera/LyraCameraMode.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraGameplayAbility)
@@ -141,20 +139,18 @@ bool ULyraGameplayAbility::CanActivateAbility(const FGameplayAbilitySpecHandle H
 		return false;
 	}
 
-	ULyraAbilitySystemComponent* LyraASC = CastChecked<ULyraAbilitySystemComponent>(ActorInfo->AbilitySystemComponent.Get());
-	const FLyraGameplayTags& GameplayTags = FLyraGameplayTags::Get();
-
 	if (!Super::CanActivateAbility(Handle, ActorInfo, SourceTags, TargetTags, OptionalRelevantTags))
 	{
 		return false;
 	}
 
 	//@TODO Possibly remove after setting up tag relationships
+	ULyraAbilitySystemComponent* LyraASC = CastChecked<ULyraAbilitySystemComponent>(ActorInfo->AbilitySystemComponent.Get());
 	if (LyraASC->IsActivationGroupBlocked(ActivationGroup))
 	{
 		if (OptionalRelevantTags)
 		{
-			OptionalRelevantTags->AddTag(GameplayTags.Ability_ActivateFail_ActivationGroup);
+			OptionalRelevantTags->AddTag(LyraGameplayTags::Ability_ActivateFail_ActivationGroup);
 		}
 		return false;
 	}
@@ -197,32 +193,6 @@ void ULyraGameplayAbility::ActivateAbility(const FGameplayAbilitySpecHandle Hand
 
 void ULyraGameplayAbility::EndAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, bool bReplicateEndAbility, bool bWasCancelled)
 {
-#if !UE_BUILD_SHIPPING
-	if (bWasCancelled && bLogCancelation)
-	{
-		UE_LOG(LogLyraAbilitySystem, Warning, TEXT("========  (%s) canceled with EndAbility (locally controlled? %i) ========"), *GetName(), IsLocallyControlled());
-
-		if (APlayerState* PS = Cast<APlayerState>(GetOwningActorFromActorInfo()))
-		{
-			UE_LOG(LogLyraAbilitySystem, Log, TEXT("Player Name: %s"), *PS->GetPlayerName());
-		}
-
-		PrintScriptCallstack();
-
-		const SIZE_T StackTraceSize = 65535;
-		ANSICHAR* StackTrace = (ANSICHAR*)FMemory::SystemMalloc(StackTraceSize);
-		if (StackTrace != nullptr)
-		{
-			StackTrace[0] = 0;
-			// Walk the stack and dump it to the allocated memory.
-			FPlatformStackWalk::StackWalkAndDump(StackTrace, StackTraceSize, 1);
-			UE_LOG(LogLyraAbilitySystem, Log, TEXT("Call Stack:\n%s"), ANSI_TO_TCHAR(StackTrace));
-			FMemory::SystemFree(StackTrace);
-		}
-	}
-#endif // !UE_BUILD_SHIPPING
-
-
 	ClearCameraMode();
 
 	Super::EndAbility(Handle, ActorInfo, ActivationInfo, bReplicateEndAbility, bWasCancelled);
@@ -382,11 +352,10 @@ bool ULyraGameplayAbility::DoesAbilitySatisfyTagRequirements(const UAbilitySyste
 
 		if (AbilitySystemComponentTags.HasAny(AllBlockedTags))
 		{
-			const FLyraGameplayTags& GameplayTags = FLyraGameplayTags::Get();
-			if (OptionalRelevantTags && AbilitySystemComponentTags.HasTag(GameplayTags.Status_Death))
+			if (OptionalRelevantTags && AbilitySystemComponentTags.HasTag(LyraGameplayTags::Status_Death))
 			{
 				// If player is dead and was rejected due to blocking tags, give that feedback
-				OptionalRelevantTags->AddTag(GameplayTags.Ability_ActivateFail_IsDead);
+				OptionalRelevantTags->AddTag(LyraGameplayTags::Ability_ActivateFail_IsDead);
 			}
 
 			bBlocked = true;

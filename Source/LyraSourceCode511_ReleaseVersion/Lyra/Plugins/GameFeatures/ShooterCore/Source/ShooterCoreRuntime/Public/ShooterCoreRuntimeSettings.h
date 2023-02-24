@@ -2,10 +2,8 @@
 
 #pragma once
 
-#include "Containers/EnumAsByte.h"
 #include "Engine/DeveloperSettings.h"
 #include "Engine/EngineTypes.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "ShooterCoreRuntimeSettings.generated.h"
 

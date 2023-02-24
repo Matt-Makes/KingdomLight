@@ -2,13 +2,10 @@
 
 #include "LyraGameSettingRegistry.h"
 
-#include "Engine/LocalPlayer.h"
 #include "GameSettingCollection.h"
-#include "HAL/Platform.h"
 #include "LyraSettingsLocal.h"
 #include "LyraSettingsShared.h"
 #include "Player/LyraLocalPlayer.h"
-#include "Templates/Casts.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraGameSettingRegistry)
 

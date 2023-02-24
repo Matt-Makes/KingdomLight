@@ -3,11 +3,10 @@
 #pragma once
 
 #include "CommonUserWidget.h"
-#include "Performance/LyraPerformanceStatTypes.h"
-#include "UObject/ObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraPerfStatWidgetBase.generated.h"
+
+enum class ELyraDisplayablePerformanceStat : uint8;
 
 class ULyraPerformanceStatSubsystem;
 class UObject;

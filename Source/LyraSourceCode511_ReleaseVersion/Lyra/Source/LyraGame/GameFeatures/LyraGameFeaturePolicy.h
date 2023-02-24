@@ -2,13 +2,8 @@
 
 #pragma once
 
-#include "Containers/Array.h"
-#include "Containers/UnrealString.h"
 #include "GameFeatureStateChangeObserver.h"
 #include "GameFeaturesProjectPolicies.h"
-#include "UObject/Object.h"
-#include "UObject/ObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraGameFeaturePolicy.generated.h"
 

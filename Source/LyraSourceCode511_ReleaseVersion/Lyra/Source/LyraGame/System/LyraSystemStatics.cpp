@@ -1,6 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "LyraSystemStatics.h"
+#include "Engine/AssetManagerTypes.h"
 #include "Engine/Engine.h"
 #include "Engine/World.h"
 #include "Engine/AssetManager.h"
@@ -58,6 +59,9 @@ void ULyraSystemStatics::PlayNextGame(const UObject* WorldContextObject)
 	// To transition during PIE we need to strip the PIE prefix from maps.
 	LastURL.Map = UWorld::StripPIEPrefixFromPackageName(LastURL.Map, WorldContext.World()->StreamingLevelsPrefix);
 #endif
+
+	// Add seamless travel option as we want to keep clients connected. This will fall back to hard travel if seamless is disabled
+	LastURL.AddOption(TEXT("SeamlessTravel"));
 
 	FString URL = LastURL.ToString();
 	// If we don't remove the host/port info the server travel will fail.

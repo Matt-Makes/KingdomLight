@@ -4,10 +4,7 @@
 
 #include "DataSource/GameSettingDataSourceDynamic.h" // IWYU pragma: keep
 #include "GameSettingRegistry.h"
-#include "Logging/LogMacros.h"
-#include "Misc/AssertionMacros.h"
 #include "Settings/LyraSettingsLocal.h" // IWYU pragma: keep
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraGameSettingRegistry.generated.h"
 

@@ -1,7 +1,6 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "LyraAnimInstance.h"
-#include "AbilitySystemComponent.h"
 #include "AbilitySystemGlobals.h"
 #include "Character/LyraCharacter.h"
 #include "Character/LyraCharacterMovementComponent.h"

@@ -4,14 +4,10 @@
 
 #include "Components/GameFrameworkInitStateInterface.h"
 #include "Components/PawnComponent.h"
-#include "Delegates/Delegate.h"
-#include "Engine/EngineTypes.h"
-#include "GameFramework/Actor.h"
-#include "Templates/Casts.h"
-#include "UObject/NameTypes.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraPawnExtensionComponent.generated.h"
+
+namespace EEndPlayReason { enum Type : int; }
 
 class UGameFrameworkComponentManager;
 class ULyraAbilitySystemComponent;

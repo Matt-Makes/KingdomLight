@@ -2,7 +2,9 @@
 
 #include "LyraActionWidget.h"
 
+#include "CommonInputBaseTypes.h"
 #include "CommonInputSubsystem.h"
+#include "Engine/LocalPlayer.h"
 #include "EnhancedInputSubsystems.h"
 
 FSlateBrush ULyraActionWidget::GetIcon() const

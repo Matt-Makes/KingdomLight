@@ -2,14 +2,11 @@
 
 #pragma once
 
-#include "CommonInputBaseTypes.h"
 #include "Components/GameStateComponent.h"
-#include "Containers/Array.h"
-#include "Engine/EngineTypes.h"
-#include "GameFramework/Actor.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "AimAssistTargetManagerComponent.generated.h"
+
+enum class ECommonInputType : uint8;
 
 class APlayerController;
 class UObject;

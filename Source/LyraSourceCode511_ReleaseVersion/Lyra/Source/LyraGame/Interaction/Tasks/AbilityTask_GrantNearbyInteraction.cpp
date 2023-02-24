@@ -2,31 +2,15 @@
 
 #include "AbilityTask_GrantNearbyInteraction.h"
 
-#include "Abilities/GameplayAbility.h"
 #include "AbilitySystemComponent.h"
-#include "CollisionQueryParams.h"
-#include "CollisionShape.h"
-#include "Containers/Array.h"
-#include "Delegates/Delegate.h"
-#include "Engine/OverlapResult.h"
 #include "Engine/World.h"
-#include "GameFramework/Actor.h"
 #include "GameFramework/Controller.h"
-#include "GameplayAbilitySpec.h"
 #include "Interaction/IInteractableTarget.h"
 #include "Interaction/InteractionOption.h"
 #include "Interaction/InteractionQuery.h"
 #include "Interaction/InteractionStatics.h"
-#include "Math/Quat.h"
 #include "Physics/LyraCollisionChannels.h"
-#include "Stats/Stats2.h"
-#include "Templates/Casts.h"
-#include "Templates/SubclassOf.h"
 #include "TimerManager.h"
-#include "UObject/ObjectKey.h"
-#include "UObject/ScriptInterface.h"
-#include "UObject/WeakObjectPtr.h"
-#include "UObject/WeakObjectPtrTemplates.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(AbilityTask_GrantNearbyInteraction)
 

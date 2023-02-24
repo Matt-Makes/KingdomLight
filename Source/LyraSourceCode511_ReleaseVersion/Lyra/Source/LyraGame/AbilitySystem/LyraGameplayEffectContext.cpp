@@ -5,8 +5,6 @@
 #include "AbilitySystem/LyraAbilitySourceInterface.h"
 #include "Engine/HitResult.h"
 #include "PhysicalMaterials/PhysicalMaterial.h"
-#include "Templates/Casts.h"
-#include "UObject/Object.h"
 
 #if UE_WITH_IRIS
 #include "Iris/ReplicationState/PropertyNetSerializerInfoRegistry.h"

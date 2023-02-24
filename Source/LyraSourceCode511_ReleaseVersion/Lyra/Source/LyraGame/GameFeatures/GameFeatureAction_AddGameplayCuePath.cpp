@@ -1,7 +1,5 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 #include "GameFeatureAction_AddGameplayCuePath.h"
-#include "GameplayCueManager.h"
-#include "AbilitySystemGlobals.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(GameFeatureAction_AddGameplayCuePath)
 

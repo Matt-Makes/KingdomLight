@@ -3,16 +3,9 @@
 
 #include "LyraContextEffectComponent.h"
 
-#include "Chaos/ChaosEngineInterface.h"
-#include "Containers/EnumAsByte.h"
-#include "Containers/Map.h"
-#include "Engine/EngineBaseTypes.h"
-#include "Engine/HitResult.h"
 #include "Engine/World.h"
 #include "LyraContextEffectsSubsystem.h"
 #include "PhysicalMaterials/PhysicalMaterial.h"
-#include "UObject/WeakObjectPtr.h"
-#include "UObject/WeakObjectPtrTemplates.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraContextEffectComponent)
 

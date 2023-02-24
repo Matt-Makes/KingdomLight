@@ -2,9 +2,7 @@
 
 #pragma once
 
-#include "Containers/UnrealString.h"
 #include "GameFramework/CheatManager.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraCosmeticCheats.generated.h"
 

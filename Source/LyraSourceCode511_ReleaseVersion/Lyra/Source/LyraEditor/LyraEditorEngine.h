@@ -3,9 +3,6 @@
 #pragma once
 
 #include "Editor/UnrealEdEngine.h"
-#include "Engine/GameInstance.h"
-#include "HAL/Platform.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraEditorEngine.generated.h"
 

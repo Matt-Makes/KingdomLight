@@ -3,17 +3,8 @@
 #include "GameFeatures/LyraGameFeaturePolicy.h"
 
 #include "AbilitySystem/LyraGameplayCueManager.h"
-#include "GameFeatureAction.h"
 #include "GameFeatureData.h"
-#include "GameFeaturesSubsystem.h"
 #include "GameplayCueSet.h"
-#include "HAL/Platform.h"
-#include "Misc/AssertionMacros.h"
-#include "Misc/CoreMisc.h"
-#include "OnlineHotfixManager.h"
-#include "ProfilingDebugging/CpuProfilerTrace.h"
-#include "Templates/Casts.h"
-#include "UObject/SoftObjectPath.h"
 
 ULyraGameFeaturePolicy::ULyraGameFeaturePolicy(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -91,7 +82,6 @@ void ULyraGameFeature_HotfixManager::OnGameFeatureLoading(const UGameFeatureData
 
 #include "AbilitySystemGlobals.h"
 #include "GameFeatureAction_AddGameplayCuePath.h"
-#include "GameplayCueManager.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraGameFeaturePolicy)
 

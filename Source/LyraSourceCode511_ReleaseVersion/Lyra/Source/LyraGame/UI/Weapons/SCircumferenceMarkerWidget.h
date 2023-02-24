@@ -2,14 +2,8 @@
 
 #pragma once
 
-#include "Containers/Array.h"
-#include "HAL/Platform.h"
-#include "Math/Vector2D.h"
-#include "Misc/Attribute.h"
-#include "Rendering/SlateRenderTransform.h"
 #include "Styling/CoreStyle.h"
-#include "Styling/ISlateStyle.h"
-#include "Styling/SlateColor.h"
+#include "Widgets/Accessibility/SlateWidgetAccessibleTypes.h"
 #include "Widgets/DeclarativeSyntaxSupport.h"
 #include "Widgets/SLeafWidget.h"
 

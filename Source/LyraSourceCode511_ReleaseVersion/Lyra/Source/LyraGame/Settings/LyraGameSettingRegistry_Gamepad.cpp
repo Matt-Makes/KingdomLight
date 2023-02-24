@@ -1,25 +1,15 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "CommonInputBaseTypes.h"
-#include "Containers/Array.h"
-#include "DataSource/GameSettingDataSourceDynamic.h"
-#include "Engine/PlatformSettingsManager.h"
+#include "DataSource/GameSettingDataSource.h"
 #include "GameSettingCollection.h"
 #include "GameSettingValueDiscreteDynamic.h"
 #include "GameSettingValueScalarDynamic.h"
-#include "HAL/Platform.h"
-#include "Internationalization/Internationalization.h"
-#include "Internationalization/Text.h"
 #include "LyraGameSettingRegistry.h"
 #include "LyraSettingsLocal.h"
 #include "LyraSettingsShared.h"
 #include "NativeGameplayTags.h"
 #include "Player/LyraLocalPlayer.h"
-#include "Templates/SubclassOf.h"
-#include "UObject/NameTypes.h"
-#include "UObject/SoftObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
-#include "UObject/UnrealNames.h"
 
 #define LOCTEXT_NAMESPACE "Lyra"
 

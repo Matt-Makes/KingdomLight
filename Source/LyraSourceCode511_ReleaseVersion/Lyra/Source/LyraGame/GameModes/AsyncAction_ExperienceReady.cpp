@@ -4,11 +4,8 @@
 
 #include "Engine/Engine.h"
 #include "Engine/World.h"
-#include "GameFramework/GameStateBase.h"
 #include "GameModes/LyraExperienceManagerComponent.h"
-#include "Misc/AssertionMacros.h"
 #include "TimerManager.h"
-#include "UObject/WeakObjectPtr.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(AsyncAction_ExperienceReady)
 

@@ -3,7 +3,6 @@
 #pragma once
 
 #include "Camera/PlayerCameraManager.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraPlayerCameraManager.generated.h"
 

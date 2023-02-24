@@ -3,9 +3,6 @@
 #pragma once
 
 #include "AttributeSet.h"
-#include "Delegates/Delegate.h"
-#include "HAL/PlatformMisc.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraAttributeSet.generated.h"
 

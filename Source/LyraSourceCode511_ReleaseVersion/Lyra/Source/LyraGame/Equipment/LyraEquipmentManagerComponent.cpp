@@ -2,21 +2,12 @@
 
 #include "LyraEquipmentManagerComponent.h"
 
-#include "AbilitySystem/LyraAbilitySet.h"
 #include "AbilitySystem/LyraAbilitySystemComponent.h"
-#include "AbilitySystemComponent.h"
 #include "AbilitySystemGlobals.h"
-#include "Components/ActorComponent.h"
 #include "Engine/ActorChannel.h"
-#include "GameFramework/Actor.h"
 #include "LyraEquipmentDefinition.h"
 #include "LyraEquipmentInstance.h"
-#include "Misc/AssertionMacros.h"
 #include "Net/UnrealNetwork.h"
-#include "Templates/Casts.h"
-#include "UObject/Object.h"
-#include "UObject/ObjectPtr.h"
-#include "UObject/UObjectBaseUtility.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraEquipmentManagerComponent)
 

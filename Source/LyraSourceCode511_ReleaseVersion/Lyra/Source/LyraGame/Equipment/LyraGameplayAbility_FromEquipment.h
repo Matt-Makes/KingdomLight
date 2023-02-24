@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
 #include "AbilitySystem/Abilities/LyraGameplayAbility.h"
 
 #include "LyraGameplayAbility_FromEquipment.generated.h"

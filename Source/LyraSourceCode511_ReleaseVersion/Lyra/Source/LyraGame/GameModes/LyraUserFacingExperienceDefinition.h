@@ -2,13 +2,7 @@
 
 #pragma once
 
-#include "Containers/Map.h"
 #include "Engine/DataAsset.h"
-#include "HAL/Platform.h"
-#include "Internationalization/Text.h"
-#include "UObject/PrimaryAssetId.h"
-#include "UObject/SoftObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraUserFacingExperienceDefinition.generated.h"
 

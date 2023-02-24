@@ -3,8 +3,6 @@
 #pragma once
 
 #include "Engine/DataTable.h"
-#include "Input/UIActionBindingHandle.h"
-#include "UObject/UObjectGlobals.h"
 #include "Widgets/GameSettingScreen.h"
 
 #include "LyraSettingScreen.generated.h"

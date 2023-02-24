@@ -3,7 +3,6 @@
 #include "BPFunctionLibrary.h"
 
 #include "Engine/StaticMesh.h"
-#include "UObject/ObjectPtr.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(BPFunctionLibrary)
 

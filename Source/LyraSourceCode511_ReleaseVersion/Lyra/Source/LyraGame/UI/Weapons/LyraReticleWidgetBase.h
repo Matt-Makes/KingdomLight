@@ -3,8 +3,6 @@
 #pragma once
 
 #include "CommonUserWidget.h"
-#include "UObject/ObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraReticleWidgetBase.generated.h"
 

@@ -2,8 +2,8 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
 #include "GameFeatureAction.h"
+#include "UObject/SoftObjectPath.h"
 #include "GameFeatureAction_AddGameplayCuePath.generated.h"
 
 /**

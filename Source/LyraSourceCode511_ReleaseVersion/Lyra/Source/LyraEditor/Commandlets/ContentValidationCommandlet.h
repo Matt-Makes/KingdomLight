@@ -3,10 +3,6 @@
 #pragma once
 
 #include "Commandlets/Commandlet.h"
-#include "Containers/Array.h"
-#include "Containers/UnrealString.h"
-#include "HAL/Platform.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "ContentValidationCommandlet.generated.h"
 

@@ -2,13 +2,12 @@
 
 #pragma once
 
-#include "Engine/EngineTypes.h"
 #include "GameFramework/Info.h"
-#include "HAL/Platform.h"
 #include "System/GameplayTagStack.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraTeamInfoBase.generated.h"
+
+namespace EEndPlayReason { enum Type : int; }
 
 class ULyraTeamCreationComponent;
 class ULyraTeamSubsystem;

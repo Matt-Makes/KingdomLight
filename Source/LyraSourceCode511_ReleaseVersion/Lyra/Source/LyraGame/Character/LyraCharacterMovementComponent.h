@@ -2,12 +2,8 @@
 
 #pragma once
 
-#include "Engine/HitResult.h"
 #include "GameFramework/CharacterMovementComponent.h"
-#include "Math/Rotator.h"
-#include "Math/UnrealMathSSE.h"
 #include "NativeGameplayTags.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraCharacterMovementComponent.generated.h"
 

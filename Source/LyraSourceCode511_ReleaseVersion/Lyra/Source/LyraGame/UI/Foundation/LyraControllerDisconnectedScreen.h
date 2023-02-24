@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CommonActivatableWidget.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraControllerDisconnectedScreen.generated.h"
 

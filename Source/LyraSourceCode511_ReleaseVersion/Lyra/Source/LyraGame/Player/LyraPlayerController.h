@@ -4,15 +4,11 @@
 
 #include "Camera/LyraCameraAssistInterface.h"
 #include "CommonPlayerController.h"
-#include "Containers/Set.h"
-#include "Containers/UnrealString.h"
-#include "Engine/EngineTypes.h"
-#include "GenericTeamAgentInterface.h"
-#include "Math/UnrealMathSSE.h"
 #include "Teams/LyraTeamAgentInterface.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraPlayerController.generated.h"
+
+struct FGenericTeamId;
 
 class ALyraHUD;
 class ALyraPlayerState;

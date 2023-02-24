@@ -4,8 +4,8 @@
 
 #include "AbilitySystemComponent.h"
 #include "AbilitySystemGlobals.h"
+#include "Async/TaskGraphInterfaces.h"
 #include "Components/GameFrameworkComponentManager.h"
-#include "Engine/EngineBaseTypes.h"
 #include "UObject/UObjectIterator.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraHUD)

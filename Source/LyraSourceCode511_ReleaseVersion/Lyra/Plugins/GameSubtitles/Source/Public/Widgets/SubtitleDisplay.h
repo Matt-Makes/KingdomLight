@@ -2,14 +2,13 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
 #include "Components/Widget.h"
-#include "Fonts/SlateFontInfo.h"
 #include "Styling/SlateTypes.h"
 #include "SubtitleDisplaySubsystem.h"
-#include "SubtitleDisplayOptions.h"
 
 #include "SubtitleDisplay.generated.h"
+
+class USubtitleDisplayOptions;
 
 struct FSubtitleFormat;
 

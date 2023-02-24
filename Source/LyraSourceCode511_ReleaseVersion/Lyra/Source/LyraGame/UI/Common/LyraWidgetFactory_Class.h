@@ -2,11 +2,9 @@
 
 #pragma once
 
-#include "Containers/Map.h"
 #include "LyraWidgetFactory.h"
 #include "Templates/SubclassOf.h"
 #include "UObject/SoftObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraWidgetFactory_Class.generated.h"
 

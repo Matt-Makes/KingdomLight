@@ -2,10 +2,6 @@
 
 #include "LyraCameraMode_TopDownArenaCamera.h"
 
-#include "Curves/RichCurve.h"
-#include "Math/Box.h"
-#include "Math/MathFwd.h"
-#include "Math/Vector.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraCameraMode_TopDownArenaCamera)
 

@@ -3,7 +3,6 @@
 #include "LyraGameplayAbilityTargetData_SingleTargetHit.h"
 
 #include "LyraGameplayEffectContext.h"
-#include "Serialization/Archive.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraGameplayAbilityTargetData_SingleTargetHit)
 

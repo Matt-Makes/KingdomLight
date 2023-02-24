@@ -2,19 +2,13 @@
 
 #pragma once
 
-#include "Containers/Array.h"
-#include "Containers/Map.h"
-#include "Delegates/Delegate.h"
-#include "Engine/EngineTypes.h"
-#include "GameplayAbilitySpec.h"
+#include "GameplayAbilitySpecHandle.h"
 #include "GameplayTagContainer.h"
-#include "HAL/Platform.h"
 #include "Subsystems/WorldSubsystem.h"
-#include "Templates/SubclassOf.h"
-#include "UObject/UObjectGlobals.h"
-#include "UObject/WeakObjectPtr.h"
 
 #include "LyraGamePhaseSubsystem.generated.h"
+
+template <typename T> class TSubclassOf;
 
 class ULyraGamePhaseAbility;
 class UObject;

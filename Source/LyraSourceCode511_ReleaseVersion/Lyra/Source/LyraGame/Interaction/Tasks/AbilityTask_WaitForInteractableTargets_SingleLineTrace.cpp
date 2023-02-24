@@ -1,12 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "AbilityTask_WaitForInteractableTargets_SingleLineTrace.h"
-#include "GameFramework/Actor.h"
-#include "Physics/LyraCollisionChannels.h"
-#include "Interaction/IInteractableTarget.h"
 #include "Interaction/InteractionStatics.h"
-#include "Interaction/InteractionQuery.h"
-#include "AbilitySystemComponent.h"
 #include "DrawDebugHelpers.h"
 #include "Engine/World.h"
 #include "TimerManager.h"

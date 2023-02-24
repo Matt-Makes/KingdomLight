@@ -2,11 +2,8 @@
 
 #pragma once
 
-#include "Engine/EngineTypes.h"
 #include "GameFramework/PlayerStart.h"
 #include "GameplayTagContainer.h"
-#include "UObject/ObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraPlayerStart.generated.h"
 

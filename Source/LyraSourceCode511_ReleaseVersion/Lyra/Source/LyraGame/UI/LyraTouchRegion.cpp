@@ -2,8 +2,6 @@
 
 #include "UI/LyraTouchRegion.h"
 
-#include "Math/MathFwd.h"
-#include "Math/Vector.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraTouchRegion)
 

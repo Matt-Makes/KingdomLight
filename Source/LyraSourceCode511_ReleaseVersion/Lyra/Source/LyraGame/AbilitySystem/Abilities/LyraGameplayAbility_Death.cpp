@@ -2,28 +2,12 @@
 
 #include "LyraGameplayAbility_Death.h"
 
-#include "Abilities/GameplayAbility.h"
-#include "Abilities/GameplayAbilityTypes.h"
 #include "AbilitySystem/Abilities/LyraGameplayAbility.h"
 #include "AbilitySystem/LyraAbilitySystemComponent.h"
-#include "AbilitySystemComponent.h"
 #include "Character/LyraHealthComponent.h"
-#include "Containers/Array.h"
-#include "Containers/EnumAsByte.h"
-#include "Containers/UnrealString.h"
-#include "Delegates/Delegate.h"
-#include "GameplayTagContainer.h"
-#include "GameplayTagsManager.h"
-#include "HAL/Platform.h"
-#include "Logging/LogCategory.h"
-#include "Logging/LogMacros.h"
 #include "LyraGameplayTags.h"
 #include "LyraLogChannels.h"
-#include "Misc/AssertionMacros.h"
-#include "Templates/Casts.h"
-#include "Trace/Detail/Channel.h"
-#include "UObject/WeakObjectPtr.h"
-#include "UObject/WeakObjectPtrTemplates.h"
+#include "Trace/Trace.inl"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraGameplayAbility_Death)
 
@@ -35,16 +19,11 @@ ULyraGameplayAbility_Death::ULyraGameplayAbility_Death(const FObjectInitializer&
 
 	bAutoStartDeath = true;
 
-	UGameplayTagsManager::Get().CallOrRegister_OnDoneAddingNativeTagsDelegate(FSimpleDelegate::CreateUObject(this, &ThisClass::DoneAddingNativeTags));
-}
-
-void ULyraGameplayAbility_Death::DoneAddingNativeTags()
-{
 	if (HasAnyFlags(RF_ClassDefaultObject))
 	{
 		// Add the ability trigger tag as default to the CDO.
 		FAbilityTriggerData TriggerData;
-		TriggerData.TriggerTag = FLyraGameplayTags::Get().GameplayEvent_Death;
+		TriggerData.TriggerTag = LyraGameplayTags::GameplayEvent_Death;
 		TriggerData.TriggerSource = EGameplayAbilityTriggerSource::GameplayEvent;
 		AbilityTriggers.Add(TriggerData);
 	}
@@ -57,7 +36,7 @@ void ULyraGameplayAbility_Death::ActivateAbility(const FGameplayAbilitySpecHandl
 	ULyraAbilitySystemComponent* LyraASC = CastChecked<ULyraAbilitySystemComponent>(ActorInfo->AbilitySystemComponent.Get());
 
 	FGameplayTagContainer AbilityTypesToIgnore;
-	AbilityTypesToIgnore.AddTag(FLyraGameplayTags::Get().Ability_Behavior_SurvivesDeath);
+	AbilityTypesToIgnore.AddTag(LyraGameplayTags::Ability_Behavior_SurvivesDeath);
 
 	// Cancel all abilities and block others from starting.
 	LyraASC->CancelAbilities(nullptr, &AbilityTypesToIgnore, this);

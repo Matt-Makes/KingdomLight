@@ -3,7 +3,6 @@
 #pragma once
 
 #include "AbilitySystemGlobals.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraAbilitySystemGlobals.generated.h"
 

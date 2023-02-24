@@ -3,10 +3,6 @@
 #pragma once
 
 #include "Engine/DataAsset.h"
-#include "Math/UnrealMathSSE.h"
-#include "Math/Vector.h"
-#include "Templates/SubclassOf.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraPickupDefinition.generated.h"
 

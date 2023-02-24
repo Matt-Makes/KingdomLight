@@ -15,6 +15,8 @@
 	<Property Name="Versioned" Value="$(IsBuildMachine)" />
 	<Property Name="PublishHashedStagingData" Value="$(IsBuildMachine)" />
 
+	<Property Name="IncludeEpicWebHelperInToolCompile" Value="true" />
+
 	<Option Name="UploadArtifactId" DefaultValue="" Description="ID of the artifact to chunked and uploaded. Upload is ignored if no ID is specified." />
 	<Option Name="UploadTargetPlatform" DefaultValue="" Description="Platform build to upload, i.e. Win64" />
 	<Option Name="UploadConfiguration" DefaultValue="" Description="Configuration to upload, if applicable." />
@@ -63,8 +65,8 @@
 	<!-- CONTENT VALIDATION -->
 	<!-- =============================================================================== -->
 	
-	<Agent Name="Lyra Content Validation" Type="Win64">
-		<Node Name="Lyra Content Validation" Requires="Compile $(ProjectName)Editor Win64">
+	<Agent Name="$(ProjectName) Content Validation" Type="Win64">
+		<Node Name="$(ProjectName) Content Validation" Requires="$(PreNodeName)Compile Editor Win64">
 			<Property Name="RefExtensionsTypelist" Value=".uasset,.umap,.cpp,.c,.h,.inl,.ini,.uproject,.uplugin,.json"/>
 
 			<Property Name="CLArgs" Value="-CL=$(Change) -LastGoodContentCLPath=$(NetworkOutputDirectory)/AutoTest/LastGoodContentCL"/>
@@ -74,12 +76,12 @@
 			<Property Name="CheckAssetReferencesArgs" Value="-Branch=$(Branch) $(CLArgs) -ExtTypeList=&quot;$(RefExtensionsTypelist)&quot; -MaxPackagesToLoad=3000" />
 			<Command Name="LyraContentValidation" Arguments="$(CheckAssetReferencesArgs)"/>
 		</Node>
-		<Label Category="Test" Name="Content Validation" Requires="Lyra Content Validation" />
+		<Label Category="Test" Name="Content Validation" Requires="$(ProjectName) Content Validation" />
 	</Agent>
 
 	<Do If="!$(SkipTest)">
 		<!-- Append Content Validation to the list of things to do -->
-		<Property Name="BuildAndTestExtendedRequirements" Value="$(BuildAndTestExtendedRequirements);Lyra Content Validation"/>
+		<Property Name="BuildAndTestExtendedRequirements" Value="$(BuildAndTestExtendedRequirements);$(ProjectName) Content Validation"/>
 	</Do>
 
 	<!-- =============================================================================== -->
@@ -102,14 +104,14 @@
 
 		<Do If="'$(XLoc_Server)' != '' And '$(XLoc_APIKey)' != '' And '$(XLoc_APISecret)' != '' And '$(XLoc_LocalizationId)' != ''">
 			<Agent Name="Localization" Type="Loc;Win64">
-				<Node Name="Localize" Requires="Compile $(ProjectName)Editor Win64">
+				<Node Name="$(ProjectName) Localize" Requires="$(PreNodeName)Compile Editor Win64">
 					<Command Name="Localize" Arguments="-LocalizationProvider=XLoc_Sample -UEProjectDirectory=$(ProjectPath) -UEProjectName=$(ProjectName) -LocalizationProjectNames=$(ProjectsIncludedInLocalization) -LocalizationBranch=&quot;$(EscapedBranch)&quot; -Server=&quot;$(XLoc_Server)&quot; -APIKey=&quot;$(XLoc_APIKey)&quot; -APISecret=&quot;$(XLoc_APISecret)&quot; -LocalizationId=&quot;$(XLoc_LocalizationId)&quot;" />
 				</Node>
 			</Agent>
 
 			<!-- Append Localize to the list of things to do. -->
-			<Label Category="Localize" Name="Localize" Requires="Localize" />
-			<Property Name="BuildAndTestExtendedRequirements" Value="$(BuildAndTestExtendedRequirements);Localize"/>
+			<Label Category="Localize" Name="Localize" Requires="$(ProjectName) Localize" />
+			<Property Name="BuildAndTestExtendedRequirements" Value="$(BuildAndTestExtendedRequirements);$(ProjectName) Localize"/>
 		</Do>
 
 		<!-- Crowdin Example -->
@@ -119,14 +121,14 @@
 
 		<Do If="'$(Crowdin_ProjectId)' != '' And '$(Crowdin_AccessToken)' != ''">
 			<Agent Name="Localization" Type="Loc;Win64">
-				<Node Name="Localize" Requires="Compile $(ProjectName)Editor Win64">
+				<Node Name="$(ProjectName) Localize" Requires="$(PreNodeName)Compile Editor Win64">
 					<Command Name="Localize" Arguments="-LocalizationProvider=Crowdin_Sample -UEProjectDirectory=$(ProjectPath) -UEProjectName=$(ProjectName) -LocalizationProjectNames=$(ProjectsIncludedInLocalization) -LocalizationBranch=&quot;$(EscapedBranch)&quot; -ProjectId=&quot;$(Crowdin_ProjectId)&quot; -AccessToken=&quot;$(Crowdin_AccessToken)&quot;" />
 				</Node>
 			</Agent>
 
 			<!-- Append Localize to the list of things to do. -->
-			<Label Category="Localize" Name="Localize" Requires="Localize" />
-			<Property Name="BuildAndTestExtendedRequirements" Value="$(BuildAndTestExtendedRequirements);Localize"/>
+			<Label Category="Localize" Name="Localize" Requires="$(ProjectName) Localize" />
+			<Property Name="BuildAndTestExtendedRequirements" Value="$(BuildAndTestExtendedRequirements);$(ProjectName) Localize"/>
 		</Do>
 
 	</Do>
@@ -137,16 +139,16 @@
 
 	<Do If="!$(SkipUpdateAuditCollections) and ContainsItem('$(TargetPlatforms)', 'Win64', '+')">
 		<Agent Name="UpdateAuditCollections" Type="Win64">
-			<Node Name="UpdateAuditCollections" After="Stage Win64" Produces="#AuditInCookCollection">
+			<Node Name="$(ProjectName) UpdateAuditCollections" After="$(PreNodeName)Stage Win64" Produces="#AuditInCookCollection">
 				<Property Name="UpdateAuditCollectionsArgs" Value="" />
 				<Copy Files="Manifest_UFSFiles_Win64.txt" From="$(NetworkOutputDirectory)/Windows/Staged" To="$(RootDir)/Engine/Programs/AutomationTool/Saved"/>
 				<Command Name="Lyra_UpdateAuditCollections" Arguments="$(UpdateAuditCollectionsArgs)"/>
 				<Tag Files="$(RootDir)/$(ProjectPath)/Content/Collections/Audit_InCook.collection" With="#AuditInCookCollection"/>
 			</Node>
-			<Label Category="Clients" Name="UpdateAuditCollections" Requires="UpdateAuditCollections"/>
+			<Label Category="Clients" Name="UpdateAuditCollections" Requires="$(ProjectName) UpdateAuditCollections"/>
 		</Agent>
 		<!-- Append Update Audit Collections to the list of things to do -->
-		<Property Name="BuildAndTestExtendedRequirements" Value="$(BuildAndTestExtendedRequirements);UpdateAuditCollections"/>
+		<Property Name="BuildAndTestExtendedRequirements" Value="$(BuildAndTestExtendedRequirements);$(ProjectName) UpdateAuditCollections"/>
 	</Do>
 
 	<!-- =============================================================================== -->
@@ -163,14 +165,14 @@
 		<!-- Declare the property, for some reason I have to do it outside the agent? -->
 		<Property Name="UploadNodeName" Value="" />
 			
-		<Agent Name="Upload $(DisplayTargetName)" Type="Win64">
-			<Property Name="PublishNodeName" Value="Publish Staged $(UploadTargetPlatform)" />
+		<Agent Name="Upload $(TargetName)" Type="Win64">
+			<Property Name="PublishNodeName" Value="$(PreNodeName)Publish Staged $(UploadTargetPlatform)" />
 		
 			<!-- Set UploadPlatform since it isn't always the same as the target -->
 			<Property Name="UploadPlatform" Value="$(UploadTargetPlatform)" />
 			<Property Name="UploadPlatform" Value="Windows" If="'$(UploadTargetPlatform)' == 'Win64'"/>
 
-			<Property Name="UploadNodeName" Value="Upload $(TargetName) $(UploadTargetPlatform)" />
+			<Property Name="UploadNodeName" Value="$(ProjectName) Upload $(TargetName) $(UploadTargetPlatform)" />
 		
 			<Node Name="$(UploadNodeName)" Requires="$(PublishNodeName)">
 				<Property Name="ConfigurationSuffix" Value="" />
@@ -196,13 +198,13 @@
 			
 				<Command Name="DeployToEpicGameStore" Arguments="-ArtifactId=&quot;$(UploadArtifactId)&quot; -BuildRoot=&quot;$(BuildRoot)&quot; -CloudDir=&quot;$(CloudDir)&quot; -BuildVersion=&quot;$(BuildVersion)&quot; -AppLaunch=&quot;$(AppLaunch)&quot; -AppArgs=&quot;$(AppArgs)&quot; -FileAttributeList=&quot;$(FileAttributeList)&quot; -FileIgnoreList=&quot;$(FileIgnoreList)&quot; -Label=&quot;$(Label)&quot; -Platform=&quot;$(Platform)&quot; -CommandLineFile=&quot;$(CommandLineFile)&quot;" />
 			</Node>
-			<Label Category="Clients" Name="Publish $(DisplayTargetName) To Store" Requires="$(UploadNodeName)" />
+			<Label Category="Clients" Name="Publish To Store" Requires="$(UploadNodeName)" />
 		</Agent>
 	
 		<!-- Just upload? -->
 		<!-- TODO, should we just move these inside the agent? -->
 		<Aggregate Name="BuildAndTestWithUpload $(ProjectName)" Requires="BuildAndTest $(ProjectName);$(UploadNodeName)" />
-		<Label Category="Upload" Name="Upload $(DisplayTargetName) $(UploadTargetPlatform)" Requires="$(UploadNodeName)" />
+		<Label Category="Upload" Name="Upload $(UploadTargetPlatform)" Requires="$(UploadNodeName)" />
 	
 		<Property Name="BuildAndTestExtendedRequirements" Value="$(BuildAndTestExtendedRequirements);$(UploadNodeName)" If="'$(UploadNodeName)' != ''"/>
 	</Do>
@@ -213,4 +215,54 @@
 	<!-- Finally this defines the actual aggregated build command that will run all the requirements. -->
 	<Aggregate Name="BuildAndTestExtended $(ProjectName)" Requires="$(BuildAndTestExtendedRequirements)" />
 
+
+
+	<!-- =============================================================================== -->
+	<!-- PGO BUILDS -->
+	<!-- =============================================================================== -->
+
+	<Include Script="$(RootDir)/Engine/Build/Graph/Tasks/PGOProfileProject.xml" />
+
+	<!-- Create simple PGO nodes for all supported platforms -->
+	<!--                                                                                -->
+	<!--    Example: generate PGO training data for Win64 & check it in to Perforce     -->
+	<!--        RunUAT BuildGraph -script="Samples\Games\Lyra\Build\LyraTests.xml" -target="Lyra PGO Profile Replay Win64" -set:TargetConfigurations=Shipping -set:WithWin64=true -set:PGOAutoSubmitResults=true -->
+	<!--                                                                                    -->
+	<!--    Example: generate PGO optimization data, then build a PGO optimized Win64 build -->
+	<!--        RunUAT BuildGraph -script="Samples\Games\Lyra\Build\LyraTests.xml" -target="Lyra PGO Optimize Win64" -set:TargetConfigurations=Shipping -set:WithWin64=true -->
+	<!--                                                                 -->
+	<!-- Note: PGO is only supported on Test and Shipping configurations -->
+	<ForEach Name="Platform" Values="$(AllPGOPlatforms)" If="ContainsItem('$(TargetConfigurations)','Test','+') or ContainsItem('$(TargetConfigurations)','Shipping','+')">
+	
+		<!-- Set the folder for the local build. Based on StagedPlatformFolder from BuildAndTestProject.xml  -->
+		<Property Name="StagedPlatformFolder" Value="$(Platform)"/>
+		<Property Name="StagedPlatformFolder" Value="Windows" If="'$(Platform)'=='Win64'"/>
+		<Property Name="StagedPlatformFolder" Value="$(StagedPlatformFolder)_ETC2" If="'$(Platform)' == 'Android'"/>
+		<Property Name="StagedPlatformFolder" Value="$(StagedPlatformFolder)Client" If="'$(TargetType)' == 'Client'" />
+		
+		<!-- Declare a PGO Profiling node that is dependent on a staged build (as defined in BuildAndTestProject.xml). This will also check in updated PGO training data if $(PGOAutoSubmitResults) is true. -->
+		<!-- e.g. "Lyra PGO Profile Replay Win64" -->
+		<!-- Note that depending on your project and build farm needs this may not be the most efficient approach. Instead of depending on a staged build (which causes it to be recooked if necessary), you may wish to point to a previously-archived build from the same CL -->
+		<Expand Name="BasicReplayPGOProfile"
+			Platform="$(Platform)"
+			Configuration="$(TargetConfigurations)"
+			LocalReplay="$(ProjectPath)/Build/Replays/PGO.replay"
+			LocalStagingDir="$(ProjectPath)/LocalBuilds/PGO/$(StagedPlatformFolder)"
+			Build="$(ProjectPath)/Saved/StagedBuilds/$(StagedPlatformFolder)"
+			BuildRequires="$(PreNodeName)Stage $(Platform)"
+			CompileArgs="$(GenericCompileArguments) $(ExtraTargetCompileArguments)"
+			/>
+
+		<!-- Declare a PGO Optimization node which regenerates the PGO training data first. -->
+		<!-- e.g. "Lyra PGO Optimize Win64" -->
+		<!-- Note that depending on your project and build farm needs this may not be the most efficient approach. PGO Profiling does not have to occur as frequently as PGO Optimization -->
+		<Property Name="HostAgentType" Value="Win64" />
+		<Property Name="HostAgentType" Value="Mac" If="'$(Platform)' == 'Mac' or '$(Platform)' == 'IOS' or '$(Platform)' == 'tvOS'"/>
+		<Property Name="HostAgentType" Value="Linux" If="'$(Platform)' == 'Linux'"/>
+		<Agent Name="PGO Optimize Agent $(Platform)" Type="$(HostAgentType)">
+			<Node Name="$(ProjectName) PGO Optimize $(Platform)" Requires="$(PreNodeName)PGO Profile Replay $(Platform)">
+				<Compile Target="$(TargetName)" Platform="$(Platform)" Configuration="$(TargetConfigurations)" Arguments="-PGOOptimize -BuildVersion=&quot;$(BuildName)&quot; $(GenericCompileArguments) $(ExtraTargetCompileArguments)" Tag="#PGO Optimized Binaries $(Platform)"/>
+			</Node>
+		</Agent>
+	</ForEach>
 </BuildGraph>

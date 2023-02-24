@@ -2,13 +2,14 @@
 
 #pragma once
 
-#include "GameplayAbilitySpec.h"
 #include "LyraAbilityCost.h"
 #include "ScalableFloat.h"
 #include "Templates/SubclassOf.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraAbilityCost_InventoryItem.generated.h"
+
+struct FGameplayAbilityActivationInfo;
+struct FGameplayAbilitySpecHandle;
 
 class ULyraGameplayAbility;
 class ULyraInventoryItemDefinition;

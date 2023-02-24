@@ -3,8 +3,8 @@
 #pragma once
 
 #include "Components/CapsuleComponent.h"
+#include "GameplayTagContainer.h"
 #include "IAimAssistTargetInterface.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "AimAssistTargetComponent.generated.h"
 

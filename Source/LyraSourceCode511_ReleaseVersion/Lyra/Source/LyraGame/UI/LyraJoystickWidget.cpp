@@ -3,10 +3,6 @@
 #include "UI/LyraJoystickWidget.h"
 
 #include "Components/Image.h"
-#include "Input/Events.h"
-#include "Layout/Geometry.h"
-#include "Math/UnrealMathUtility.h"
-#include "Templates/SharedPointer.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraJoystickWidget)
 

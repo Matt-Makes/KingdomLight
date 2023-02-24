@@ -2,13 +2,14 @@
 
 #pragma once
 
-#include "GameplayAbilitySpec.h"
 #include "GameplayTagContainer.h"
 #include "LyraAbilityCost.h"
 #include "ScalableFloat.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraAbilityCost_ItemTagStack.generated.h"
+
+struct FGameplayAbilityActivationInfo;
+struct FGameplayAbilitySpecHandle;
 
 class ULyraGameplayAbility;
 class UObject;

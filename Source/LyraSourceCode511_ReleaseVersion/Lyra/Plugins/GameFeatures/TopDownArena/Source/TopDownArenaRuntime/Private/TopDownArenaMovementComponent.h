@@ -3,7 +3,6 @@
 #pragma once
 
 #include "Character/LyraCharacterMovementComponent.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "TopDownArenaMovementComponent.generated.h"
 

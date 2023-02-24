@@ -2,21 +2,11 @@
 
 #include "LyraNumberPopComponent_NiagaraText.h"
 
-#include "Containers/UnrealString.h"
 #include "Feedback/NumberPops/LyraNumberPopComponent.h"
-#include "GameFramework/Actor.h"
-#include "Logging/LogCategory.h"
-#include "Logging/LogMacros.h"
 #include "LyraDamagePopStyleNiagara.h"
 #include "LyraLogChannels.h"
-#include "Math/UnrealMathSSE.h"
-#include "Math/Vector.h"
-#include "Math/Vector4.h"
-#include "Misc/AssertionMacros.h"
 #include "NiagaraComponent.h"
 #include "NiagaraDataInterfaceArrayFunctionLibrary.h"
-#include "Trace/Detail/Channel.h"
-#include "UObject/ObjectPtr.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraNumberPopComponent_NiagaraText)
 

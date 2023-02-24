@@ -3,12 +3,9 @@
 #include "LyraHUDLayout.h"
 
 #include "CommonUIExtensions.h"
-#include "Delegates/Delegate.h"
 #include "Input/CommonUIInputTypes.h"
-#include "Misc/AssertionMacros.h"
 #include "NativeGameplayTags.h"
-#include "UITag.h"
-#include "UObject/NameTypes.h"
+#include "UI/LyraActivatableWidget.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraHUDLayout)
 

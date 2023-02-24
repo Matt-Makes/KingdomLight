@@ -2,16 +2,12 @@
 
 #pragma once
 
-#include "Containers/Map.h"
 #include "Engine/LocalPlayer.h"
 #include "GameplayTagContainer.h"
-#include "HAL/Platform.h"
-#include "Math/Vector2D.h"
-#include "Misc/Attribute.h"
 #include "Styling/CoreStyle.h"
-#include "Styling/ISlateStyle.h"
-#include "Styling/SlateColor.h"
+#include "Styling/SlateBrush.h"
 #include "Widgets/DeclarativeSyntaxSupport.h"
+#include "Widgets/Accessibility/SlateWidgetAccessibleTypes.h"
 #include "Widgets/SLeafWidget.h"
 
 class FPaintArgs;

@@ -2,12 +2,7 @@
 
 #pragma once
 
-#include "Containers/UnrealString.h"
-#include "Delegates/Delegate.h"
-#include "Math/Rotator.h"
-#include "Math/Transform.h"
 #include "ModularGameMode.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraGameMode.generated.h"
 
@@ -22,13 +17,14 @@ class ULyraPawnData;
 class UObject;
 struct FFrame;
 struct FPrimaryAssetId;
+enum class ECommonSessionOnlineMode : uint8;
 
 /**
- * Post login event, triggered when a player joins the game as well as after non-seamless ServerTravel
+ * Post login event, triggered when a player or bot joins the game as well as after seamless and non seamless travel
  *
  * This is called after the player has finished initialization
  */
-DECLARE_MULTICAST_DELEGATE_TwoParams(FOnGameModeCombinedPostLogin, AGameModeBase* /*GameMode*/, AController* /*NewPlayer*/);
+DECLARE_MULTICAST_DELEGATE_TwoParams(FOnLyraGameModePlayerInitialized, AGameModeBase* /*GameMode*/, AController* /*NewPlayer*/);
 
 /**
  * ALyraGameMode
@@ -57,9 +53,10 @@ public:
 	virtual void FinishRestartPlayer(AController* NewPlayer, const FRotator& StartRotation) override;
 	virtual bool PlayerCanRestart_Implementation(APlayerController* Player) override;
 	virtual void InitGameState() override;
+	virtual bool UpdatePlayerStartSpot(AController* Player, const FString& Portal, FString& OutErrorMessage) override;
+	virtual void GenericPlayerInitialization(AController* NewPlayer) override;
+	virtual void FailedToRestartPlayer(AController* NewPlayer) override;
 	//~End of AGameModeBase interface
-
-	FOnGameModeCombinedPostLogin& OnGameModeCombinedPostLogin() { return OnGameModeCombinedPostLoginDelegate; }
 
 	// Restart (respawn) the specified player or bot next frame
 	// - If bForceReset is true, the controller will be reset this frame (abandoning the currently possessed pawn, if any)
@@ -69,20 +66,20 @@ public:
 	// Agnostic version of PlayerCanRestart that can be used for both player bots and players
 	virtual bool ControllerCanRestart(AController* Controller);
 
-private:
-	FOnGameModeCombinedPostLogin OnGameModeCombinedPostLoginDelegate;
+	// Delegate called on player initialization, described above 
+	FOnLyraGameModePlayerInitialized OnGameModePlayerInitialized;
 
-protected:
-	//~AGameModeBase interface
-	virtual bool UpdatePlayerStartSpot(AController* Player, const FString& Portal, FString& OutErrorMessage) override;
-	virtual void OnPostLogin(AController* NewPlayer) override;
-	virtual void FailedToRestartPlayer(AController* NewPlayer) override;
-	//~End of AGameModeBase interface
-	
+protected:	
 	void OnExperienceLoaded(const ULyraExperienceDefinition* CurrentExperience);
 	bool IsExperienceLoaded() const;
 
 	void OnMatchAssignmentGiven(FPrimaryAssetId ExperienceId, const FString& ExperienceIdSource);
 
 	void HandleMatchAssignmentIfNotExpectingOne();
+
+	bool TryDedicatedServerLogin();
+	void HostDedicatedServerMatch(ECommonSessionOnlineMode OnlineMode);
+
+	UFUNCTION()
+	void OnUserInitializedForDedicatedServer(const UCommonUserInfo* UserInfo, bool bSuccess, FText Error, ECommonUserPrivilege RequestedPrivilege, ECommonUserOnlineContext OnlineContext);
 };

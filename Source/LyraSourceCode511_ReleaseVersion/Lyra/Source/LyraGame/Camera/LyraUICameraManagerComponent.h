@@ -3,11 +3,10 @@
 #pragma once
 
 #include "Camera/PlayerCameraManager.h"
-#include "Components/ActorComponent.h"
-#include "Misc/AssertionMacros.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraUICameraManagerComponent.generated.h"
+
+class ALyraPlayerCameraManager;
 
 class AActor;
 class AHUD;

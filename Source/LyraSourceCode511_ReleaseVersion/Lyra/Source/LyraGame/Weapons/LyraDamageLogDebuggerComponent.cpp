@@ -2,19 +2,10 @@
 
 #include "LyraDamageLogDebuggerComponent.h"
 
-#include "Containers/Array.h"
-#include "CoreGlobals.h"
 #include "Engine/World.h"
-#include "GameFramework/Actor.h"
-#include "GameplayTagContainer.h"
-#include "Logging/LogCategory.h"
-#include "Logging/LogMacros.h"
 #include "LyraLogChannels.h"
-#include "Math/NumericLimits.h"
-#include "Math/UnrealMathSSE.h"
 #include "Messages/LyraVerbMessage.h"
 #include "NativeGameplayTags.h"
-#include "Trace/Detail/Channel.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraDamageLogDebuggerComponent)
 

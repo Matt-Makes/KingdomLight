@@ -2,12 +2,7 @@
 
 #include "IndicatorLayer.h"
 
-#include "Components/SlateWrapperTypes.h"
-#include "Engine/LocalPlayer.h"
-#include "HAL/Platform.h"
-#include "Misc/AssertionMacros.h"
 #include "SActorCanvas.h"
-#include "Widgets/DeclarativeSyntaxSupport.h"
 #include "Widgets/Layout/SBox.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(IndicatorLayer)

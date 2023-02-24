@@ -4,12 +4,7 @@
 
 #include "Components/GameStateComponent.h"
 #include "ControlFlowNode.h"
-#include "Engine/EngineTypes.h"
-#include "HAL/Platform.h"
 #include "LoadingProcessInterface.h"
-#include "Templates/SharedPointer.h"
-#include "UObject/SoftObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraFrontendStateComponent.generated.h"
 

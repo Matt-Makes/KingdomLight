@@ -2,19 +2,13 @@
 
 #include "LyraPlayerCameraManager.h"
 
-#include "Containers/UnrealString.h"
+#include "Async/TaskGraphInterfaces.h"
 #include "Engine/Canvas.h"
 #include "Engine/Engine.h"
 #include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerController.h"
-#include "HAL/Platform.h"
 #include "LyraCameraComponent.h"
 #include "LyraUICameraManagerComponent.h"
-#include "Math/Color.h"
-#include "Misc/AssertionMacros.h"
-#include "UObject/NameTypes.h"
-#include "UObject/ObjectPtr.h"
-#include "UObject/UObjectBaseUtility.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraPlayerCameraManager)
 

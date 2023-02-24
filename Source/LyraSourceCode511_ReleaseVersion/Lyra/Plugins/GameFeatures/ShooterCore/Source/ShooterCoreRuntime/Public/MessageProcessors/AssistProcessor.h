@@ -2,10 +2,7 @@
 
 #pragma once
 
-#include "Containers/Map.h"
-#include "Containers/SparseArray.h"
 #include "Messages/GameplayMessageProcessor.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "AssistProcessor.generated.h"
 

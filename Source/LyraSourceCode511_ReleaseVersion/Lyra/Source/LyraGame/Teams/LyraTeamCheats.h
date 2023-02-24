@@ -3,8 +3,6 @@
 #pragma once
 
 #include "GameFramework/CheatManager.h"
-#include "HAL/Platform.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraTeamCheats.generated.h"
 

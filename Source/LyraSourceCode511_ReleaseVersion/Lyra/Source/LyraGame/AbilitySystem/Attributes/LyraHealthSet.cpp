@@ -1,12 +1,12 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "LyraHealthSet.h"
+#include "AbilitySystem/Attributes/LyraAttributeSet.h"
 #include "LyraGameplayTags.h"
 #include "Net/UnrealNetwork.h"
 #include "AbilitySystem/LyraAbilitySystemComponent.h"
 #include "Engine/World.h"
 #include "GameplayEffectExtension.h"
-#include "GameplayEffectTypes.h"
 #include "Messages/LyraVerbMessage.h"
 #include "GameFramework/GameplayMessageSubsystem.h"
 
@@ -66,7 +66,7 @@ bool ULyraHealthSet::PreGameplayEffectExecute(FGameplayEffectModCallbackData &Da
 
 #if !UE_BUILD_SHIPPING
 			// Check GodMode cheat, unlimited health is checked below
-			if (Data.Target.HasMatchingGameplayTag(FLyraGameplayTags::Get().Cheat_GodMode) && !bIsDamageFromSelfDestruct)
+			if (Data.Target.HasMatchingGameplayTag(LyraGameplayTags::Cheat_GodMode) && !bIsDamageFromSelfDestruct)
 			{
 				// Do not take away any health.
 				Data.EvaluatedData.Magnitude = 0.0f;
@@ -89,7 +89,7 @@ void ULyraHealthSet::PostGameplayEffectExecute(const FGameplayEffectModCallbackD
 #if !UE_BUILD_SHIPPING
 	// Godmode and unlimited health stop death unless it's a self destruct
 	if (!bIsDamageFromSelfDestruct &&
-		(Data.Target.HasMatchingGameplayTag(FLyraGameplayTags::Get().Cheat_GodMode) || Data.Target.HasMatchingGameplayTag(FLyraGameplayTags::Get().Cheat_UnlimitedHealth) ))
+		(Data.Target.HasMatchingGameplayTag(LyraGameplayTags::Cheat_GodMode) || Data.Target.HasMatchingGameplayTag(LyraGameplayTags::Cheat_UnlimitedHealth) ))
 	{
 		MinimumHealth = 1.0f;
 	}
@@ -98,7 +98,7 @@ void ULyraHealthSet::PostGameplayEffectExecute(const FGameplayEffectModCallbackD
 	if (Data.EvaluatedData.Attribute == GetDamageAttribute())
 	{
 		// Send a standardized verb message that other systems can observe
-		if (Data.EvaluatedData.Magnitude < 0.0f)
+		if (Data.EvaluatedData.Magnitude > 0.0f)
 		{
 			FLyraVerbMessage Message;
 			Message.Verb = TAG_Lyra_Damage_Message;

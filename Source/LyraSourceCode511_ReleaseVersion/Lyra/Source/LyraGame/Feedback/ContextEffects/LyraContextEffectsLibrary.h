@@ -2,13 +2,8 @@
 
 #pragma once
 
-#include "Containers/Array.h"
-#include "Delegates/Delegate.h"
 #include "GameplayTagContainer.h"
-#include "HAL/Platform.h"
-#include "UObject/Object.h"
 #include "UObject/SoftObjectPath.h"
-#include "UObject/UObjectGlobals.h"
 #include "UObject/WeakObjectPtr.h"
 
 #include "LyraContextEffectsLibrary.generated.h"

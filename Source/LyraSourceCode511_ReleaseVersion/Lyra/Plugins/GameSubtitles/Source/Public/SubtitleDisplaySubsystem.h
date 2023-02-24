@@ -2,10 +2,8 @@
 
 #pragma once
 
-#include "Delegates/Delegate.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "SubtitleDisplayOptions.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "SubtitleDisplaySubsystem.generated.h"
 

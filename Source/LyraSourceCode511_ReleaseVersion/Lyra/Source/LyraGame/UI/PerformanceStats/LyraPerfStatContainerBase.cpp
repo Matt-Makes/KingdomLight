@@ -3,14 +3,8 @@
 #include "LyraPerfStatContainerBase.h"
 
 #include "Blueprint/WidgetTree.h"
-#include "Components/SlateWrapperTypes.h"
-#include "Components/Widget.h"
-#include "Delegates/Delegate.h"
 #include "LyraPerfStatWidgetBase.h"
-#include "Misc/AssertionMacros.h"
 #include "Settings/LyraSettingsLocal.h"
-#include "Templates/Casts.h"
-#include "UObject/ObjectPtr.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraPerfStatContainerBase)
 

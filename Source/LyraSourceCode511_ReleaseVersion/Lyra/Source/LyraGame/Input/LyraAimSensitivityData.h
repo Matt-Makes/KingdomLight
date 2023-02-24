@@ -2,12 +2,11 @@
 
 #pragma once
 
-#include "Containers/Map.h"
 #include "Engine/DataAsset.h"
-#include "Settings/LyraSettingsShared.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraAimSensitivityData.generated.h"
+
+enum class ELyraGamepadSensitivity : uint8;
 
 class UObject;
 

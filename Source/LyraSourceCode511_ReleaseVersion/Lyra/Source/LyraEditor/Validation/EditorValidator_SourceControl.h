@@ -2,9 +2,7 @@
 
 #pragma once
 
-#include "Containers/Array.h"
 #include "EditorValidator.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "EditorValidator_SourceControl.generated.h"
 

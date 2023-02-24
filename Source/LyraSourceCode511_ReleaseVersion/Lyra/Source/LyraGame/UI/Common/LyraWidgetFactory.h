@@ -2,11 +2,11 @@
 
 #pragma once
 
-#include "Templates/SubclassOf.h"
 #include "UObject/Object.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraWidgetFactory.generated.h"
+
+template <class TClass> class TSubclassOf;
 
 class UUserWidget;
 struct FFrame;

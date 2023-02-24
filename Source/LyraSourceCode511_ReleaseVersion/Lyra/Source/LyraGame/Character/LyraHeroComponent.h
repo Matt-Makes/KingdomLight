@@ -4,16 +4,13 @@
 
 #include "Components/GameFrameworkInitStateInterface.h"
 #include "Components/PawnComponent.h"
-#include "Containers/Array.h"
-#include "Engine/EngineTypes.h"
-#include "GameFramework/Actor.h"
-#include "GameplayAbilitySpec.h"
-#include "Input/LyraMappableConfigPair.h"
-#include "Templates/SubclassOf.h"
-#include "UObject/NameTypes.h"
-#include "UObject/UObjectGlobals.h"
 
+#include "GameplayAbilitySpecHandle.h"
 #include "LyraHeroComponent.generated.h"
+
+namespace EEndPlayReason { enum Type : int; }
+struct FLoadedMappableConfigPair;
+struct FMappableConfigPair;
 
 class UGameFrameworkComponentManager;
 class UInputComponent;

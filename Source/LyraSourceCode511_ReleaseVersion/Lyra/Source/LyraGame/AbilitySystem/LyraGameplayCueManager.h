@@ -2,16 +2,7 @@
 
 #pragma once
 
-#include "Containers/Array.h"
-#include "Containers/Map.h"
-#include "Containers/Set.h"
 #include "GameplayCueManager.h"
-#include "GameplayTagContainer.h"
-#include "HAL/CriticalSection.h"
-#include "UObject/SoftObjectPath.h"
-#include "UObject/UObjectGlobals.h"
-#include "UObject/WeakObjectPtr.h"
-#include "UObject/WeakObjectPtrTemplates.h"
 
 #include "LyraGameplayCueManager.generated.h"
 

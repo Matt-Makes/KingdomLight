@@ -3,7 +3,6 @@
 #pragma once
 
 #include "GauntletTestControllerBootTest.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraTestControllerBootTest.generated.h"
 

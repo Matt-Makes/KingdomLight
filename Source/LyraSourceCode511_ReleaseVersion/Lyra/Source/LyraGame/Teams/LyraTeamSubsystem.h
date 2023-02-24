@@ -2,16 +2,7 @@
 
 #pragma once
 
-#include "Containers/Array.h"
-#include "Containers/Map.h"
-#include "Delegates/Delegate.h"
-#include "GameplayTagContainer.h"
-#include "HAL/Platform.h"
 #include "Subsystems/WorldSubsystem.h"
-#include "UObject/Object.h"
-#include "UObject/ObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
-#include "UObject/WeakObjectPtr.h"
 
 #include "LyraTeamSubsystem.generated.h"
 
@@ -78,8 +69,11 @@ public:
 	virtual void Deinitialize() override;
 	//~End of USubsystem interface
 
-	void RegisterTeamInfo(ALyraTeamInfoBase* TeamInfo);
-	void UnregisterTeamInfo(ALyraTeamInfoBase* TeamInfo);
+	// Tries to registers a new team
+	bool RegisterTeamInfo(ALyraTeamInfoBase* TeamInfo);
+
+	// Tries to unregister a team, will return false if it didn't work
+	bool UnregisterTeamInfo(ALyraTeamInfoBase* TeamInfo);
 
 	// Changes the team associated with this actor if possible
 	// Note: This function can only be called on the authority

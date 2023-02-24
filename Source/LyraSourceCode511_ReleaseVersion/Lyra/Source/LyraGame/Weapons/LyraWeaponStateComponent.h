@@ -3,12 +3,7 @@
 #pragma once
 
 #include "Components/ControllerComponent.h"
-#include "Containers/Array.h"
-#include "Engine/EngineBaseTypes.h"
 #include "GameplayTagContainer.h"
-#include "HAL/Platform.h"
-#include "Math/Vector2D.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraWeaponStateComponent.generated.h"
 

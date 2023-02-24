@@ -3,8 +3,6 @@
 #pragma once
 
 #include "AbilitySystem/Abilities/LyraGameplayAbility.h"
-#include "GameplayAbilitySpec.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraGameplayAbility_Reset.generated.h"
 
@@ -29,8 +27,6 @@ public:
 
 protected:
 	
-	void DoneAddingNativeTags();
-
 	virtual void ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* TriggerEventData) override;
 };
 

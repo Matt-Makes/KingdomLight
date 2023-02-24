@@ -3,12 +3,11 @@
 #pragma once
 
 #include "Components/ActorComponent.h"
-#include "Containers/Array.h"
-#include "Engine/EngineTypes.h"
 #include "GameFramework/GameplayMessageSubsystem.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "GameplayMessageProcessor.generated.h"
+
+namespace EEndPlayReason { enum Type : int; }
 
 class UObject;
 

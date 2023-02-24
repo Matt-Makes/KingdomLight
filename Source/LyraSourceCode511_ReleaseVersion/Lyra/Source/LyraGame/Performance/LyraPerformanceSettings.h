@@ -2,18 +2,13 @@
 
 #pragma once
 
-#include "Containers/Array.h"
-#include "Containers/Set.h"
-#include "Containers/UnrealString.h"
 #include "Engine/DeveloperSettingsBackedByCVars.h"
 #include "Engine/PlatformSettings.h"
 #include "GameplayTagContainer.h"
-#include "HAL/Platform.h"
-#include "Internationalization/Text.h"
-#include "Performance/LyraPerformanceStatTypes.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraPerformanceSettings.generated.h"
+
+enum class ELyraDisplayablePerformanceStat : uint8;
 
 class UObject;
 

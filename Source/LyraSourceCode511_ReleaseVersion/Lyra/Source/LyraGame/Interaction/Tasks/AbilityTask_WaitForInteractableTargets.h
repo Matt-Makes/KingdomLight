@@ -2,13 +2,8 @@
 #pragma once
 
 #include "Abilities/Tasks/AbilityTask.h"
-#include "Containers/Array.h"
-#include "Delegates/Delegate.h"
 #include "Engine/CollisionProfile.h"
 #include "Interaction/InteractionOption.h"
-#include "Math/MathFwd.h"
-#include "UObject/NameTypes.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "AbilityTask_WaitForInteractableTargets.generated.h"
 

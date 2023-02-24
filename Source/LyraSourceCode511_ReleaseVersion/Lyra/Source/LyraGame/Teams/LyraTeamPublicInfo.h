@@ -3,8 +3,6 @@
 #pragma once
 
 #include "LyraTeamInfoBase.h"
-#include "UObject/ObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraTeamPublicInfo.generated.h"
 

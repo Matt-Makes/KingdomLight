@@ -2,12 +2,8 @@
 
 #pragma once
 
-#include "Containers/UnrealString.h"
 #include "Engine/DataAsset.h"
 #include "GameplayTagContainer.h"
-#include "Math/Color.h"
-#include "UObject/ObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraDamagePopStyle.generated.h"
 

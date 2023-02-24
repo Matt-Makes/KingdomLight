@@ -25,12 +25,28 @@
 			"Enabled": true
 		},
 		{
+			"Name": "AESGCMHandlerComponent",
+			"Enabled": true
+		},
+		{
+			"Name": "DTLSHandlerComponent",
+			"Enabled": true
+		},
+		{
 			"Name": "GameplayAbilities",
 			"Enabled": true
 		},
 		{
 			"Name": "Gauntlet",
 			"Enabled": true
+		},
+		{
+			"Name": "D3DExternalGPUStatistics",
+			"Enabled": true,
+			"Optional": true,
+			"SupportedTargetPlatforms": [
+				"Win64"
+			]
 		},
 		{
 			"Name": "CommonLoadingScreen",

@@ -10,6 +10,12 @@ ALyraGameSession::ALyraGameSession(const FObjectInitializer& ObjectInitializer)
 {
 }
 
+bool ALyraGameSession::ProcessAutoLogin()
+{
+	// This is actually handled in LyraGameMode::TryDedicatedServerLogin
+	return true;
+}
+
 void ALyraGameSession::HandleMatchHasStarted()
 {
 	Super::HandleMatchHasStarted();

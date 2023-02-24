@@ -3,9 +3,7 @@
 #pragma once
 
 #include "GameplayEffectUIData.h"
-#include "Internationalization/Text.h"
 #include "UObject/ObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "TopDownArenaPickupUIData.generated.h"
 

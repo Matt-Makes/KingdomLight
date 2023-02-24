@@ -2,12 +2,10 @@
 
 #pragma once
 
-#include "Stats/Stats2.h"
 #include "Tickable.h"
-#include "UObject/Object.h"
-#include "UObject/UObjectGlobals.h"
-#include "UObject/WeakObjectPtrTemplates.h"
 
+#include "UObject/ObjectPtr.h"
+#include "UObject/WeakObjectPtr.h"
 #include "MediaSubtitlesPlayer.generated.h"
 
 class UMediaPlayer;

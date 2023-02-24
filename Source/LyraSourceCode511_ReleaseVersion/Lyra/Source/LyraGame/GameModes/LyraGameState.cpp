@@ -3,13 +3,11 @@
 #include "LyraGameState.h"
 
 #include "AbilitySystem/LyraAbilitySystemComponent.h"
-#include "AbilitySystemComponent.h"
-#include "Containers/Array.h"
-#include "Engine/EngineBaseTypes.h"
+#include "Async/TaskGraphInterfaces.h"
 #include "GameFramework/GameplayMessageSubsystem.h"
 #include "GameModes/LyraExperienceManagerComponent.h"
-#include "HAL/Platform.h"
-#include "Misc/AssertionMacros.h"
+#include "Messages/LyraVerbMessage.h"
+#include "Player/LyraPlayerState.h"
 #include "Net/UnrealNetwork.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraGameState)
@@ -68,6 +66,19 @@ void ALyraGameState::RemovePlayerState(APlayerState* PlayerState)
 	//@TODO: This isn't getting called right now (only the 'rich' AGameMode uses it, not AGameModeBase)
 	// Need to at least comment the engine code, and possibly move things around
 	Super::RemovePlayerState(PlayerState);
+}
+
+void ALyraGameState::SeamlessTravelTransitionCheckpoint(bool bToTransitionMap)
+{
+	// Remove inactive and bots
+	for (int32 i = PlayerArray.Num() - 1; i >= 0; i--)
+	{
+		APlayerState* PlayerState = PlayerArray[i];
+		if (PlayerState && (PlayerState->IsABot() || PlayerState->IsInactive()))
+		{
+			RemovePlayerState(PlayerState);
+		}
+	}
 }
 
 void ALyraGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const

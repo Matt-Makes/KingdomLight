@@ -6,8 +6,7 @@
 #include "NativeGameplayTags.h"
 #include "Player/LyraLocalPlayer.h"
 #include "PrimaryGameLayout.h"
-#include "Templates/Casts.h"
-#include "UObject/NameTypes.h"
+#include "Widgets/CommonActivatableWidgetContainer.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraUIMessaging)
 

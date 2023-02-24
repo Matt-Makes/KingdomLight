@@ -3,18 +3,7 @@
 #pragma once
 
 #include "Components/ActorComponent.h"
-#include "Containers/Array.h"
-#include "Containers/ArrayView.h"
-#include "Containers/Map.h"
-#include "Containers/Set.h"
-#include "Containers/SparseArray.h"
-#include "Containers/UnrealString.h"
-#include "CoreTypes.h"
 #include "Net/Serialization/FastArraySerializer.h"
-#include "Templates/SubclassOf.h"
-#include "Templates/UnrealTemplate.h"
-#include "UObject/Class.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraInventoryManagerComponent.generated.h"
 

@@ -6,34 +6,18 @@
 #include "AbilitySystem/Attributes/LyraHealthSet.h"
 #include "AbilitySystem/LyraAbilitySet.h"
 #include "AbilitySystem/LyraAbilitySystemComponent.h"
-#include "AbilitySystemComponent.h"
 #include "Character/LyraPawnData.h"
 #include "Character/LyraPawnExtensionComponent.h"
 #include "Components/GameFrameworkComponentManager.h"
-#include "Containers/Array.h"
-#include "Containers/UnrealString.h"
-#include "CoreTypes.h"
-#include "Delegates/Delegate.h"
-#include "Engine/EngineBaseTypes.h"
-#include "Engine/EngineTypes.h"
 #include "Engine/World.h"
-#include "GameFramework/GameStateBase.h"
 #include "GameFramework/GameplayMessageSubsystem.h"
-#include "GameFramework/Pawn.h"
 #include "GameModes/LyraExperienceManagerComponent.h"
 //@TODO: Would like to isolate this a bit better to get the pawn data in here without this having to know about other stuff
 #include "GameModes/LyraGameMode.h"
-#include "GameplayTagContainer.h"
-#include "Logging/LogCategory.h"
-#include "Logging/LogMacros.h"
 #include "LyraLogChannels.h"
 #include "LyraPlayerController.h"
-#include "Misc/AssertionMacros.h"
-#include "Net/Core/PushModel/PushModel.h"
+#include "Messages/LyraVerbMessage.h"
 #include "Net/UnrealNetwork.h"
-#include "Trace/Detail/Channel.h"
-#include "UObject/NameTypes.h"
-#include "UObject/UObjectBaseUtility.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraPlayerState)
 
@@ -168,7 +152,8 @@ void ALyraPlayerState::PostInitializeComponents()
 	check(AbilitySystemComponent);
 	AbilitySystemComponent->InitAbilityActorInfo(this, GetPawn());
 
-	if (GetNetMode() != NM_Client)
+	UWorld* World = GetWorld();
+	if (World && World->IsGameWorld() && World->GetNetMode() != NM_Client)
 	{
 		AGameStateBase* GameState = GetWorld()->GetGameState();
 		check(GameState);

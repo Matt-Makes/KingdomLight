@@ -3,12 +3,7 @@
 #include "HitMarkerConfirmationWidget.h"
 
 #include "Blueprint/UserWidget.h"
-#include "Components/SlateWrapperTypes.h"
-#include "Containers/EnumAsByte.h"
-#include "Engine/LocalPlayer.h"
-#include "Misc/Attribute.h"
 #include "SHitMarkerConfirmationWidget.h"
-#include "Widgets/DeclarativeSyntaxSupport.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(HitMarkerConfirmationWidget)
 

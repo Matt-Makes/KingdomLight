@@ -4,10 +4,6 @@
 
 #include "AssetTypeActions_Base.h"
 #include "AssetTypeCategories.h"
-#include "HAL/Platform.h"
-#include "Internationalization/Internationalization.h"
-#include "Internationalization/Text.h"
-#include "Math/Color.h"
 
 class UClass;
 

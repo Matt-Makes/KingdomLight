@@ -2,11 +2,9 @@
 
 #include "LyraPerformanceSettings.h"
 
-#include "Engine/PlatformSettings.h"
 #include "Engine/PlatformSettingsManager.h"
-#include "Misc/AssertionMacros.h"
 #include "Misc/EnumRange.h"
-#include "UObject/NameTypes.h"
+#include "Performance/LyraPerformanceStatTypes.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraPerformanceSettings)
 

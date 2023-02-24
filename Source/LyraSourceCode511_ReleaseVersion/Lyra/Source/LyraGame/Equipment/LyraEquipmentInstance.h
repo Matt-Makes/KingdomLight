@@ -2,11 +2,7 @@
 
 #pragma once
 
-#include "Containers/Array.h"
 #include "Engine/World.h"
-#include "Templates/SubclassOf.h"
-#include "UObject/Object.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraEquipmentInstance.generated.h"
 

@@ -2,13 +2,12 @@
 
 #pragma once
 
-#include "HAL/Platform.h"
 #include "System/GameplayTagStack.h"
 #include "Templates/SubclassOf.h"
-#include "UObject/Object.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraInventoryItemInstance.generated.h"
+
+class FLifetimeProperty;
 
 class ULyraInventoryItemDefinition;
 class ULyraInventoryItemFragment;

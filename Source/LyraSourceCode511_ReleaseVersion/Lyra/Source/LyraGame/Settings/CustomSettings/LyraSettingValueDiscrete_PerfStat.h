@@ -2,14 +2,12 @@
 
 #pragma once
 
-#include "Containers/Array.h"
 #include "GameSettingValueDiscrete.h"
-#include "HAL/Platform.h"
-#include "Internationalization/Text.h"
-#include "Performance/LyraPerformanceStatTypes.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraSettingValueDiscrete_PerfStat.generated.h"
+
+enum class ELyraDisplayablePerformanceStat : uint8;
+enum class ELyraStatDisplayMode : uint8;
 
 class UObject;
 

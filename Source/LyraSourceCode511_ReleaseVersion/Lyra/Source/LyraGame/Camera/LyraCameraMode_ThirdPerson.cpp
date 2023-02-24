@@ -1,12 +1,16 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "LyraCameraMode_ThirdPerson.h"
+#include "Camera/LyraCameraMode.h"
+#include "Components/PrimitiveComponent.h"
+#include "Camera/LyraPenetrationAvoidanceFeeler.h"
 #include "Curves/CurveVector.h"
 #include "Engine/Canvas.h"
 #include "GameFramework/CameraBlockingVolume.h"
 #include "LyraCameraAssistInterface.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/Character.h"
+#include "Math/RotationMatrix.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraCameraMode_ThirdPerson)
 

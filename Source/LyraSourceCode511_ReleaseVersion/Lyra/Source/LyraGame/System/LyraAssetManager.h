@@ -2,11 +2,12 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
 #include "Engine/AssetManager.h"
-#include "Engine/DataAsset.h"
 #include "LyraAssetManagerStartupJob.h"
+#include "Templates/SubclassOf.h"
 #include "LyraAssetManager.generated.h"
+
+class UPrimaryDataAsset;
 
 class ULyraGameData;
 class ULyraPawnData;

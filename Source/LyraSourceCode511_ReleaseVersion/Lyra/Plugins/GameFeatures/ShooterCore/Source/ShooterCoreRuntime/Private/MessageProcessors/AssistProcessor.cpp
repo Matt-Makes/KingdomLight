@@ -2,16 +2,10 @@
 
 #include "MessageProcessors/AssistProcessor.h"
 
-#include "GameFramework/GameplayMessageSubsystem.h"
 #include "GameFramework/PlayerState.h"
-#include "GameplayTagContainer.h"
 #include "Messages/LyraVerbMessage.h"
 #include "Messages/LyraVerbMessageHelpers.h"
 #include "NativeGameplayTags.h"
-#include "Templates/Casts.h"
-#include "Templates/Tuple.h"
-#include "UObject/NameTypes.h"
-#include "UObject/ObjectPtr.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(AssistProcessor)
 

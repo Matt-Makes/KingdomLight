@@ -3,20 +3,7 @@
 #include "UI/Weapons/SCircumferenceMarkerWidget.h"
 
 #include "Engine/UserInterfaceSettings.h"
-#include "Layout/Geometry.h"
-#include "Layout/PaintGeometry.h"
-#include "Math/Color.h"
-#include "Math/TransformCalculus.h"
-#include "Math/TransformCalculus2D.h"
-#include "Math/UnrealMathSSE.h"
-#include "Misc/AssertionMacros.h"
-#include "Rendering/DrawElements.h"
-#include "Rendering/RenderingCommon.h"
-#include "Rendering/SlateLayoutTransform.h"
 #include "Styling/SlateBrush.h"
-#include "Styling/WidgetStyle.h"
-#include "UObject/UObjectGlobals.h"
-#include "Widgets/InvalidateWidgetReason.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(SCircumferenceMarkerWidget)
 

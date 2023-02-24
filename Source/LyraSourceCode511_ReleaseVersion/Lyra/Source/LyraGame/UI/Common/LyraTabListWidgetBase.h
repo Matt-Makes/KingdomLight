@@ -3,16 +3,6 @@
 #pragma once
 
 #include "CommonTabListWidgetBase.h"
-#include "Containers/Array.h"
-#include "Containers/Map.h"
-#include "Delegates/Delegate.h"
-#include "HAL/Platform.h"
-#include "Internationalization/Text.h"
-#include "Styling/SlateBrush.h"
-#include "Templates/SubclassOf.h"
-#include "UObject/Interface.h"
-#include "UObject/NameTypes.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraTabListWidgetBase.generated.h"
 

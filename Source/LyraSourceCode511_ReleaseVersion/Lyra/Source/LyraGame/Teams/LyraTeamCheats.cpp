@@ -2,14 +2,10 @@
 
 #include "LyraTeamCheats.h"
 
-#include "Containers/Array.h"
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
 #include "HAL/IConsoleManager.h"
-#include "Logging/LogCategory.h"
-#include "Logging/LogMacros.h"
 #include "Teams/LyraTeamSubsystem.h"
-#include "Trace/Detail/Channel.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraTeamCheats)
 

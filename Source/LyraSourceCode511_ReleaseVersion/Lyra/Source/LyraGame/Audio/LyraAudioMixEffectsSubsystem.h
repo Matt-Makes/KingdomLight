@@ -2,10 +2,7 @@
 
 #pragma once
 
-#include "Containers/Array.h"
-#include "Engine/EngineTypes.h"
 #include "Subsystems/WorldSubsystem.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraAudioMixEffectsSubsystem.generated.h"
 

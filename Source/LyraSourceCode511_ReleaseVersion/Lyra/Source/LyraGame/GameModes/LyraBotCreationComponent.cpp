@@ -4,11 +4,8 @@
 #include "LyraGameMode.h"
 #include "Engine/World.h"
 #include "GameFramework/PlayerState.h"
-#include "GameModes/LyraExperienceDefinition.h"
 #include "GameModes/LyraExperienceManagerComponent.h"
 #include "Development/LyraDeveloperSettings.h"
-#include "Player/LyraPlayerState.h"
-#include "GameFramework/PlayerController.h"
 #include "Character/LyraPawnExtensionComponent.h"
 #include "AIController.h"
 #include "Kismet/GameplayStatics.h"
@@ -116,7 +113,7 @@ void ULyraBotCreationComponent::SpawnOneBot()
 			NewController->PlayerState->SetPlayerName(CreateBotName(NewController->PlayerState->GetPlayerId()));
 		}
 
-		GameMode->DispatchPostLogin(NewController);
+		GameMode->GenericPlayerInitialization(NewController);
 		GameMode->RestartPlayer(NewController);
 
 		if (NewController->GetPawn() != nullptr)

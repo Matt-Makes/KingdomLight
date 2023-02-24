@@ -6,6 +6,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Camera/LyraCameraComponent.h"
 #include "Physics/PhysicalMaterialWithTags.h"
+#include "Weapons/LyraWeaponInstance.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraRangedWeaponInstance)
 

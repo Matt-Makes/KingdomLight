@@ -2,12 +2,9 @@
 
 #include "GameFeatureAction_SplitscreenConfig.h"
 
-#include "Engine/Engine.h"
 #include "Engine/GameInstance.h"
 #include "Engine/GameViewportClient.h"
-#include "GameFeaturesSubsystem.h"
-#include "Templates/Casts.h"
-#include "UObject/ObjectPtr.h"
+#include "GameFeatures/GameFeatureAction_WorldActionBase.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(GameFeatureAction_SplitscreenConfig)
 

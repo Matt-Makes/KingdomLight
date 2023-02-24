@@ -2,13 +2,7 @@
 
 #include "Widgets/SSubtitleDisplay.h"
 
-#include "Delegates/Delegate.h"
-#include "Framework/Text/TextLayout.h"
-#include "Internationalization/Text.h"
 #include "Kismet/GameplayStatics.h"
-#include "Layout/Children.h"
-#include "Layout/Margin.h"
-#include "Layout/Visibility.h"
 #include "SubtitleManager.h"
 #include "Widgets/Layout/SBorder.h"
 #include "Widgets/Text/SRichTextBlock.h"

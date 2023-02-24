@@ -3,25 +3,16 @@
 #pragma once
 
 #include "Components/PawnComponent.h"
-#include "Containers/Array.h"
-#include "Containers/ArrayView.h"
-#include "Containers/Map.h"
-#include "Containers/Set.h"
-#include "Containers/SparseArray.h"
-#include "Containers/UnrealString.h"
-#include "CoreTypes.h"
 #include "Cosmetics/LyraCosmeticAnimationTypes.h"
-#include "Delegates/Delegate.h"
-#include "Engine/EngineTypes.h"
-#include "GameplayTagContainer.h"
 #include "LyraCharacterPartTypes.h"
 #include "Net/Serialization/FastArraySerializer.h"
-#include "Templates/UnrealTemplate.h"
-#include "UObject/Class.h"
-#include "UObject/ObjectPtr.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraPawnComponent_CharacterParts.generated.h"
+
+class ULyraPawnComponent_CharacterParts;
+namespace EEndPlayReason { enum Type : int; }
+struct FGameplayTag;
+struct FLyraCharacterPartList;
 
 class AActor;
 class UChildActorComponent;

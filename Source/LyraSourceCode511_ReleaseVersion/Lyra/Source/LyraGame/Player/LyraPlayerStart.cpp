@@ -2,17 +2,9 @@
 
 #include "LyraPlayerStart.h"
 
-#include "Delegates/Delegate.h"
 #include "Engine/World.h"
-#include "GameFramework/Controller.h"
 #include "GameFramework/GameModeBase.h"
-#include "GameFramework/Pawn.h"
-#include "Math/MathFwd.h"
-#include "Math/Rotator.h"
-#include "Math/Vector.h"
-#include "Templates/SubclassOf.h"
 #include "TimerManager.h"
-#include "UObject/Class.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraPlayerStart)
 

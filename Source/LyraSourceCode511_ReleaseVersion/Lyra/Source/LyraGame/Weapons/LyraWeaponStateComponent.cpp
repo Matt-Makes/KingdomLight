@@ -3,23 +3,13 @@
 #include "LyraWeaponStateComponent.h"
 
 #include "Abilities/GameplayAbilityTargetTypes.h"
-#include "Engine/HitResult.h"
-#include "Engine/NetSerialization.h"
-#include "Engine/World.h"
 #include "Equipment/LyraEquipmentManagerComponent.h"
-#include "GameFramework/Actor.h"
 #include "GameFramework/Pawn.h"
-#include "GameFramework/PlayerController.h"
 #include "GameplayEffectTypes.h"
 #include "Kismet/GameplayStatics.h"
 #include "NativeGameplayTags.h"
-#include "PhysicalMaterials/PhysicalMaterial.h"
 #include "Physics/PhysicalMaterialWithTags.h"
 #include "Teams/LyraTeamSubsystem.h"
-#include "Templates/Casts.h"
-#include "UObject/NameTypes.h"
-#include "UObject/WeakObjectPtr.h"
-#include "UObject/WeakObjectPtrTemplates.h"
 #include "Weapons/LyraRangedWeaponInstance.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(LyraWeaponStateComponent)

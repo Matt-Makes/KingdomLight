@@ -2,14 +2,13 @@
 
 #pragma once
 
-#include "GameFramework/Actor.h"
-#include "GenericTeamAgentInterface.h"
-#include "HAL/Platform.h"
 #include "ModularAIController.h"
 #include "Teams/LyraTeamAgentInterface.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraPlayerBotController.generated.h"
+
+namespace ETeamAttitude { enum Type : int; }
+struct FGenericTeamId;
 
 class APlayerState;
 class UAIPerceptionComponent;

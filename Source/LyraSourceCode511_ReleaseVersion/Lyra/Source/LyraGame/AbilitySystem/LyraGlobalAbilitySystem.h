@@ -2,13 +2,10 @@
 
 #pragma once
 
-#include "Containers/Array.h"
-#include "Containers/Map.h"
-#include "Containers/SparseArray.h"
-#include "GameplayAbilitySpec.h"
+#include "ActiveGameplayEffectHandle.h"
 #include "Subsystems/WorldSubsystem.h"
+#include "GameplayAbilitySpecHandle.h"
 #include "Templates/SubclassOf.h"
-#include "UObject/UObjectGlobals.h"
 
 #include "LyraGlobalAbilitySystem.generated.h"
 
