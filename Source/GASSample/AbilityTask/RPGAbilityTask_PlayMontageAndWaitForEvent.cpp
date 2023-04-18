@@ -6,6 +6,9 @@
 #include "AbilitySystemGlobals.h"
 #include "Animation/AnimInstance.h"
 
+
+#include "AbilitySystemLog.h"
+
 URPGAbilityTask_PlayMontageAndWaitForEvent::URPGAbilityTask_PlayMontageAndWaitForEvent(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
@@ -15,7 +18,10 @@ URPGAbilityTask_PlayMontageAndWaitForEvent::URPGAbilityTask_PlayMontageAndWaitFo
 
 UAbilitySystemComponent* URPGAbilityTask_PlayMontageAndWaitForEvent::GetTargetASC()
 {
-	return AbilitySystemComponent;
+	// TWeakObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
+	// UAbilitySystemComponent* AbilitySystemComponentPtr = AbilitySystemComponent.Get();
+	
+	return AbilitySystemComponent.Get();
 }
 
 void URPGAbilityTask_PlayMontageAndWaitForEvent::OnMontageBlendingOut(UAnimMontage* Montage, bool bInterrupted)
@@ -178,7 +184,7 @@ void URPGAbilityTask_PlayMontageAndWaitForEvent::Activate()
 
 void URPGAbilityTask_PlayMontageAndWaitForEvent::ExternalCancel()
 {
-	check(AbilitySystemComponent);
+	check(AbilitySystemComponent.Get());
 
 	OnAbilityCancelled();
 
@@ -226,7 +232,7 @@ bool URPGAbilityTask_PlayMontageAndWaitForEvent::StopPlayingMontage()
 
 	// Check if the montage is still playing
 	// The ability would have been interrupted, in which case we should automatically stop the montage
-	if (AbilitySystemComponent && Ability)
+	if (AbilitySystemComponent.IsValid() && Ability)
 	{
 		if (AbilitySystemComponent->GetAnimatingAbility() == Ability
 			&& AbilitySystemComponent->GetCurrentMontage() == MontageToPlay)

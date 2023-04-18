@@ -5,6 +5,7 @@
 
 #include "ClimbCharacter.h"
 #include "Components/CapsuleComponent.h"
+#include "GameFramework/PhysicsVolume.h"
 #include "Kismet/KismetMathLibrary.h"
 
 UClimbCMC::UClimbCMC(const FObjectInitializer& ObjectInitializer)
@@ -197,44 +198,44 @@ void UClimbCMC::PhysClimbing(float deltaTime, int32 Iterations)
 	Iterations++;
 	bJustTeleported = false;
 
-	FVector OldLocation = UpdatedComponent->GetComponentLocation();
+	FVector TheOldLocation = UpdatedComponent->GetComponentLocation();
         
 	//根据速度计算出此帧需要的位移
-	const FVector Adjusted = Velocity * deltaTime;
-	FHitResult Hit(1.f);
+	const FVector FrameAdjusted = Velocity * deltaTime;
+	FHitResult HitResult(1.f);
 	
 	//根据计算出的位移更新Location和Rotation
-	SafeMoveUpdatedComponent(Adjusted, UpdatedComponent->GetComponentQuat(), true, Hit);
+	SafeMoveUpdatedComponent(FrameAdjusted, UpdatedComponent->GetComponentQuat(), true, HitResult);
 
-	if (Hit.Time < 1.f)
+	if (HitResult.Time < 1.f)
 	{
 		const FVector GravDir = FVector(0.f, 0.f, -1.f);
 		const FVector VelDir = Velocity.GetSafeNormal();
 		const float UpDown = GravDir | VelDir;
 
 		bool bSteppedUp = false;
-		if ((FMath::Abs(Hit.ImpactNormal.Z) < 0.2f) && (UpDown < 0.5f) && (UpDown > -0.2f) && CanStepUp(Hit))
+		if ((FMath::Abs(HitResult.ImpactNormal.Z) < 0.2f) && (UpDown < 0.5f) && (UpDown > -0.2f) && CanStepUp(HitResult))
 		{
 			float stepZ = UpdatedComponent->GetComponentLocation().Z;
-			bSteppedUp = StepUp(GravDir, Adjusted * (1.f - Hit.Time), Hit);
+			bSteppedUp = StepUp(GravDir, FrameAdjusted * (1.f - HitResult.Time), HitResult);
 			if (bSteppedUp)
 			{
-				OldLocation.Z = UpdatedComponent->GetComponentLocation().Z + (OldLocation.Z - stepZ);
+				TheOldLocation.Z = UpdatedComponent->GetComponentLocation().Z + (TheOldLocation.Z - stepZ);
 			}
 		}
 
 		if (!bSteppedUp)
 		{
 			//adjust and try again
-			HandleImpact(Hit, deltaTime, Adjusted);
-			SlideAlongSurface(Adjusted, (1.f - Hit.Time), Hit.Normal, Hit, true);
+			HandleImpact(HitResult, deltaTime, FrameAdjusted);
+			SlideAlongSurface(FrameAdjusted, (1.f - HitResult.Time), HitResult.Normal, HitResult, true);
 		}
 	}
 
 	//根据移动的距离重新计算Velocity
 	if( !bJustTeleported && !HasAnimRootMotion() && !CurrentRootMotion.HasOverrideVelocity() )
 	{
-		Velocity = (UpdatedComponent->GetComponentLocation() - OldLocation) / deltaTime;
+		Velocity = (UpdatedComponent->GetComponentLocation() - TheOldLocation) / deltaTime;
 	}
 	
 }
