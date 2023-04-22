@@ -76,6 +76,7 @@ Config/HoloLens/HoloLensEngine.ini
 Intermediate/*
 Plugins/*/Intermediate/*
 Plugins/GameFeatures/*/Intermediate/*
+Plugins/GameFeatures/ActionGame/Content/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
