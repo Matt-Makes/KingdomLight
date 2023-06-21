@@ -3,18 +3,18 @@
 	"Version": 1,
 	"VersionName": "1.0",
 	"FriendlyName": "RealmDelight",
-	"Description": "Realm's Delight",
+	"Description": "Game1",
 	"Category": "Game Features",
-	"CreatedBy": "Rhaenyra Targaryen",
+	"CreatedBy": "Matt-Makes",
 	"CreatedByURL": "",
 	"DocsURL": "",
 	"MarketplaceURL": "",
 	"SupportURL": "",
-	"EnabledByDefault": false,
 	"CanContainContent": true,
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
 	"Installed": false,
+	"EnabledByDefault": false,
 	"ExplicitlyLoaded": true,
-	"BuiltInInitialFeatureState": "Active"
+	"BuiltInInitialFeatureState": "Registered"
 }

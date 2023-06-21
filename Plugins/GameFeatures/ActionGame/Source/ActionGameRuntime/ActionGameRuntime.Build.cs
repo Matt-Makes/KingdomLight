@@ -26,6 +26,9 @@ public class ActionGameRuntime : ModuleRules
 			new string[]
 			{
 				"Core",
+				/*"LyraGame",*/
+				"ModularGameplay",
+				/*"CommonGame",*/
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);
@@ -38,6 +41,18 @@ public class ActionGameRuntime : ModuleRules
 				"Engine",
 				"Slate",
 				"SlateCore",
+				"GameplayTags",
+				"GameplayTasks",
+				"GameplayAbilities",
+				/*"GameplayMessageRuntime",*/
+				"CommonUI",
+				"UMG",
+				"DataRegistry",
+				/*"AsyncMixin",*/
+				"EnhancedInput",
+				/*"GameSubtitles",*/
+				"DeveloperSettings",
+				"AIModule"
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);
