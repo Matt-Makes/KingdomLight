@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "CommonMovement",
+	"Description": "Apex-like mutliplayer character movement component",
+	"Category": "Other",
+	"CreatedBy": "RealmDelight",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "CommonMovement",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}

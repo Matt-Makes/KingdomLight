@@ -44,7 +44,6 @@ Plugins/Developer/RiderLink
 *.sdf
 *.VC.db
 *.VC.opendb
-*.vsconfig
 
 # Precompiled Assets
 SourceArt/**/*.png
@@ -85,9 +84,6 @@ Config/HoloLens/HoloLensEngine.ini
 Intermediate/*
 Plugins/*/Intermediate/*
 Plugins/GameFeatures/*/Intermediate/*
-GASAbilityDemo/RDCharacter/CMC
 
 # Cache files for the editor to use
 DerivedDataCache/*
-
-

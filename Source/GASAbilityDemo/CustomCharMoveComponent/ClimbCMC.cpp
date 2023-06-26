@@ -355,7 +355,7 @@ void UClimbCMC::UpdateClimbDashState(float deltaTime)
 	{
 		CurrentClimbDashTime += deltaTime;
 
-		//Dash动画播放完毕，结束ClimbDash状态.
+		// Dash动画执行时间超过 曲线资产里的时间，就结束.
 		if (CurrentClimbDashTime >= MaxClimbDashCurveTime)
 		{
 			bWantsToClimbDash = false;
@@ -524,11 +524,13 @@ void UClimbCMC::SnapToClimbingSurface(float deltaTime) const
 	UpdatedComponent->MoveComponent(Offset * SnapSpeed * deltaTime, Rotation, bSweep);
 }
 
+// 返回为真很严格，难以开始攀爬.
 bool UClimbCMC::BeginStartClimbDash() const
 {
 	return bWantsToClimbDash != LastFrameClimbDashState && bWantsToClimbDash;
 }
 
+// 返回为假很严格，也就是说很容易停止攀爬.
 bool UClimbCMC::BeginStopClimbDash() const
 {
 	return bWantsToClimbDash != LastFrameClimbDashState && !bWantsToClimbDash;
