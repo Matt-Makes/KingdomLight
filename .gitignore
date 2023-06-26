@@ -87,3 +87,5 @@ Plugins/GameFeatures/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+Plugins/CommonMovement/Source/CommonMovement/Private/RDCharacterMovementComponent.cpp
+Plugins/CommonMovement/Source/CommonMovement/Public/RDCharacterMovementComponent.h
