@@ -14,7 +14,7 @@ class AClimbCharacter;
  * 
  */
 UENUM(BlueprintType)
-enum ECustomMovementMode
+enum ECustomMovementMode1
 {
 	CMOVE_Climbing UMETA(DisplayName = "Climbing"),
 	CMOVE_MAX UMETA(Hidden),

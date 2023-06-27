@@ -603,7 +603,7 @@ FVector UClimbCMC::GetClimbDashDirection()
 
 bool UClimbCMC::IsClimbing() const
 {
-	return MovementMode == EMovementMode::MOVE_Custom && CustomMovementMode == ECustomMovementMode::CMOVE_Climbing;
+	return MovementMode == EMovementMode::MOVE_Custom && CustomMovementMode == ECustomMovementMode1::CMOVE_Climbing;
 }
 
 uint8 FSavedMove_Character_Climb::GetCompressedFlags() const

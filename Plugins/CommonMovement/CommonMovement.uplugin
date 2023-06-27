@@ -2,23 +2,32 @@
 	"FileVersion": 3,
 	"Version": 1,
 	"VersionName": "1.0",
-	"FriendlyName": "CommonMovement",
-	"Description": "Apex-like mutliplayer character movement component",
-	"Category": "Other",
-	"CreatedBy": "RealmDelight",
+	"FriendlyName": "Apex-like Common Movement",
+	"Description": "Apex-like multiplayer common character movement component",
+	"Category": "Gameplay",
+	"CreatedBy": "Realm Delight",
 	"CreatedByURL": "",
 	"DocsURL": "",
 	"MarketplaceURL": "",
 	"SupportURL": "",
 	"CanContainContent": true,
-	"IsBetaVersion": false,
-	"IsExperimentalVersion": false,
-	"Installed": false,
+	"Installed": true,
+	
 	"Modules": [
 		{
 			"Name": "CommonMovement",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "GameplayAbilities",
+			"Enabled": true
+		},
+		{
+			"Name": "EnhancedInput",
+			"Enabled": true
 		}
 	]
 }
