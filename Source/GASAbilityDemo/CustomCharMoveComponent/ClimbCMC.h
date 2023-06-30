@@ -108,7 +108,7 @@ private:
 
 	float MaxClimbDashCurveTime;
 
-        // 第一位只有0到1两种可能性.
+        // 第一位只有0到1两种可能性，只会被bWantsToClimbDash赋值.
 	uint8 LastFrameClimbDashState : 1;
 
 protected:

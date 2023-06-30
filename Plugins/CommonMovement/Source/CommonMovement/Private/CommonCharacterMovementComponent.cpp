@@ -1,6 +1,6 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "LyraCharacterMovementComponent.h"
+#include "CommonCharacterMovementComponent.h"
 
 #include "AbilitySystemComponent.h"
 #include "AbilitySystemGlobals.h"
@@ -21,23 +21,23 @@
 #include "UObject/NameTypes.h"
 #include "UObject/ObjectPtr.h"
 
-#include UE_INLINE_GENERATED_CPP_BY_NAME(LyraCharacterMovementComponent)
+#include UE_INLINE_GENERATED_CPP_BY_NAME(CommonCharacterMovementComponent)
 
 UE_DEFINE_GAMEPLAY_TAG(TAG_Gameplay_MovementStopped, "Gameplay.MovementStopped");
 
-namespace LyraCharacter
+namespace CommonCharacter
 {
 	static float GroundTraceDistance = 100000.0f;
-	FAutoConsoleVariableRef CVar_GroundTraceDistance(TEXT("LyraCharacter.GroundTraceDistance"), GroundTraceDistance, TEXT("Distance to trace down when generating ground information."), ECVF_Cheat);
+	FAutoConsoleVariableRef CVar_GroundTraceDistance(TEXT("CommonCharacter.GroundTraceDistance"), GroundTraceDistance, TEXT("Distance to trace down when generating ground information."), ECVF_Cheat);
 };
 
 
-ULyraCharacterMovementComponent::ULyraCharacterMovementComponent(const FObjectInitializer& ObjectInitializer)
+UCommonCharacterMovementComponent::UCommonCharacterMovementComponent(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
 }
 
-void ULyraCharacterMovementComponent::SimulateMovement(float DeltaTime)
+void UCommonCharacterMovementComponent::SimulateMovement(float DeltaTime)
 {
 	if (bHasReplicatedAcceleration)
 	{
@@ -52,19 +52,19 @@ void ULyraCharacterMovementComponent::SimulateMovement(float DeltaTime)
 	}
 }
 
-bool ULyraCharacterMovementComponent::CanAttemptJump() const
+bool UCommonCharacterMovementComponent::CanAttemptJump() const
 {
 	// Same as UCharacterMovementComponent's implementation but without the crouch check
 	return IsJumpAllowed() &&
 		(IsMovingOnGround() || IsFalling()); // Falling included for double-jump and non-zero jump hold time, but validated by character.
 }
 
-void ULyraCharacterMovementComponent::InitializeComponent()
+void UCommonCharacterMovementComponent::InitializeComponent()
 {
 	Super::InitializeComponent();
 }
 
-const FLyraCharacterGroundInfo& ULyraCharacterMovementComponent::GetGroundInfo()
+const FCommonCharacterGroundInfo& UCommonCharacterMovementComponent::GetGroundInfo()
 {
 	if (!CharacterOwner || (GFrameCounter == CachedGroundInfo.LastUpdateFrame))
 	{
@@ -84,9 +84,9 @@ const FLyraCharacterGroundInfo& ULyraCharacterMovementComponent::GetGroundInfo()
 		const float CapsuleHalfHeight = CapsuleComp->GetUnscaledCapsuleHalfHeight();
 		const ECollisionChannel CollisionChannel = (UpdatedComponent ? UpdatedComponent->GetCollisionObjectType() : ECC_Pawn);
 		const FVector TraceStart(GetActorLocation());
-		const FVector TraceEnd(TraceStart.X, TraceStart.Y, (TraceStart.Z - LyraCharacter::GroundTraceDistance - CapsuleHalfHeight));
+		const FVector TraceEnd(TraceStart.X, TraceStart.Y, (TraceStart.Z - CommonCharacter::GroundTraceDistance - CapsuleHalfHeight));
 
-		FCollisionQueryParams QueryParams(SCENE_QUERY_STAT(LyraCharacterMovementComponent_GetGroundInfo), false, CharacterOwner);
+		FCollisionQueryParams QueryParams(SCENE_QUERY_STAT(CommonCharacterMovementComponent_GetGroundInfo), false, CharacterOwner);
 		FCollisionResponseParams ResponseParam;
 		InitCollisionParams(QueryParams, ResponseParam);
 
@@ -94,7 +94,7 @@ const FLyraCharacterGroundInfo& ULyraCharacterMovementComponent::GetGroundInfo()
 		GetWorld()->LineTraceSingleByChannel(HitResult, TraceStart, TraceEnd, CollisionChannel, QueryParams, ResponseParam);
 
 		CachedGroundInfo.GroundHitResult = HitResult;
-		CachedGroundInfo.GroundDistance = LyraCharacter::GroundTraceDistance;
+		CachedGroundInfo.GroundDistance = CommonCharacter::GroundTraceDistance;
 
 		if (MovementMode == MOVE_NavWalking)
 		{
@@ -111,13 +111,13 @@ const FLyraCharacterGroundInfo& ULyraCharacterMovementComponent::GetGroundInfo()
 	return CachedGroundInfo;
 }
 
-void ULyraCharacterMovementComponent::SetReplicatedAcceleration(const FVector& InAcceleration)
+void UCommonCharacterMovementComponent::SetReplicatedAcceleration(const FVector& InAcceleration)
 {
 	bHasReplicatedAcceleration = true;
 	Acceleration = InAcceleration;
 }
 
-FRotator ULyraCharacterMovementComponent::GetDeltaRotation(float DeltaTime) const
+FRotator UCommonCharacterMovementComponent::GetDeltaRotation(float DeltaTime) const
 {
 	if (UAbilitySystemComponent* ASC = UAbilitySystemGlobals::GetAbilitySystemComponentFromActor(GetOwner()))
 	{
@@ -130,7 +130,7 @@ FRotator ULyraCharacterMovementComponent::GetDeltaRotation(float DeltaTime) cons
 	return Super::GetDeltaRotation(DeltaTime);
 }
 
-float ULyraCharacterMovementComponent::GetMaxSpeed() const
+float UCommonCharacterMovementComponent::GetMaxSpeed() const
 {
 	if (UAbilitySystemComponent* ASC = UAbilitySystemGlobals::GetAbilitySystemComponentFromActor(GetOwner()))
 	{
@@ -141,7 +141,7 @@ float ULyraCharacterMovementComponent::GetMaxSpeed() const
 	}
 
 	// 包含的头文件，可能导致循环引用，runtime游戏崩溃.
-	// const ALyraCharacter* PlayerCharacter = Cast<ALyraCharacter>(GetOwner());
+	// const ACommonCharacter* PlayerCharacter = Cast<ACommonCharacter>(GetOwner());
 	// float MaxSpeed = GetMaxSpeed();
 	// if(IsCrouching())
 	// {

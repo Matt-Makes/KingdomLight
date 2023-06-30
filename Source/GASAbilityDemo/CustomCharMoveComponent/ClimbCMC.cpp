@@ -132,7 +132,7 @@ void UClimbCMC::PhysClimbing(float deltaTime, int32 Iterations)
 	{
 		return;
 	}
-	
+    
 	UpdateClimbDashState(deltaTime);
 
 	//为了方便单独抽出一个方法来计算速度.
@@ -341,6 +341,7 @@ bool UClimbCMC::CheckFloor(FHitResult& FloorHit) const
 
 void UClimbCMC::UpdateClimbDashState(float deltaTime)
 {
+        // 从 CMove_Climb 到 CMove_ClimbDash.
 	if (BeginStartClimbDash())
 	{
 		OnStartClimbDashing();
@@ -383,6 +384,7 @@ void UClimbCMC::ComputeClimbingVelocity(float deltaTime)
 			// todo get friction from the climbing wall.
 			constexpr float Friction = 0.0f;
 			constexpr bool bFluid = false;
+		        // 基于摩擦力等来计算速度, 而不是直接改变.
 			CalcVelocity(deltaTime, Friction, bFluid, GetMaxBrakingDeceleration());
 		}
 	}
@@ -527,12 +529,14 @@ void UClimbCMC::SnapToClimbingSurface(float deltaTime) const
 // 返回为真很严格，难以开始攀爬.
 bool UClimbCMC::BeginStartClimbDash() const
 {
+        // 都是以 bWantsToClimbDash为准，确保 LastFrameClimbDashState为假， bWantsToClimbDash为真，才返回为真.
 	return bWantsToClimbDash != LastFrameClimbDashState && bWantsToClimbDash;
 }
 
 // 返回为假很严格，也就是说很容易停止攀爬.
 bool UClimbCMC::BeginStopClimbDash() const
 {
+        // 都是以 bWantsToClimbDash为准， 确保全都为假，才返回为假.
 	return bWantsToClimbDash != LastFrameClimbDashState && !bWantsToClimbDash;
 }
 

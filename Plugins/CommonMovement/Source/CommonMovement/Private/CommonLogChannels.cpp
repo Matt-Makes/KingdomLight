@@ -1,6 +1,6 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "LyraLogChannels.h"
+#include "..\Public\CommonLogChannels.h"
 #include "GameFramework/Actor.h"
 
 DEFINE_LOG_CATEGORY(LogLyra);

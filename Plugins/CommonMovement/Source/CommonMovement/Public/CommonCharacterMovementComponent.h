@@ -9,7 +9,7 @@
 #include "NativeGameplayTags.h"
 #include "UObject/UObjectGlobals.h"
 
-#include "LyraCharacterMovementComponent.generated.h"
+#include "CommonCharacterMovementComponent.generated.h"
 
 class UObject;
 struct FFrame;
@@ -17,16 +17,16 @@ struct FFrame;
 COMMONMOVEMENT_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(TAG_Gameplay_MovementStopped);
 
 /**
- * FLyraCharacterGroundInfo
+ * FCommonCharacterGroundInfo
  *
  *	Information about the ground under the character.  It only gets updated as needed.
  */
 USTRUCT(BlueprintType)
-struct FLyraCharacterGroundInfo
+struct FCommonCharacterGroundInfo
 {
 	GENERATED_BODY()
 
-	FLyraCharacterGroundInfo()
+	FCommonCharacterGroundInfo()
 		: LastUpdateFrame(0)
 		, GroundDistance(0.0f)
 	{}
@@ -42,26 +42,26 @@ struct FLyraCharacterGroundInfo
 
 
 /**
- * ULyraCharacterMovementComponent
+ * UCommonCharacterMovementComponent
  *
  *	The base character movement component class used by this project.
  */
 UCLASS(Config = Game)
-class COMMONMOVEMENT_API ULyraCharacterMovementComponent : public UCharacterMovementComponent
+class COMMONMOVEMENT_API UCommonCharacterMovementComponent : public UCharacterMovementComponent
 {
 	GENERATED_BODY()
 
 public:
 
-	ULyraCharacterMovementComponent(const FObjectInitializer& ObjectInitializer);
+	UCommonCharacterMovementComponent(const FObjectInitializer& ObjectInitializer);
 
 	virtual void SimulateMovement(float DeltaTime) override;
 
 	virtual bool CanAttemptJump() const override;
 
 	// Returns the current ground info.  Calling this will update the ground info if it's out of date.
-	UFUNCTION(BlueprintCallable, Category = "Lyra|CharacterMovement")
-	const FLyraCharacterGroundInfo& GetGroundInfo();
+	UFUNCTION(BlueprintCallable, Category = "Common|CharacterMovement")
+	const FCommonCharacterGroundInfo& GetGroundInfo();
 
 	void SetReplicatedAcceleration(const FVector& InAcceleration);
 
@@ -77,7 +77,7 @@ protected:
 protected:
 
 	// Cached ground info for the character.  Do not access this directly!  It's only updated when accessed via GetGroundInfo().
-	FLyraCharacterGroundInfo CachedGroundInfo;
+	FCommonCharacterGroundInfo CachedGroundInfo;
 
 	UPROPERTY(Transient)
 	bool bHasReplicatedAcceleration = false;
