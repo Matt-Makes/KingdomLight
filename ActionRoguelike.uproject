@@ -64,6 +64,10 @@
 		{
 			"Name": "ActionGame",
 			"Enabled": true
+		},
+		{
+			"Name": "CommonMovement",
+			"Enabled": true
 		}
 	]
 }
