@@ -39,5 +39,10 @@ protected:
 
     UFUNCTION()
     virtual void OnRep_MaxHealth(const FGameplayAttributeData& OldMaxHealth);
+
+	
+public:
+	// 返回用于网络复制的属性， Ownership replicate owner class.
+	virtual void GetLifetimeReplicatedProps(TArray<class FLifetimeProperty>& OutLifetimeProps) const override;
     
 };
