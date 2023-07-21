@@ -3,7 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
+//#include "GameplayTagContainer.h"
 #include "GameFramework/Character.h"
+
+#include "AbilitySystemInterface.h"
+#include "Abilities/GameplayAbility.h"
+
+
 #include "ActionGameCharacter.generated.h"
 
 
@@ -19,7 +25,7 @@ class UAG_CharacterMovementComponent;
 class UInventoryComponent;
 
 UCLASS(config=Game)
-class AActionGameCharacter : public ACharacter
+class AActionGameCharacter : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
@@ -63,7 +69,7 @@ protected:
 	TArray<TSubclassOf<UGameplayEffect>> DefaultEffects;
 
 	UPROPERTY(EditDefaultsOnly)
-	UActorComponent* AbilitySystemComponent;
+	UAG_AbilitySystemComponentBase* AbilitySystemComponent;
 	UPROPERTY(Transient)
 	UAG_AttributeSetBase* AttributeSet;
 	
@@ -74,5 +80,9 @@ protected:
 	// 客户端
 	virtual void OnRep_PlayerState() override;
 
+protected:
+
+	UPROPERTY(EditDefaultsOnly)
+	FGameplayTagContainer InAirTags;
 	
 };

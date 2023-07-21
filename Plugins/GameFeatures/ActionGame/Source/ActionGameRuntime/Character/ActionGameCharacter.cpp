@@ -13,8 +13,8 @@
 
 
 #include "AbilitySystemComponent.h"
+#include "ActionGameRuntime/AbilitySystem/Components/AG_AbilitySystemComponentBase.h"
 //#include "GameplayEffectTypes.h"
-
 
 
 
@@ -62,11 +62,17 @@ AActionGameCharacter::AActionGameCharacter(const FObjectInitializer& ObjectIniti
 
 UAbilitySystemComponent* AActionGameCharacter::GetAbilitySystemComponent() const
 {
+	return AbilitySystemComponent;
 }
 
 void AActionGameCharacter::Landed(const FHitResult& Hit)
 {
 	Super::Landed(Hit);
+
+	if (AbilitySystemComponent)
+	{
+		AbilitySystemComponent->RemoveActiveEffectsWithTags(InAirTags);
+	}
 }
 
 bool AActionGameCharacter::ApplyGameplayEffectToSelf(TSubclassOf<UGameplayEffect> Effect, FGameplayEffectContextHandle InEffectContext)
