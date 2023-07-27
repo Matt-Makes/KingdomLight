@@ -77,6 +77,7 @@ void AActionGameCharacter::Landed(const FHitResult& Hit)
 
 bool AActionGameCharacter::ApplyGameplayEffectToSelf(TSubclassOf<UGameplayEffect> Effect, FGameplayEffectContextHandle InEffectContext)
 {
+	return 0;
 }
 
 void AActionGameCharacter::InitializeAttributes()
