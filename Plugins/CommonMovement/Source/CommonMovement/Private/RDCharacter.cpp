@@ -3,7 +3,7 @@
 
 #include "RDCharacter.h"
 
-#include "RDCharacterMovementComponent.h"
+//#include "RDCharacterMovementComponent.h"
 #include "Kismet/KismetMathLibrary.h"
 
 // Sets default values
@@ -81,34 +81,35 @@ FCollisionQueryParams ARDCharacter::GetIgnoreCharacterParams() const
     return Params;
 }
 
-void ARDCharacter::MoveForward(float Value)
-{
-    if (bClimbing)
-    {
-        const FVector Direction = FVector::CrossProduct(Cast<URDCharacterMovementComponent>(GetCharacterMovement())->GetClimbSurfaceNormal(), -GetActorRightVector());
-        AddMovementInput(Direction, Value);
-    }
-    else
-    {
-        AddMovementInput(
-                UKismetMathLibrary::GetForwardVector(GetController()->GetControlRotation()),
-                Value
-        );
-    }
-}
-
-void ARDCharacter::MoveRight(float Value)
-{
-    if (bClimbing)
-    {
-        const FVector Direction = FVector::CrossProduct(Cast<URDCharacterMovementComponent>(GetCharacterMovement())->GetClimbSurfaceNormal(), GetActorUpVector());
-        AddMovementInput(Direction, 0.00f);
-    }
-    else
-    {
-        AddMovementInput(
-                UKismetMathLibrary::GetRightVector(GetController()->GetControlRotation()),
-                Value
-        );
-    }
-}
+//
+// void ARDCharacter::MoveForward(float Value)
+// {
+//     if (bClimbing)
+//     {
+//         const FVector Direction = FVector::CrossProduct(Cast<URDCharacterMovementComponent>(GetCharacterMovement())->GetClimbSurfaceNormal(), -GetActorRightVector());
+//         AddMovementInput(Direction, Value);
+//     }
+//     else
+//     {
+//         AddMovementInput(
+//                 UKismetMathLibrary::GetForwardVector(GetController()->GetControlRotation()),
+//                 Value
+//         );
+//     }
+// }
+//
+// void ARDCharacter::MoveRight(float Value)
+// {
+//     if (bClimbing)
+//     {
+//         const FVector Direction = FVector::CrossProduct(Cast<URDCharacterMovementComponent>(GetCharacterMovement())->GetClimbSurfaceNormal(), GetActorUpVector());
+//         AddMovementInput(Direction, 0.00f);
+//     }
+//     else
+//     {
+//         AddMovementInput(
+//                 UKismetMathLibrary::GetRightVector(GetController()->GetControlRotation()),
+//                 Value
+//         );
+//     }
+// }

@@ -22,6 +22,8 @@ public:
 
 	virtual void BeginPlay() override;
 
+	virtual bool CanAttemptJump() const override;
+
 	UFUNCTION(BlueprintPure)
 	EMovementDirectionType GetMovementDirectionType() const;
 

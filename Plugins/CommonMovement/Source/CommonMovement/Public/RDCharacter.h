@@ -61,13 +61,13 @@ public:
     // UPROPERTY(BlueprintReadOnly, ReplicatedUsing = "OnRep_IsClimbing", Category=Climb)
     // uint8 bIsClimbing : 1;
 
-    protected:
-    /** Called for forwards/backward input */
-    UFUNCTION(BlueprintCallable, Category = Controller)
-    void MoveForward(float Value);
-
-    /** Called for side to side input */
-    UFUNCTION(BlueprintCallable, Category = Controller)
-    void MoveRight(float Value);
+protected:
+    // /** Called for forwards/backward input */
+    // UFUNCTION(BlueprintCallable, Category = Controller)
+    // void MoveForward(float Value);
+    //
+    // /** Called for side to side input */
+    // UFUNCTION(BlueprintCallable, Category = Controller)
+    // void MoveRight(float Value);
     
 };
