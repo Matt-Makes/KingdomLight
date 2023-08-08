@@ -18,3 +18,31 @@ enum class EMovementDirectionType : uint8
 	OrientToMovement  UMETA(DisplayName = "OrientToMovement"),
 	Strafe  UMETA(DisplayName = "Strafe")
 };
+
+USTRUCT(BlueprintType)
+struct FMotionWarpingTargetByLocationAndRotation
+{
+	GENERATED_USTRUCT_BODY();
+
+	FMotionWarpingTargetByLocationAndRotation()
+	{
+
+	}
+
+	FMotionWarpingTargetByLocationAndRotation(FName InName, FVector InLocation, FQuat InRotation)
+		: Name(InName)
+		, Location(InLocation)
+		, Rotation(InRotation)
+	{
+
+	}
+
+	UPROPERTY()
+	FName Name;
+
+	UPROPERTY()
+	FVector Location;
+
+	UPROPERTY()
+	FQuat Rotation;
+};

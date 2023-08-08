@@ -52,7 +52,8 @@ public class ActionGameRuntime : ModuleRules
 				"EnhancedInput",
 				/*"GameSubtitles",*/
 				"DeveloperSettings",
-				"AIModule"
+				"AIModule", 
+				"MotionWarping"
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);
