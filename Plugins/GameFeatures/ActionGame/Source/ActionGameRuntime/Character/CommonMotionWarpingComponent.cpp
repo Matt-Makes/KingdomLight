@@ -17,16 +17,36 @@ void UCommonMotionWarpingComponent::SendWarpPointsToClients()
 {
 	if (GetOwnerRole() == ROLE_Authority)
 	{
-		TArray<FMotionWarpingTargetByLocationAndRotation> WarpTargetArray;
+		// 5.0 Old version engine API.
+		// if (GetOwnerRole() == ROLE_Authority)
+		// {
+		// 	TArray<FMotionWarpingTargetByLocationAndRotation> WarpTargets;
+		//
+		// 	for (auto WarpTarget : WarpTargetMap)
+		// 	{
+		// 		FMotionWarpingTargetByLocationAndRotation MotionWarpingTarget(WarpTarget.Key, WarpTarget.Value.GetLocation(), WarpTarget.Value.GetRotation());
+		//
+		// 		WarpTargets.Add(MotionWarpingTarget);
+		// 	}
+		//
+		// 	MulticastSyncWarpPoints(WarpTargets);
+		// }
 
-		for (auto Target : WarpTargets)
+		
+		// 5.1 New engine API, TMap change to TArray.
+		if (GetOwnerRole() == ROLE_Authority)
 		{
-			FMotionWarpingTargetByLocationAndRotation MotionWarpingTarget(Target.Name, Target.GetLocation(), Target.GetRotation());
-
-			WarpTargetArray.Add(MotionWarpingTarget);
+			TArray<FMotionWarpingTargetByLocationAndRotation> WarpTargetArray;
+	
+			for (auto WarpTarget : WarpTargets)
+			{
+				FMotionWarpingTargetByLocationAndRotation MotionWarpingTarget(WarpTarget.Name, WarpTarget.Location, WarpTarget.Rotation.Quaternion());
+	
+				WarpTargetArray.Add(MotionWarpingTarget);
+			}
+	
+			MulticastSyncWarpPoints(WarpTargetArray);
 		}
-
-		MulticastSyncWarpPoints(WarpTargetArray);
 	}
 }
 
