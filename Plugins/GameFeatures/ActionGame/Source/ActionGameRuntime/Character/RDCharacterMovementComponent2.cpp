@@ -36,6 +36,7 @@ EMovementDirectionType URDCharacterMovementComponent2::GetMovementDirectionType(
 
 void URDCharacterMovementComponent2::SetMovementDirectionType(EMovementDirectionType InMovementDirectionType)
 {
+	
 }
 
 void URDCharacterMovementComponent2::HandleMovementDirection()

@@ -12,7 +12,7 @@
 
 #include "ActionGameCharacter.generated.h"
 
-
+class UCommonMotionWarpingComponent;
 
 class UAG_AbilitySystemComponentBase;
 class UAG_AttributeSetBase;
@@ -48,6 +48,8 @@ public:
 
 	
 	virtual void Landed(const FHitResult& Hit) override;
+	
+	UCommonMotionWarpingComponent* GetCommonMotionWarpingComponent() const;
 
 	
 	// ------------ Attributes Relevant ------------ //
@@ -72,6 +74,9 @@ protected:
 	UAG_AbilitySystemComponentBase* AbilitySystemComponent;
 	UPROPERTY(Transient)
 	UAG_AttributeSetBase* AttributeSet;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = MotionWarp)
+	UCommonMotionWarpingComponent* CommonMotionWarpingComponent;
 	
 	
 	// 这两个函数用于初始化Everything
