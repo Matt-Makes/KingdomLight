@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Abilities/GameplayAbility.h"
-#include "UAG_GameplayAbility.generated.h"
+#include "AG_GameplayAbility.generated.h"
 
 UCLASS()
 class ACTIONGAMERUNTIME_API UAG_GameplayAbility : public UGameplayAbility
@@ -17,4 +17,16 @@ public:
 	
 	virtual void EndAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, bool bReplicateEndAbility, bool bWasCancelled) override;
 
+protected:
+
+	UPROPERTY(EditDefaultsOnly, Category = "Effects")
+	TArray<TSubclassOf<UGameplayEffect>> OngoingEffectsToRemoveOnEnd;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Effects")
+	TArray<TSubclassOf<UGameplayEffect>> OngoingEffectsToJustApplyOnStart;
+	
+	TArray<FActiveGameplayEffectHandle> RemoveOnEndEffectHandles;
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	AActionGameCharacter* GetActionGameCharacterFromActorInfo() const;
 };
