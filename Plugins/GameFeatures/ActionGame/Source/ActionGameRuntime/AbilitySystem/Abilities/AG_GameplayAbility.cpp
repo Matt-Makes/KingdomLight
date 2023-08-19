@@ -4,6 +4,7 @@
 #include "AG_GameplayAbility.h"
 
 #include "AbilitySystemComponent.h"
+#include "AbilitySystemLog.h"
 #include "ActionGameRuntime/Character/ActionGameCharacter.h"
 
 
@@ -12,7 +13,50 @@ void UAG_GameplayAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handl
 	Super::ActivateAbility(Handle, ActorInfo, ActivationInfo, TriggerEventData);
 
 
-	
+	FGameplayEffectContextHandle EffectContext = ActorInfo->AbilitySystemComponent->MakeEffectContext();
+
+	for (auto GameplayEffect : OngoingEffectsToJustApplyOnStart)
+	{
+		if (!GameplayEffect.Get()) continue;
+
+		if (UAbilitySystemComponent* AbilityComponent = ActorInfo->AbilitySystemComponent.Get())
+		{
+			FGameplayEffectSpecHandle SpecHandle = AbilityComponent->MakeOutgoingSpec(GameplayEffect, 1, EffectContext);
+			if (SpecHandle.IsValid())
+			{
+				FActiveGameplayEffectHandle ActiveGEHandle = AbilityComponent->ApplyGameplayEffectSpecToSelf(*SpecHandle.Data.Get());
+				if (!ActiveGEHandle.WasSuccessfullyApplied())
+				{
+					ABILITY_LOG(Log, TEXT("Ability %s failed to apply startup effect %s"), *GetName(), *GetNameSafe(GameplayEffect));
+				}
+			}
+		}
+	}
+
+	if (IsInstantiated())
+	{
+		for (auto GameplayEffect : OngoingEffectsToRemoveOnEnd)
+		{
+			if (!GameplayEffect.Get()) continue;
+
+			if (UAbilitySystemComponent* AbilityComponent = ActorInfo->AbilitySystemComponent.Get())
+			{
+				FGameplayEffectSpecHandle SpecHandle = AbilityComponent->MakeOutgoingSpec(GameplayEffect, 1, EffectContext);
+				if (SpecHandle.IsValid())
+				{
+					FActiveGameplayEffectHandle ActiveGEHandle = AbilityComponent->ApplyGameplayEffectSpecToSelf(*SpecHandle.Data.Get());
+					if (!ActiveGEHandle.WasSuccessfullyApplied())
+					{
+						ABILITY_LOG(Log, TEXT("Ability %s failed to apply runtime effect %s"), *GetName(), *GetNameSafe(GameplayEffect));
+					}
+					else
+					{
+						RemoveOnEndEffectHandles.Add(ActiveGEHandle);
+					}
+				}
+			}
+		}
+	}
 }
 
 void UAG_GameplayAbility::EndAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, bool bReplicateEndAbility, bool bWasCancelled)
