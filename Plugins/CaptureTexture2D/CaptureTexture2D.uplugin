@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "CaptureTexture2D",
+	"Description": "Screenshot can be converted to Texture2D during the runtime, and the screenshot will not be saved to the local, high performance",
+	"Category": "Other",
+	"CreatedBy": "XiaoChao Li",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "CaptureTexture2D",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
