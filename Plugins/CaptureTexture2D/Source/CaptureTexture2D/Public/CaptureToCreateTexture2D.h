@@ -3,7 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
+//#include "UObject/Object.h"
 #include "Kismet/BlueprintAsyncActionBase.h"
+
 #include "CaptureToCreateTexture2D.generated.h"
 
 
@@ -16,17 +18,24 @@ class CAPTURETEXTURE2D_API UCaptureToCreateTexture : public UBlueprintAsyncActio
 {
 	GENERATED_BODY()
 
-	public:                             
+	/*返回一个GetWorld，上下文世界环境。*/
+public:                         
 	UFUNCTION(BlueprintCallable, meta = (WorldContext = "WorldContextObject"), Category = "ScreenCapture")
 	static UCaptureToCreateTexture* CaptureToCreateTexture(UObject* WorldContextObject, bool bCaptureUI = true);
 
+	//两个事件分发器。
 	UPROPERTY(BlueprintAssignable)
 	FCreateTextureSignature OnSuccess;
 	UPROPERTY(BlueprintAssignable)
 	FCreateTextureSignature OnFail;
 
+	//该成员函数用于截图绑定（不需要UFUNCTION，蓝图中不调用），需要有三个重要的输入参数，尤其是Color；GS里拦截Texture是交给这个成员函数的。
 	void ScreenCaptureCompleted(int32 InWidth, int32 InHeight, const TArray<FColor>& InColor);
 
-	private:
+
+private:
 	FDelegateHandle CaptureHandle;
+
+	// UPROPERTY()
+	// UTexture2D* Tex;
 };
