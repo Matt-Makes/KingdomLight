@@ -3,9 +3,9 @@
 using UnrealBuildTool;
 using System.Collections.Generic;
 
-public class ActionRoguelikeTarget : TargetRules
+public class RealmDelightTarget : TargetRules
 {
-	public ActionRoguelikeTarget(TargetInfo Target) : base(Target)
+	public RealmDelightTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Game;
 		DefaultBuildSettings = BuildSettingsVersion.V2;
@@ -16,6 +16,7 @@ public class ActionRoguelikeTarget : TargetRules
 
 	private void RegisterModulesCreatedByRider()
 	{
+		ExtraModuleNames.AddRange(new string[] {"Blaster"});
 		ExtraModuleNames.AddRange(new string[] {"GASAbilityDemo"});
 		ExtraModuleNames.AddRange(new string[] {"GASSample"});
 	}

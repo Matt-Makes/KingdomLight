@@ -3,9 +3,9 @@
 using UnrealBuildTool;
 using System.Collections.Generic;
 
-public class ActionRoguelikeEditorTarget : TargetRules
+public class RealmDelightEditorTarget : TargetRules
 {
-	public ActionRoguelikeEditorTarget(TargetInfo Target) : base(Target)
+	public RealmDelightEditorTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Editor;
 		DefaultBuildSettings = BuildSettingsVersion.V2;
@@ -16,6 +16,7 @@ public class ActionRoguelikeEditorTarget : TargetRules
 
 	private void RegisterModulesCreatedByRider()
 	{
+		ExtraModuleNames.AddRange(new string[] {"Blaster"});
 		ExtraModuleNames.AddRange(new string[] {"GASAbilityDemo"});
 		ExtraModuleNames.AddRange(new string[] {"GASSample"});
 	}
