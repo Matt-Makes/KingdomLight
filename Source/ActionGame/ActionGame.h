@@ -3,7 +3,7 @@
 #include "CoreMinimal.h"
 #include "Modules/ModuleManager.h"
 
-class FBlasterModule : public IModuleInterface
+class FActionGameModule : public IModuleInterface
 {
 public:
     virtual void StartupModule() override;
