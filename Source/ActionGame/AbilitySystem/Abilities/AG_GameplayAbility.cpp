@@ -5,7 +5,7 @@
 
 #include "AbilitySystemComponent.h"
 #include "AbilitySystemLog.h"
-#include "ActionGameRuntime/Character/ActionGameCharacter.h"
+#include "ActionGame/Character/ActionGameCharacter.h"
 
 
 void UAG_GameplayAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* TriggerEventData)

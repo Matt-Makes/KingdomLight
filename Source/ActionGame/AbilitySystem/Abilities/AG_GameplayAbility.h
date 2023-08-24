@@ -7,7 +7,7 @@
 #include "AG_GameplayAbility.generated.h"
 
 UCLASS()
-class ACTIONGAMERUNTIME_API UAG_GameplayAbility : public UGameplayAbility
+class ACTIONGAME_API UAG_GameplayAbility : public UGameplayAbility
 {
 	GENERATED_BODY()
 

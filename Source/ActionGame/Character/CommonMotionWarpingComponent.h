@@ -4,12 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "MotionWarpingComponent.h"
-#include "ActionGameRuntime/ActionGameTypes.h"
+#include "ActionGame/ActionGameTypes.h"
 #include "CommonMotionWarpingComponent.generated.h"
 
 
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
-class ACTIONGAMERUNTIME_API UCommonMotionWarpingComponent : public UMotionWarpingComponent
+class ACTIONGAME_API UCommonMotionWarpingComponent : public UMotionWarpingComponent
 {
 	GENERATED_BODY()
 

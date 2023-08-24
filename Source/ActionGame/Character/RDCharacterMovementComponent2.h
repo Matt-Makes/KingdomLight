@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/CharacterMovementComponent.h"
-#include "ActionGameRuntime/ActionGameTypes.h"
+#include "ActionGame/ActionGameTypes.h"
 #include "GameplayTagContainer.h"
 #include "RDCharacterMovementComponent2.generated.h"
 
@@ -12,7 +12,7 @@ class UAbilitySystemComponent;
 class UGameplayAbility;
 
 UCLASS()
-class ACTIONGAMERUNTIME_API URDCharacterMovementComponent2 : public UCharacterMovementComponent
+class ACTIONGAME_API URDCharacterMovementComponent2 : public UCharacterMovementComponent
 {
 	GENERATED_BODY()
 	

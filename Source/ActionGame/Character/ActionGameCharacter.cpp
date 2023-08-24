@@ -14,7 +14,7 @@
 
 #include "AbilitySystemComponent.h"
 #include "CommonMotionWarpingComponent.h"
-#include "ActionGameRuntime/AbilitySystem/Components/AG_AbilitySystemComponentBase.h"
+#include "ActionGame/AbilitySystem/Components/AG_AbilitySystemComponentBase.h"
 //#include "GameplayEffectTypes.h"
 
 

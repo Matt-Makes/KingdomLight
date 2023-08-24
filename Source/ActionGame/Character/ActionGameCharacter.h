@@ -25,7 +25,7 @@ class UAG_CharacterMovementComponent;
 class UInventoryComponent;
 
 UCLASS(config=Game)
-class AActionGameCharacter : public ACharacter, public IAbilitySystemInterface
+class ACTIONGAME_API AActionGameCharacter : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 

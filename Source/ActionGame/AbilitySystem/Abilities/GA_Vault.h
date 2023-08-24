@@ -10,7 +10,7 @@
 class UAbilityTask_PlayMontageAndWait;
 
 UCLASS()
-class ACTIONGAMERUNTIME_API UGA_Vault : public UAG_GameplayAbility
+class ACTIONGAME_API UGA_Vault : public UAG_GameplayAbility
 {
 	GENERATED_BODY()
 
