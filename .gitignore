@@ -91,3 +91,4 @@ Plugins/CommonMovement/Source/CommonMovement/Private/RDCharacterMovementComponen
 Plugins/CommonMovement/Source/CommonMovement/Public/RDCharacterMovementComponent.h
 Plugins/MinimapPlugin/*
 Content/Bong/*
+Content/Assets/*
