@@ -300,6 +300,11 @@
 		{
 			"Name": "MotionWarping",
 			"Enabled": true
-		}
+		},
+
+        {
+          "Name": "ActionGame",
+          "Enabled": true
+        }
 	]
 }

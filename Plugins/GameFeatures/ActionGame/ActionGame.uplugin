@@ -1,0 +1,54 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "ActionGame",
+	"Description": "Gameplay Systems for Game2 / can also add new Experiences, new custom extensions",
+	"Category": "Game Features",
+	"CreatedBy": "Matt-Makes",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"EnabledByDefault": false,
+	"ExplicitlyLoaded": true,
+	"BuiltInInitialFeatureState": "Registered",
+	"Modules": [
+		{
+			"Name": "ActionGameRuntime",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		
+
+
+
+
+		{
+			"Name": "GameplayAbilities",
+			"Enabled": true
+		},
+		{
+			"Name": "ModularGameplay",
+			"Enabled": true
+		},
+		
+		
+		{
+			"Name": "CommonUI",
+			"Enabled": true
+		},
+		
+		
+		{
+			"Name": "EnhancedInput",
+			"Enabled": true
+		}
+	]
+}
