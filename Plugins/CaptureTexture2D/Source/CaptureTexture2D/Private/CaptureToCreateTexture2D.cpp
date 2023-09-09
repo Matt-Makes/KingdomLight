@@ -1,7 +1,11 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "CaptureToCreateTexture2D.h"
+#include "Engine/Texture2D.h"
+#include "Engine/GameViewportClient.h"
+#include "TextureResource.h"
+#include "Engine/Engine.h"
+#include "EngineGlobals.h"
 #include "IImageWrapper.h"
 //#include "IImageWrapperModule.h"
 #include "ImageUtils.h"
