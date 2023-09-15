@@ -25,7 +25,10 @@
 		}
 	],
 	"Plugins": [
-		
+		{
+			"Name": "MotionWarping",
+			"Enabled": true
+		},
 
 
 
