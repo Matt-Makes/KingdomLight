@@ -44,6 +44,7 @@ Plugins/Developer/RiderLink
 *.sdf
 *.VC.db
 *.VC.opendb
+*.vsconfig
 
 # Precompiled Assets
 SourceArt/**/*.png
