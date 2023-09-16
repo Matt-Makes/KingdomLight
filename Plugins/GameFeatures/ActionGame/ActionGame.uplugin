@@ -21,7 +21,14 @@
 		{
 			"Name": "ActionGameRuntime",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"GameplayAbilities",
+				"Engine",
+				"PhysicsCore",
+				"MotionWarping",
+				"GameplayTags"
+			]
 		}
 	],
 	"Plugins": [
@@ -41,14 +48,10 @@
 			"Name": "ModularGameplay",
 			"Enabled": true
 		},
-		
-		
 		{
 			"Name": "CommonUI",
 			"Enabled": true
 		},
-		
-		
 		{
 			"Name": "EnhancedInput",
 			"Enabled": true

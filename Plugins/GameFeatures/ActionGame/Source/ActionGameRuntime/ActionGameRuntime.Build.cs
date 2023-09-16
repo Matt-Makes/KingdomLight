@@ -53,6 +53,10 @@ public class ActionGameRuntime : ModuleRules
 				/*"GameSubtitles",*/
 				"DeveloperSettings",
 				"AIModule", 
+				
+				"InputCore",
+				"NetCore",
+				"Niagara",
 				"MotionWarping"
 				// ... add private dependencies that you statically link with here ...	
 			}
