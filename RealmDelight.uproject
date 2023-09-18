@@ -35,6 +35,11 @@
 			"Name": "ActionGame",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "BlueprintToCpp",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
 		}
 	],
 	"Plugins": [
@@ -301,10 +306,9 @@
 			"Name": "MotionWarping",
 			"Enabled": true
 		},
-
-        {
-          "Name": "ActionGame",
-          "Enabled": true
-        }
+		{
+			"Name": "ActionGame",
+			"Enabled": true
+		}
 	]
 }

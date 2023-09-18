@@ -16,6 +16,7 @@ public class RealmDelightTarget : TargetRules
 
 	private void RegisterModulesCreatedByRider()
 	{
+		ExtraModuleNames.AddRange(new string[] {"BlueprintToCpp"});
 		ExtraModuleNames.AddRange(new string[] {"Bong"});
 		ExtraModuleNames.AddRange(new string[] {"GASAbilityDemo"});
 		ExtraModuleNames.AddRange(new string[] {"GASSample"});
