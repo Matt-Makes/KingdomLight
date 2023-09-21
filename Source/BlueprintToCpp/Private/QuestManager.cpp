@@ -18,16 +18,15 @@ void AQuestManager::CompleteQuest_Implementation(FName QuestId, bool CompleteWho
 {
 	int32 QIndex = GetQuestIndex(QuestId);
 	FQuestInfo Q = QuestList[QIndex];
-	if(CompleteWholeQuest)
+	if (CompleteWholeQuest)
 	{
 		QuestList[QIndex].Progress = Q.ProgressTotal;
 	}
 	else
 	{
-		QuestList[QIndex].Progress = FMath::Min(Q.Progress+1, Q.ProgressTotal);
+		QuestList[QIndex].Progress = FMath::Min(Q.Progress + 1, Q.ProgressTotal);
 	}
 	CompletedQuest.Broadcast(QIndex);
-	
 }
 
 FQuestInfo AQuestManager::GetQuest(FName Name) const
@@ -36,15 +35,12 @@ FQuestInfo AQuestManager::GetQuest(FName Name) const
 }
 
 
-
-
 // Called when the game starts or when spawned
 void AQuestManager::BeginPlay()
 {
 	Super::BeginPlay();
 
 	//UE_LOG(LogTemp,Warning, TEXT("QuestManager Beginplay"));
-	
 }
 
 // Called every frame
@@ -54,5 +50,3 @@ void AQuestManager::Tick(float DeltaTime)
 
 	//UE_LOG(LogTemp,Warning, TEXT("QuestManager Tick"));
 }
-
-

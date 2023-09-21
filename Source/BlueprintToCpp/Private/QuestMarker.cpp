@@ -24,16 +24,16 @@ void AQuestMarker::BeginPlay()
 	//Super::BeginPlay();
 	//UE_LOG(LogTemp,Warning, TEXT("QuestManager Beginplay"));
 
-														//(所在对象， &完整引用)
+	//(所在对象， &完整引用)
 	GetQuestManager()->CompletedQuest.AddDynamic(this, &AQuestMarker::QuestUpdated);
 	RefreshVisibility();
-
 }
 
 void AQuestMarker::RefreshVisibility()
 {
 	FQuestInfo Quest = GetQuestManager()->GetQuest(QuestName);
-	bool NewVisibility = GetQuestManager()->IsActiveQuest(/*Quest.QuestID*/QuestName) && Quest.Progress == ShowAtProgress;
+	bool NewVisibility = GetQuestManager()->IsActiveQuest(/*Quest.QuestID*/QuestName) && Quest.Progress ==
+		ShowAtProgress;
 	ParticleSystem->SetVisibility(NewVisibility);
 }
 

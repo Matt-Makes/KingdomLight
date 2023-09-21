@@ -4,14 +4,12 @@
 
 void FBlueprintToCppModule::StartupModule()
 {
-    
 }
 
 void FBlueprintToCppModule::ShutdownModule()
 {
-    
 }
 
 #undef LOCTEXT_NAMESPACE
-    
+
 IMPLEMENT_MODULE(FBlueprintToCppModule, BlueprintToCpp)
