@@ -24,6 +24,24 @@ class ACTIONGAMERUNTIME_API UGA_Vault : public UAG_GameplayAbility
 
 protected:
 
+	UPROPERTY(EditDefaultsOnly, Category = HorizontalTrace)
+	float HorizontalTraceRadius = 30.f;
+
+	UPROPERTY(EditDefaultsOnly, Category = HorizontalTrace)
+	float HorizontalTraceLength = 500.f;
+
+	UPROPERTY(EditDefaultsOnly, Category = HorizontalTrace)
+	float HorizontalTraceCount = 5.f;
+
+	UPROPERTY(EditDefaultsOnly, Category = HorizontalTrace)
+	float HorizontalTraceStep = 30.f;
+
+	UPROPERTY(EditDefaultsOnly, Category = VerticalTrace)
+	float VerticalTraceRadius = 30.f;
+
+	UPROPERTY(EditDefaultsOnly, Category = VerticalTrace)
+	float VerticalTraceStep = 30.f;
+
 	UPROPERTY(EditDefaultsOnly)
 	TArray<TEnumAsByte<EObjectTypeQuery>> TraceObjectTypes;
 
@@ -33,7 +51,10 @@ protected:
 
 	UPROPERTY()
 	UAbilityTask_PlayMontageAndWait* MontageTask = nullptr;
-	
+
+	FVector JumpToLocation;
+	FVector JumpOverLocation;
+
 	UPROPERTY(EditDefaultsOnly)
 	TArray<TEnumAsByte<ECollisionChannel>> CollisionChannelsToIgnore;
 };
