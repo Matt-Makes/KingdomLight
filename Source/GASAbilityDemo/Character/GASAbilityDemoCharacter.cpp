@@ -1,7 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "GASAbilityDemoCharacter.h"
-#include "HeadMountedDisplayFunctionLibrary.h"
+//#include "HeadMountedDisplayFunctionLibrary.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
@@ -220,21 +220,21 @@ void AGASAbilityDemoCharacter::SetupPlayerInputComponent(class UInputComponent* 
 	PlayerInputComponent->BindTouch(IE_Released, this, &AGASAbilityDemoCharacter::TouchStopped);
 
 	// VR headset functionality
-	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AGASAbilityDemoCharacter::OnResetVR);
+	//PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AGASAbilityDemoCharacter::OnResetVR);
 }
 
 
 
-void AGASAbilityDemoCharacter::OnResetVR()
-{
-	// If GASAbilityDemo is added to a project via 'Add Feature' in the Unreal Editor the dependency on HeadMountedDisplay in GASAbilityDemo.Build.cs is not automatically propagated
-	// and a linker error will result.
-	// You will need to either:
-	//		Add "HeadMountedDisplay" to [YourProject].Build.cs PublicDependencyModuleNames in order to build successfully (appropriate if supporting VR).
-	// or:
-	//		Comment or delete the call to ResetOrientationAndPosition below (appropriate if not supporting VR)
-	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
-}
+// void AGASAbilityDemoCharacter::OnResetVR()
+// {
+// 	// If GASAbilityDemo is added to a project via 'Add Feature' in the Unreal Editor the dependency on HeadMountedDisplay in GASAbilityDemo.Build.cs is not automatically propagated
+// 	// and a linker error will result.
+// 	// You will need to either:
+// 	//		Add "HeadMountedDisplay" to [YourProject].Build.cs PublicDependencyModuleNames in order to build successfully (appropriate if supporting VR).
+// 	// or:
+// 	//		Comment or delete the call to ResetOrientationAndPosition below (appropriate if not supporting VR)
+// 	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
+// }
 
 void AGASAbilityDemoCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
 {
