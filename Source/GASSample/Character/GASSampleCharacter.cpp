@@ -1,7 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "GASSampleCharacter.h"
-#include "HeadMountedDisplayFunctionLibrary.h"
+//#include "HeadMountedDisplayFunctionLibrary.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
@@ -85,7 +85,7 @@ void AGASSampleCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	PlayerInputComponent->BindTouch(IE_Released, this, &AGASSampleCharacter::TouchStopped);
 
 	// VR headset functionality
-	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AGASSampleCharacter::OnResetVR);
+	//PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AGASSampleCharacter::OnResetVR);
 }
 
 
@@ -113,10 +113,10 @@ void AGASSampleCharacter::BeginPlay()
 	}
 }
 
-void AGASSampleCharacter::OnResetVR()
-{
-	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
-}
+// void AGASSampleCharacter::OnResetVR()
+// {
+// 	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
+// }
 
 void AGASSampleCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
 {
