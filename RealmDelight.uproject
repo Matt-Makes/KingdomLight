@@ -34,15 +34,6 @@
 	],
 	"Plugins": [
 		{
-			"Name": "Bridge",
-			"Enabled": true,
-			"SupportedTargetPlatforms": [
-				"Win64",
-				"Mac",
-				"Linux"
-			]
-		},
-		{
 			"Name": "CommonUI",
 			"Enabled": true
 		},
