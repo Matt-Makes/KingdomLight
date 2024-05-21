@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "5.3",
+	"EngineAssociation": "5.4",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -42,10 +42,6 @@
 			"Enabled": true
 		},
 		{
-			"Name": "GASAttachEditor",
-			"Enabled": true
-		},
-		{
 			"Name": "GameFeatures",
 			"Enabled": true
 		},
@@ -55,10 +51,6 @@
 		},
 		{
 			"Name": "RealmDelight",
-			"Enabled": true
-		},
-		{
-			"Name": "CommonMovement",
 			"Enabled": true
 		},
 		{

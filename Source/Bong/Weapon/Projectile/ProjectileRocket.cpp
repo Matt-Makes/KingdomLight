@@ -5,6 +5,7 @@
 
 #include "NiagaraComponent.h"
 //#include "NiagaraFunctionLibrary.h"
+#include "NiagaraSystemInstanceController.h"
 #include "RocketMovementComponent.h"
 #include "Components/AudioComponent.h"
 #include "Components/BoxComponent.h"

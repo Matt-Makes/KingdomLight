@@ -22,6 +22,8 @@ public class ActionRoguelike : ModuleRules
 		
 		PublicDependencyModuleNames.AddRange(new string[] { /*"DataTable"*/"DeveloperSettings" });
 		
+		PublicDependencyModuleNames.AddRange(new string[] { /*"DataTable"*/"CoreOnline" });
+		
 		
 		
 		

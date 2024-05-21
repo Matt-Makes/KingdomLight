@@ -258,7 +258,15 @@ void UClimbCMC::SweepAndStoreWallHits()
 		HalfHeight, TraceChannel, false, IgnoreActors,
 		DrawDebugTrace, Hits, true, FLinearColor::Yellow);
 
-	HitWall ? CurrentWallHits = Hits : CurrentWallHits.Reset();
+	//HitWall ? CurrentWallHits = Hits : CurrentWallHits.Reset();
+	if (HitWall)
+	{
+		CurrentWallHits = Hits;
+	}
+	else
+	{
+		CurrentWallHits.Reset();
+	}
 }
 
 void UClimbCMC::ComputeSurfaceInfo()
