@@ -282,6 +282,10 @@
 		{
 			"Name": "ActionGame",
 			"Enabled": true
+		},
+		{
+			"Name": "MassCompanion",
+			"Enabled": true
 		}
 	]
 }
