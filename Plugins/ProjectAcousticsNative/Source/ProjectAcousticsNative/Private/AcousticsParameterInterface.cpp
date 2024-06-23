@@ -30,7 +30,11 @@ namespace AcousticsParameterInterface
     {
         struct FInterface : public Audio::FParameterInterface
         {
+#if (ENGINE_MAJOR_VERSION == 5 && ENGINE_MINOR_VERSION <= 2)
             FInterface() : FParameterInterface(AcousticsParameterInterface::Name, {1, 0}, *USoundBase::StaticClass())
+#else
+            FInterface() : FParameterInterface(AcousticsParameterInterface::Name, {1, 0})
+#endif
             {
                 Inputs = {
                     // Dry Loudness

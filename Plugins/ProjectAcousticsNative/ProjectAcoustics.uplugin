@@ -1,7 +1,7 @@
 {
 	"FileVersion": 3,
-	"Version": 5,
-	"VersionName": "2022.1.423",
+	"Version": 6,
+	"VersionName": "2022.1.426",
 	"FriendlyName": "Project Acoustics for Unreal Audio",
 	"Description": "Sound propagation design using accurate wave physics. Performs per-source processing of acoustic parameters and renders using native Unreal Audio. Implements Unreal's Source Data Override audio extension.",
 	"Category": "Audio",
@@ -10,7 +10,7 @@
 	"DocsURL": "http://aka.ms/acoustics",
 	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/06cfe91228c04848a0f6d6f7fb7b40f0",
 	"SupportURL": "https://github.com/microsoft/ProjectAcoustics/issues",
-	"EngineVersion": "5.0.0",
+	"EngineVersion": "5.1.0",
 	"CanContainContent": true,
 	"Installed": true,
 	"SupportedTargetPlatforms": [

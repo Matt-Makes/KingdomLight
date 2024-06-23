@@ -78,26 +78,26 @@ void FAcousticsEdMode::BindCommands()
         FExecuteAction::CreateRaw(this, &FAcousticsEdMode::OnClickObjectTab),
         FCanExecuteAction(),
         FIsActionChecked::CreateLambda(
-            [=] { return AcousticsUISettings.CurrentTab == AcousticsActiveTab::ObjectTag; }));
+            [this] { return AcousticsUISettings.CurrentTab == AcousticsActiveTab::ObjectTag; }));
 
     UICommandList->MapAction(
         Commands.SetMaterials,
         FExecuteAction::CreateRaw(this, &FAcousticsEdMode::OnClickMaterialsTab),
         FCanExecuteAction(),
         FIsActionChecked::CreateLambda(
-            [=] { return AcousticsUISettings.CurrentTab == AcousticsActiveTab::Materials; }));
+            [this] { return AcousticsUISettings.CurrentTab == AcousticsActiveTab::Materials; }));
 
     UICommandList->MapAction(
         Commands.SetProbes,
         FExecuteAction::CreateRaw(this, &FAcousticsEdMode::OnClickProbesTab),
         FCanExecuteAction(),
-        FIsActionChecked::CreateLambda([=] { return AcousticsUISettings.CurrentTab == AcousticsActiveTab::Probes; }));
+        FIsActionChecked::CreateLambda([this] { return AcousticsUISettings.CurrentTab == AcousticsActiveTab::Probes; }));
 
     UICommandList->MapAction(
         Commands.SetBake,
         FExecuteAction::CreateRaw(this, &FAcousticsEdMode::OnClickBakeTab),
         FCanExecuteAction(),
-        FIsActionChecked::CreateLambda([=] { return AcousticsUISettings.CurrentTab == AcousticsActiveTab::Bake; }));
+        FIsActionChecked::CreateLambda([this] { return AcousticsUISettings.CurrentTab == AcousticsActiveTab::Bake; }));
 }
 
 void FAcousticsEdMode::SelectObjects()

@@ -109,7 +109,11 @@ bool AcousticsSimulationConfiguration::Initialize(
     TritonPreprocessorCallback& callback)
 {
     // Async processing to avoid blocking the UI thread
+#if __cplusplus < 202002L  // pre-C++20 code
     m_CreateProbesFuture = Async(EAsyncExecution::ThreadPool, [=]() {
+#else
+    m_CreateProbesFuture = Async(EAsyncExecution::ThreadPool, [=, this]() {
+#endif
         auto libraryHandle = library ? library->GetHandle() : nullptr;
         return TritonPreprocessor_SimulationConfiguration_Create(
             mesh->GetHandle(),
