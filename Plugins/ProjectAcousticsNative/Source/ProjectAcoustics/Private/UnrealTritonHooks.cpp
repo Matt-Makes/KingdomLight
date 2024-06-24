@@ -239,7 +239,7 @@ namespace TritonRuntime
             return Read(readOffset, destBuffer, bytesToRead);
         }
 
-        return -1;
+        //return -1;
     }
 
     int64 FCachedSyncDiskReader::GetBytesRead() const

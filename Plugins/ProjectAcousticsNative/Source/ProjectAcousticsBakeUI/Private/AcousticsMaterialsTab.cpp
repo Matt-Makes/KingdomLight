@@ -29,6 +29,9 @@
 #include "LandscapeLayerInfoObject.h"
 #if ENGINE_MAJOR_VERSION == 5 && ENGINE_MINOR_VERSION >= 2
 #include "MaterialDomain.h" // For MD_Surface
+
+#include "AcousticsShared.h"
+
 #endif
 
 #define LOCTEXT_NAMESPACE "SAcousticsBakeTab"

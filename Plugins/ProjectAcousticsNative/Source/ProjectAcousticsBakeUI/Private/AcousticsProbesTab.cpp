@@ -57,6 +57,10 @@
 #include "Widgets/Notifications/SErrorText.h"
 #include "Misc/ScopedSlowTask.h"
 
+#include "AcousticsShared.h"
+#include "MaterialDomain.h"
+
+
 #define LOCTEXT_NAMESPACE "SAcousticsProbesTab"
 
 #if ENGINE_MAJOR_VERSION < 5
@@ -520,7 +524,7 @@ FReply SAcousticsProbesTab::OnCalculateClearButton()
             if (!created)
             {
                 auto error = TEXT("Could not create acoustics data folder. Please choose a new location");
-                UE_LOG(LogAcoustics, Error, TEXT("%s"), *error);
+                UE_LOG(LogAcoustics, Error, TEXT("%s"), *LexToString(error));
                 m_OwnerEdit->SetError(error);
                 return FReply::Handled();
             }
@@ -528,7 +532,7 @@ FReply SAcousticsProbesTab::OnCalculateClearButton()
         if (config.content_dir.IsEmpty())
         {
             auto error = TEXT("Please specify an acoustics data folder");
-            UE_LOG(LogAcoustics, Error, TEXT("%s"), *error);
+            UE_LOG(LogAcoustics, Error, TEXT("%s"), *LexToString(error));
             m_OwnerEdit->SetError(error);
         }
         else
