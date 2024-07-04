@@ -291,6 +291,10 @@
 		{
 			"Name": "MassCompanion",
 			"Enabled": true
-		}
-	]
+		},
+      {
+        "Name": "PredictedMovement",
+        "Enabled": true
+      }
+    ]
 }

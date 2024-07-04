@@ -6,21 +6,10 @@ public class PredictedExample : ModuleRules
     {
         PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 
-        PublicDependencyModuleNames.AddRange(
-            new string[]
-            {
-                "Core",
-            }
-        );
+        {
+	        PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-        PrivateDependencyModuleNames.AddRange(
-            new string[]
-            {
-                "CoreUObject",
-                "Engine",
-                "Slate",
-                "SlateCore"
-            }
-        );
+	        PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay", "EnhancedInput", "PredictedMovement" });
+        }
     }
 }
