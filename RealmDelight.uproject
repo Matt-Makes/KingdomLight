@@ -292,9 +292,22 @@
 			"Name": "MassCompanion",
 			"Enabled": true
 		},
-      {
-        "Name": "PredictedMovement",
-        "Enabled": true
-      }
-    ]
+		{
+			"Name": "PredictedMovement",
+			"Enabled": true
+		},
+		{
+			"Name": "ArcActivities",
+			"Enabled": true
+		},
+		{
+			"Name": "ProjectAcoustics",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/06cfe91228c04848a0f6d6f7fb7b40f0",
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"Android"
+			]
+		}
+	]
 }
