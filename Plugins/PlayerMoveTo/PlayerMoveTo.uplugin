@@ -1,0 +1,33 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0.3",
+	"FriendlyName": "PlayerMoveTo",
+	"Description": "Adds nodes equivalent to AIMoveTo for PlayerController",
+	"Category": "Gameplay",
+	"CreatedBy": "Jared Taylor (Vaei)",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "PlayerMoveTo",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "GameplayAbilities",
+			"Enabled": true
+		}
+	]
+}
